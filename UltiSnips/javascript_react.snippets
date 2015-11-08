@@ -1,0 +1,39 @@
+snippet rclass
+React.createClass({
+  render: function() {
+    return (
+      ${1}
+    );
+  }
+});
+endsnippet
+snippet cname
+className='${1}'
+endsnippet
+
+snippet inits
+getInitialState: function() {
+    return {
+        ${1}
+    };
+}
+endsnippet
+snippet defs
+getDefaultProps: function() {
+    return {
+      ${1}
+    };
+}
+endsnippet
+
+snippet cdup "React: componentDidUpdate"
+componentDidUpdate: function(prevProps, prevState) {
+  ${1}
+}
+endsnippet
+
+snippet sdcup "React: shouldComponentUpdate"
+componentDidUpdate: function(nextProps, nextState) {
+  ${1}
+}
+endsnippet

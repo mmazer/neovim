@@ -1,0 +1,17 @@
+snippet class
+public class ${1:class} ${2:extends|implements} {
+    public $1() {
+	super();
+    }
+}
+endsnippet
+
+snippet getset
+    public ${1:returns} get${2:methodName}() {
+	return this.${3:propertyName};
+    }
+
+    public void set$2($1 $3) {
+	this.$3 = $3;
+    }
+endsnippet

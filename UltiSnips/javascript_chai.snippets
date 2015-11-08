@@ -1,0 +1,37 @@
+snippet exfn "expect a function"
+expect(${1:expr})to.be.a('function');
+endsnippet
+
+snippet	exfa "expect to be false"
+expect($1:expr})to.be.false;
+endsnippet
+
+snippet exq
+expect(${1:expr}).to.be.equal($2);
+endsnippet
+
+snippet exdq
+expect(${1:expr}).to.be.deep.equal($2);
+endsnippet
+
+snippet tbt "to be true" w
+to.be.true;
+endsnippet
+
+snippet tbf "to be false" w
+to.be.false;
+endsnippet
+
+snippet tbd "to be defined" w
+to.be.defined;
+endsnippet
+
+snippet teq "to equal" w
+to.equal($1);
+endsnippet
+
+snippet tdeq "to equal" w
+to.deep.equal($1);
+endsnippet
+
+

@@ -1,0 +1,40 @@
+snippet :, "Object Value JS"
+${1:value_name}: ${0:value},
+endsnippet
+
+snippet : "Object key key: 'value'"
+${1:key}: ${2:"${3:value}"}${4:, }
+endsnippet
+
+snippet sliceargs
+// OPT: inline slice(arguments)
+var ${1:var} = [];
+for (var _i = 0, _l = arguments.length; _i < _l; _i++) { $1[_i] = arguments[_i]; }
+endsnippet
+
+snippet dropargs 
+// OPT: inline drop($2, arguments) 
+var ${1:var} = []; 
+for (var _i = 0, _j = ${2:count}, _l = arguments.length; _j < _l; _i++, _j++) { $1[_i] = arguments[_j]; }
+endsnippet
+snippet ca "console.assert" b
+console.assert(${1:assertion}, ${2:"${3:message}"});
+endsnippet
+
+snippet req "require"
+require('${1}')$0;
+endsnippet
+
+snippet vreq "var require"
+var ${1} = require('${2}')$0;
+endsnippet
+
+snippet err "throw Error"
+throw new Error('${1:reason}');
+endsnippet
+
+snippet typerr "throw TypeError"
+throw new TypeError('${1:reason}');
+endsnippet
+
+

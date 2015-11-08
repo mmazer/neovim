@@ -1,0 +1,13 @@
+snippet spy "sinon spy"
+var ${1:spy} = sinon.spy();
+endsnippet	
+
+snippet spycall "spy getCall" w
+${1:spy}.getCall(${2:count})$0
+endsnippet
+
+snippet spycallwith "spy getCall" w
+${1:spy}.getCall(${2:count}).calledWith(${3:args})$0
+endsnippet
+
+
