@@ -456,6 +456,49 @@ nnoremap Gs :Gstatus<CR>
 nnoremap Gr :Gread<CR>
 nnoremap Gw :Gwrite<CR>
 
+" Simple way to turn off Gdiff splitscreen
+" works only when diff buffer is focused
+" https://gist.github.com/radmen/5048080
+command! Gdoff diffoff | q | Gedit
+
+function! GitDiffCached()
+    new
+    r !git diff -w --cached
+    :normal ggdd
+    setlocal ft=diff bt=nofile bh=wipe nobl noswf ro
+    nnoremap <buffer> q :bw<cr>
+endfunction
+command! Gdiffcached :call GitDiffCached()
+nnoremap Gc :Gdiffcached<CR>
+
+function! GitDiffBuf()
+    let fname = expand('%')
+    new
+    exec "r! git diff ".printf('%s', fname)
+    :normal ggdd
+    setlocal ft=diff bt=nofile bh=wipe nobl noswf ro
+    nnoremap <buffer> q :bw<cr>
+endfunction
+nnoremap Gb :call GitDiffBuf()<CR>
+
+function! GitIncoming()
+    new
+    r !git log --pretty=oneline --abbrev-commit --graph ..@{u}
+    setlocal ft=git bt=nofile bh=wipe nobl noswf ro
+    nnoremap <buffer> q :bw<cr>
+endfunction
+command! Gincoming :call GitIncoming()
+nnoremap Gi :Gincoming<CR>
+
+function! GitOutgoing()
+    new
+    r !git log --pretty=oneline --abbrev-commit --graph @{u}..
+    setlocal ft=git bt=nofile bh=wipe nobl noswf ro
+    nnoremap <buffer> q :bw<cr>
+endfunction
+command! Goutgoing :call GitOutgoing()
+nnoremap Go :Goutgoing<CR>
+
 " calendar:
 command! -nargs=* Cal call calendar#show(1, <f-args>)
 
@@ -479,6 +522,17 @@ if has("autocmd")
     augroup vim_files
         autocmd filetype vim set foldmethod=marker
     augroup END
+
+    augroup fugitive_buffers
+        autocmd BufRead fugitive\:* xnoremap <buffer> dp :diffput<CR>|xnoremap <buffer> do :diffget<CR>
+        autocmd BufReadPost fugitive://* set bufhidden=delete
+        autocmd FileType gitcommit setlocal cursorline
+    augroup END
+
+    augroup diff_mode
+        autocmd FilterWritePre * if &diff | nnoremap <buffer> dc :Gdoff<CR> | nnoremap <buffer> du :diffupdate<CR> | endif
+    augroup END
+
 endif
 
 " }}}
