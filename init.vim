@@ -456,6 +456,9 @@ nnoremap Gs :Gstatus<CR>
 nnoremap Gr :Gread<CR>
 nnoremap Gw :Gwrite<CR>
 
+" calendar:
+command! -nargs=* Cal call calendar#show(1, <f-args>)
+
 " }}}
 
 " 28: autocommands {{{
