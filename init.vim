@@ -6,6 +6,8 @@ call plug#begin(g:nvim_config . '/bundle')
 
 Plug 'tpope/vim-fugitive'
 
+Plug 'airblade/vim-gitgutter'
+
 Plug 'tpope/vim-surround'
 
 Plug 'tpope/vim-unimpaired'
@@ -502,6 +504,23 @@ function! GitOutgoing()
 endfunction
 command! Goutgoing :call GitOutgoing()
 nnoremap Go :Goutgoing<CR>
+
+" gitgutter
+
+let g:gitgutter_enabled = 0
+let g:gitgutter_diff_args = '-w'
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '='
+let g:gitgutter_sign_removed = '--'
+let g:gitgutter_sign_modified_removed = '~'
+nnoremap [og :GitGutterEnable<CR>
+nnoremap ]og :GitGutterDisable<CR>
+nnoremap cog :GitGutterToggle<CR>
+nnoremap ]gg :GitGutterNextHunk<CR>zz
+nnoremap [gg :GitGutterPrevHun<CR>zz
+
+nnoremap Gh :GitGutterStageHunk<CR>
+nnoremap GR :GitGutterRevertHunk<CR>
 
 " calendar:
 command! -nargs=* Cal call calendar#show(1, <f-args>)
