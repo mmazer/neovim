@@ -10,9 +10,9 @@ Plug 'tpope/vim-surround'
 
 Plug 'tpope/vim-unimpaired'
 
-Plug 'jreybert/vimagit'
-
 Plug 'ctrlpvim/ctrlp.vim'
+
+Plug 'FelikZ/ctrlp-py-matcher'
 
 Plug 'scrooloose/syntastic'
 
@@ -27,6 +27,10 @@ Plug 'scrooloose/nerdtree'
 Plug 'jeetsukumaran/vim-filebeagle'
 
 Plug 'rking/ag.vim'
+
+Plug 'davidoc/taskpaper.vim'
+
+Plug 'mattn/calendar-vim'
 
 call plug#end()
 
