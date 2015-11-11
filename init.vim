@@ -382,7 +382,7 @@ set modeline
 set ffs=unix,dos,mac "Default file types
 set ff=unix " set initial buffer file format
 set backup
-set backupdir=$HOME/.var/vim/backup//
+set backupdir=$HOME/.local/share/nvim/backup//
 set autoread
 
 nnoremap g! :e!<CR>
