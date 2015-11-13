@@ -207,6 +207,14 @@ augroup END
 
 " }}}
 
+" 14: editing text {{{1
+
+set completeopt=longest,menuone,preview
+set showmatch
+runtime macros/matchit.vim
+
+" }}}
+
 " 15: tabs and indenting {{{1
 
 set expandtab
