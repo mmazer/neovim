@@ -382,6 +382,26 @@ onoremap ar a]
 onoremap ia i>
 onoremap aa a>
 
+nnoremap gh :h<space>
+
+" quick fix window
+nnoremap oq :copen<CR>
+nnoremap qq :cclose<CR>
+
+nnoremap ol :lopen<CR>
+nnoremap ql :lclose<CR>
+
+" end lines with semicolons
+inoremap ;] <C-o>:call Preserve("s/\\s\*$/;/")<CR>
+nnoremap <space>; :call Preserve("s/\\s\*$/;/")<CR>
+
+" toggle case of words
+nnoremap [w gUiw
+nnoremap ]w guiw
+
+" http://vim.wikia.com/wiki/Show_the_length_of_the_current_word
+command! Wlen :echo 'length of' expand('<cword>') 'is' strlen(substitute(expand('<cword>'), '.', 'x', 'g'))
+
 " }}}
 
 " 19: reading and writing files {{{1
@@ -656,6 +676,10 @@ noremap //u :call OpenURI()<CR>
 " }}}
 
 " 30: user commands {{{
+
+nnoremap \\s :silent e ~/00INFOBASE/00INBOX/SCRATCH.txt<CR>
+nnoremap \\j :silent e ~/00INFOBASE/00INBOX/JOURNAL.txt<CR>
+nnoremap \\t :silent e ~/00INFOBASE/00INBOX/01TODO.taskpaper<CR>
 
 if executable("dos2unix")
     command! Dos2Unix :%!dos2unix
