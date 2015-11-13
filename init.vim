@@ -626,6 +626,11 @@ function! Preserve(command)
     call cursor(l, c)
 endfunction
 
+function! StripTrailingWhitespace()
+    call Preserve("%s/\\s\\+$//e")
+endfunction
+command! Strip :call StripTrailingWhitespace()
+
 function! SyntaxItem()
   return synIDattr(synID(line("."),col("."),1),"name")
 endfunction
