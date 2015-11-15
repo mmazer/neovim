@@ -304,6 +304,7 @@ nnoremap <space>d :bd<CR>
 
 " goto buffer
 nnoremap gb :ls<CR>:b
+nnoremap \\b :Bonly<CR>
 
 nmap <space><space> :
 
