@@ -1,6 +1,7 @@
-" 1: important {{{
 let g:nvim_config = "~/.config/nvim"
-let g:nvim_init = g:nvim_config . "/init.vim"
+let g:nvimrc = g:nvim_config . "/init.vim"
+
+" plugins: {{{
 
 call plug#begin(g:nvim_config . '/bundle')
 
@@ -38,44 +39,150 @@ call plug#end()
 
 " }}}
 
-" 2: moving around, searching and patterns {{{
+" basic: {{{
+
+filetype plugin indent on
+set cursorline
+set scrolloff=2
+set listchars=tab:▸\ ,trail:·,nbsp:¬
+set shortmess=aTItoO
+set ruler
+set noshowcmd
+set showmatch
+
+" disable bell/visual bell
+set noeb vb t_vb=
+augroup visual_bell
+    autocmd GUIEnter * set vb t_vb=
+augroup END
+
+"}}}
+
+" line numbers: {{{
+
+set number
+augroup insert_number
+    autocmd InsertEnter * set norelativenumber
+    autocmd InsertLeave * set relativenumber
+augroup END
+
+"}}}
+
+" search: {{{
 
 set incsearch
 set hlsearch
 set ignorecase
 set smartcase   "case sensitive if search term contains upppecase letter
 
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
+    set grepformat=%f:%l:%c:%m
+endif
+
+" Use Perl/Ruby style regex patterns
+" See http://briancarper.net/blog/448/
+nnoremap / /\v
+vnoremap / /\v
+
 " }}}
 
-" 4: displaying text {{{
-set scrolloff=2
-set listchars=tab:▸\ ,trail:·,nbsp:¬
+" indentation: {{{
+
+set expandtab
+set shiftwidth=4
+set softtabstop=4
+let g:html_indent_inctags = "html,body,head,tbody"
+
+"}}}
+
+" line wrap: {{{
+
 set wrap linebreak textwidth=0
-set number
-augroup insert_number
-    autocmd InsertEnter * set norelativenumber
-    autocmd InsertLeave * set relativenumber
-augroup END
+
+"}}}
+
+" folding: {{{
+
+set foldmethod=syntax                   "fold based on indent
+set foldnestmax=2                       "deepest fold is 10 levels
+set nofoldenable                        "don't fold by default
+let g:xml_syntax_folding=1              "enable xml folding
+
+nnoremap <Space>z za
+vnoremap <Space>z za
+
+" refocus fold under cursor - from Steve Losh
+nnoremap ,z zMzvzz
+
+"http://www.gregsexton.org/2011/03/improving-the-text-displayed-in-a-fold/
+function! CustomFoldText()
+    "get first non-blank line
+    let fs = v:foldstart
+    while getline(fs) =~ '^\s*$' | let fs = nextnonblank(fs + 1)
+    endwhile
+    if fs > v:foldend
+        let line = getline(v:foldstart)
+    else
+        let line = substitute(getline(fs), '\t', repeat(' ', &tabstop), 'g')
+    endif
+
+    let w = winwidth(0) - &foldcolumn - (&numberend ? 8 : 0)
+    let foldSize = 1 + v:foldend - v:foldstart
+    let foldSizeStr = " (" . foldSize . " lines) "
+    let foldLevelStr = repeat("+--", v:foldlevel)
+    let lineCount = line("$")
+    let foldPercentage = printf("[%.1f", (foldSize*1.0)/lineCount*100) . "%] "
+    let marker = "» "
+    let expansionString = repeat(".", w - strwidth(marker.foldSizeStr.line.foldLevelStr.foldPercentage))
+    return marker . line . foldSizeStr
+endfunction
+set foldtext=CustomFoldText()
+
 " }}}
 
-" 5: syntax, highlighting and spelling {{{
+" files: {{{
 
-filetype plugin indent on
+set modeline
+set ffs=unix,dos,mac "Default file types
+set ff=unix " set initial buffer file format
+set backup
+set backupdir=$HOME/.local/share/nvim/backup//
+set autoread
+
+nnoremap g! :e!<CR>
+
+" }}}
+
+" syntax: {{{
+
 syntax on
 syntax sync minlines=256
-set cursorline
-
-set spelllang=en
-set spellfile=~/.config/nvim/spell/spellfile.en.add
 
 " }}}
 
-" 6: multiple windows {{{1
+" windows: {{{
+
 set hidden
 set splitbelow
 set splitright
 
-" status line
+"}}}
+
+" buffers: {{{
+
+" }}}
+
+" colors: {{{
+
+set t_Co=256
+set background=dark
+colorscheme monokai
+
+" }}}
+
+" status line: {{{
+
 set laststatus=2
 set statusline=%{Mode()}
 set statusline+=%{&paste?'\ (paste)':'\ '}
@@ -184,89 +291,21 @@ endfunction
 augroup statusline_whitespace
     autocmd CursorHold,BufWritePost * unlet! b:statusline_whitespace
 augroup END
-" }}}
-
-" 10: gui {{{
-
-set t_Co=256
-set background=dark
-colorscheme monokai
 
 " }}}
 
-" 12: messages and info {{{
-
-set shortmess=aTItoO
-set ruler
-set noshowcmd
-" disable bell/visual bell
-set noeb vb t_vb=
-augroup visual_bell
-    autocmd GUIEnter * set vb t_vb=
-augroup END
-
-" }}}
-
-" 14: editing text {{{1
+" completion: {{{
 
 set completeopt=longest,menuone,preview
-set showmatch
-runtime macros/matchit.vim
 
 " }}}
 
-" 15: tabs and indenting {{{1
+" mappings: {{{
 
-set expandtab
-set shiftwidth=4
-set softtabstop=4
-let g:html_indent_inctags = "html,body,head,tbody"
+nmap <space><space> :
 
-" }}}
-
-" 16: folding {{{1
-
-set foldmethod=syntax                   "fold based on indent
-set foldnestmax=2                       "deepest fold is 10 levels
-set nofoldenable                        "don't fold by default
-let g:xml_syntax_folding=1              "enable xml folding
-
-nnoremap <Space>z za
-vnoremap <Space>z za
-
-" refocus fold under cursor - from Steve Losh
-nnoremap ,z zMzvzz
-
-"http://www.gregsexton.org/2011/03/improving-the-text-displayed-in-a-fold/
-function! CustomFoldText()
-    "get first non-blank line
-    let fs = v:foldstart
-    while getline(fs) =~ '^\s*$' | let fs = nextnonblank(fs + 1)
-    endwhile
-    if fs > v:foldend
-        let line = getline(v:foldstart)
-    else
-        let line = substitute(getline(fs), '\t', repeat(' ', &tabstop), 'g')
-    endif
-
-    let w = winwidth(0) - &foldcolumn - (&numberend ? 8 : 0)
-    let foldSize = 1 + v:foldend - v:foldstart
-    let foldSizeStr = " (" . foldSize . " lines) "
-    let foldLevelStr = repeat("+--", v:foldlevel)
-    let lineCount = line("$")
-    let foldPercentage = printf("[%.1f", (foldSize*1.0)/lineCount*100) . "%] "
-    let marker = "» "
-    let expansionString = repeat(".", w - strwidth(marker.foldSizeStr.line.foldLevelStr.foldPercentage))
-    "return marker . line . expansionString . foldSizeStr . foldPercentage . foldLevelStr
-    return marker . line . foldSizeStr
-endfunction
-set foldtext=CustomFoldText()
-
-" }}}
-
-" 18: mappings {{{
-
-nnoremap g<space> :
+" Avoid the escape key - remember <C-[> also maps to Esc
+inoremap kj <ESC>`^
 
 nnoremap g[ gg
 nnoremap g] G
@@ -274,9 +313,6 @@ nnoremap g] G
 " Better mark jumping (line + col)
 nnoremap <expr> ' printf('`%c zz', getchar())
 
-" for toggling paste mode in terminal
-" Can also use `yo` from `unimpaired`
-set pastetoggle=<F5>
 nnoremap \p "*p
 
 " For wrapped lines, navigate normally
@@ -290,7 +326,7 @@ inoremap <C-E> <C-o>$
 
 nnoremap <silent> Q :qa!<CR>
 
-noremap \\v :execute 'edit' g:nvim_init<CR>
+noremap \\v :execute 'edit' g:nvimrc <CR>
 
 nnoremap <space>W :w!<CR>
 command! W :w!
@@ -306,19 +342,9 @@ nnoremap <space>d :bd<CR>
 nnoremap gb :ls<CR>:b
 nnoremap \\b :Bonly<CR>
 
-nmap <space><space> :
-
 " Source lines - from Steve Losh
 vnoremap X y:execute @@<cr>:echo 'Sourced selection.'<cr>
 nnoremap X ^vg_y:execute @@<cr>:echo 'Sourced line.'<cr>
-
-" Avoid the escape key - remember <C-[> also maps to Esc
-inoremap kj <ESC>`^
-
-" Prefer to use Perl/Ruby style regex patterns
-" See http://briancarper.net/blog/448/
-nnoremap / /\v
-vnoremap / /\v
 
 nnoremap <space>j J
 
@@ -405,33 +431,25 @@ command! Wlen :echo 'length of' expand('<cword>') 'is' strlen(substitute(expand(
 
 " }}}
 
-" 19: reading and writing files {{{1
+" spelling: {{{
 
-set modeline
-set ffs=unix,dos,mac "Default file types
-set ff=unix " set initial buffer file format
-set backup
-set backupdir=$HOME/.local/share/nvim/backup//
-set autoread
+set spelllang=en
+set spellfile=~/.config/nvim/spell/spellfile.en.add
 
-nnoremap g! :e!<CR>
-" }}}
+"}}}
 
-" 23: running make and jumping to errors {{{1
+" macros: {{{
 
-if executable('ag')
-    set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
-    set grepformat=%f:%l:%c:%m
-endif
+runtime macros/matchit.vim
 
 " }}}
 
-" 28: plugin settings {{{
+" plugin settings: {{{
 
 " ultisnips
 let g:UltiSnipsExpandTrigger="<c-j>"
 
-" ctrlp:
+" ctrlp
 nmap <space> [ctrlp]
 nnoremap <silent> [ctrlp]a :<C-u>CtrlPBookmarkDirAdd<cr>
 nnoremap <silent> [ctrlp]b :<C-u>CtrlPBuffer<cr>
@@ -556,7 +574,7 @@ command! -nargs=* Cal call calendar#show(1, <f-args>)
 
 " }}}
 
-" 28: autocommands {{{
+" autocommands: {{{
 if has("autocmd")
     augroup preview
         autocmd CompleteDone * pclose
@@ -589,7 +607,7 @@ endif
 
 " }}}
 
-" 29: functions {{{
+" functions: {{{
 
 function! DateTimeStamp()
     return strftime("%H:%M-%m.%d.%Y")
@@ -681,7 +699,7 @@ noremap //u :call OpenURI()<CR>
 
 " }}}
 
-" 30: user commands {{{
+" commands: {{{
 
 nnoremap \\s :silent e ~/00INFOBASE/00INBOX/SCRATCH.txt<CR>
 nnoremap \\j :silent e ~/00INFOBASE/00INBOX/JOURNAL.txt<CR>
@@ -692,7 +710,7 @@ if executable("dos2unix")
 endif
 " }}}
 
-" 31 abbreviations {{{
+" abbreviations: {{{
 
 :iab dts <c-r>=DateTimeStamp()<esc>
 :iab ddt <c-r>=ShortDate()<esc>
