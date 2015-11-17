@@ -381,8 +381,8 @@ nnoremap <C-h> <C-w>h
 
 " Resize windows using a reasonable amount
 " http://flaviusim.com/blog/resizing-vim-window-splits-like-a-boss/
-noremap <silent> <S-Up> :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> <S-Down> :exe "resize " . (winheight(0) * 2/3)<CR>
+noremap <silent>  //+ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> //- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 " tab navigation
 nnoremap th  :tabfirst<CR>
