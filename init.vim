@@ -29,11 +29,15 @@ Plug 'scrooloose/nerdtree'
 
 Plug 'jeetsukumaran/vim-filebeagle'
 
+Plug 'scrooloose/nerdtree'
+
 Plug 'rking/ag.vim'
 
 Plug 'davidoc/taskpaper.vim'
 
 Plug 'mattn/calendar-vim'
+
+Plug 'ervandew/supertab'
 
 call plug#end()
 
@@ -446,8 +450,26 @@ runtime macros/matchit.vim
 
 " plugin settings: {{{
 
+" nerdtree
+let NERDChristmasTree=1
+let NERDTreeWinSize=35
+let NERDTreeDirArrows=1
+noremap <silent> <C-T> :NERDTreeToggle<CR>
+noremap <space>nc :NERDTreeClose<CR>
+noremap <silent> <space>nf :NERDTreeFind<CR>
+noremap <space>no :NERDTree %:p:h<CR>
+
 " ultisnips
-let g:UltiSnipsExpandTrigger="<c-j>"
+" make YCM compatible with UltiSnips (using supertab)
+" See http://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
+let g:ycm_key_list_select_completion = ['<C-TAB>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-S-TAB>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-TAB>'
+"
+"" better key bindings for UltiSnipsExpandTrigger
+"let g:UltiSnipsExpandTrigger="<cr>"
+"let g:UltiSnipsJumpForwardTrigger="<c-j>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 
 " ctrlp
 nmap <space> [ctrlp]
@@ -498,6 +520,24 @@ let g:ctrlp_buftag_types = {
     \ 'wsdl'        : '--language-force=wsdl',
     \ 'markdown'    : '--language-force=markdown'
     \ }
+
+" syntastic
+let g:syntastic_check_on_open = 1
+let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_error_symbol='E:'
+let g:syntastic_warning_symbol='W:'
+let g:syntastic_always_populate_loc_list= 1
+let g:syntastic_python_checkers=['pylint', 'pep8']
+let g:syntastic_python_pylint_args = '--rcfile=${HOME}/.pylintrc'
+let g:syntastic_stl_format = '| ✗ %E{E: %fe #%e}%B{, }%W{W: %fw #%w} | '
+
+let g:syntastic_mode_map = { 'mode': 'active',
+            \ 'passive_filetypes': ['xml', 'java'] }
+
+let g:syntastic_html_tidy_exec = 'tidy5'
+let g:syntastic_html_tidy_ignore_errors = [
+    \ " proprietary attribute "
+    \ ]
 
 " fugitive
 nnoremap GB :Gblame<CR>
