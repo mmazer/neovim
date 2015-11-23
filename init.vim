@@ -13,6 +13,10 @@ Plug 'tpope/vim-surround'
 
 Plug 'tpope/vim-unimpaired'
 
+Plug 'mattn/ctrlp-mark'
+
+Plug 'mattn/ctrlp-register'
+
 Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'FelikZ/ctrlp-py-matcher'
@@ -38,6 +42,8 @@ Plug 'davidoc/taskpaper.vim'
 Plug 'mattn/calendar-vim'
 
 Plug 'ervandew/supertab'
+
+Plug 'pangloss/vim-javascript'
 
 call plug#end()
 
