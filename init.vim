@@ -530,6 +530,26 @@ let g:ctrlp_buftag_types = {
     \ 'markdown'    : '--language-force=markdown'
     \ }
 
+" tagbar
+noremap <silent> [ot :TagbarOpen fg<CR>
+noremap <silent> ]ot :TagbarClose<CR>
+noremap <silent> cot :TagbarToggle<CR>
+
+let g:tagbar_type_javascript = {
+    \ 'ctagstype'   :'js',
+    \ 'kinds'       : [
+        \ 'o:objects',
+        \ 'f:functions'
+    \ ]
+\ }
+
+let g:tagbar_type_html = {
+    \ 'ctagstype'   :'xml',
+    \ 'kinds'       : [
+        \ 'e:elements'
+    \ ]
+\ }
+
 " syntastic
 let g:syntastic_check_on_open = 1
 let g:syntastic_javascript_checkers=['jshint']
