@@ -509,9 +509,11 @@ let g:ctrlp_custom_ignore = {
     \ 'dir':  '.git\|.svn\|target\|node_modules\|.settings'
     \ }
 
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+
 if executable('ag')
     let g:ctrlp_user_command = 'ag -l --nocolor --follow -g "" %s'
-    let g:ctrlp_use_caching = 0
+    let g:ctrlp_use_caching = 1
 endif
 
 " ctrlp_buftag
