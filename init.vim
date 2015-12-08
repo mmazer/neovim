@@ -45,6 +45,8 @@ Plug 'ervandew/supertab'
 
 Plug 'pangloss/vim-javascript'
 
+Plug 'beyondwords/vim-twig'
+
 call plug#end()
 
 " }}}
