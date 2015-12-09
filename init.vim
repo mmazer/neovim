@@ -106,6 +106,20 @@ set shiftwidth=4
 set softtabstop=4
 let g:html_indent_inctags = "html,body,head,tbody"
 
+function! TabToggle()
+  if &expandtab
+    set shiftwidth=8
+    set softtabstop=0
+    set noexpandtab
+    echo "using tabs"
+  else
+    set shiftwidth=4
+    set softtabstop=4
+    set expandtab
+    echo "using spaces"
+  endif
+endfunction
+nnoremap coe :call TabToggle()<CR>
 "}}}
 
 " line wrap: {{{
