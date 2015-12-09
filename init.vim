@@ -262,10 +262,14 @@ function! Branch()
 endfunction
 
 function! Fenc()
+    if &fenc == ''
+        return "-"
+    endif
+
     if &fenc !~ "^$\|utf-8" || &bomb
         return &fenc . (&bomb ? "-bom" : "" )
     else
-        return "none"
+        return "-"
     endif
 endfun
 
