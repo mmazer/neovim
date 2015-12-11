@@ -591,14 +591,15 @@ let g:syntastic_html_tidy_ignore_errors = [
     \ ]
 
 " fugitive
-nnoremap GB :Gblame<CR>
-nnoremap GC :Gcommit<CR>
-nnoremap Gd :Gdiff<CR>
-nnoremap Ge :Gedit<CR>
-nnoremap Gl :Glog<CR>
-nnoremap Gs :Gstatus<CR>
-nnoremap Gr :Gread<CR>
-nnoremap Gw :Gwrite<CR>
+nnoremap <space>gs :Gstatus<CR>
+nnoremap <space>gb :Gblame<CR>
+nnoremap <space>gc :Gcommit -v -q <CR>
+nnoremap <space>gd :Gdiff<CR>
+nnoremap <space>ge :Gedit<CR>
+nnoremap <space>gl :Glog<CR>
+nnoremap <space>gr :Gread<CR>
+nnoremap <space>gw :Gwrite<CR>
+nnoremap <space>gp :Ggrep<CR>
 
 " Simple way to turn off Gdiff splitscreen
 " works only when diff buffer is focused
