@@ -57,6 +57,7 @@ filetype plugin indent on
 set cursorline
 set scrolloff=2
 set listchars=tab:▸\ ,trail:·,nbsp:¬
+set list
 set shortmess=aTItoO
 set ruler
 set noshowcmd
