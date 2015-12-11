@@ -41,8 +41,6 @@ Plug 'davidoc/taskpaper.vim'
 
 Plug 'mattn/calendar-vim'
 
-Plug 'ervandew/supertab'
-
 Plug 'pangloss/vim-javascript'
 
 Plug 'beyondwords/vim-twig'
