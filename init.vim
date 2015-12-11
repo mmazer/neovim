@@ -335,6 +335,7 @@ set completeopt=longest,menuone,preview
 " mappings: {{{
 
 nmap <space><space> :
+nmap <space>h :h<space>
 
 " Avoid the escape key - remember <C-[> also maps to Esc
 inoremap kj <ESC>`^
