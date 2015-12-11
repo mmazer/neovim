@@ -369,7 +369,7 @@ nnoremap <C-s> :w!<CR>
 inoremap <C-s> <C-o>:w!<CR>
 nnoremap <space>w :w<CR>
 nnoremap <space>B :b#<CR>
-nnoremap <space>d :bd<CR>
+nnoremap <space>d :bp \| bd #<CR>
 
 " goto buffer
 nnoremap gb :ls<CR>:b
