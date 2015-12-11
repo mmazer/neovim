@@ -487,16 +487,15 @@ noremap <silent> <space>nf :NERDTreeFind<CR>
 noremap <space>no :NERDTree %:p:h<CR>
 
 " ultisnips
-" make YCM compatible with UltiSnips (using supertab)
-" See http://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
-let g:ycm_key_list_select_completion = ['<C-TAB>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-S-TAB>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-TAB>'
-"
-"" better key bindings for UltiSnipsExpandTrigger
-"let g:UltiSnipsExpandTrigger="<cr>"
-"let g:UltiSnipsJumpForwardTrigger="<c-j>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsListSnippets="<c-h>"
+
+" YCM
+let g:ycm_complete_in_comments = 1
+let g:ycm_seed_identifiers_with_syntax = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
 " ctrlp
 nmap <space> [ctrlp]
