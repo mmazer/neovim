@@ -653,8 +653,8 @@ nnoremap cog :GitGutterToggle<CR>
 nnoremap ]gg :GitGutterNextHunk<CR>zz
 nnoremap [gg :GitGutterPrevHun<CR>zz
 
-nnoremap Gh :GitGutterStageHunk<CR>
-nnoremap GR :GitGutterRevertHunk<CR>
+nnoremap [gh :GitGutterStageHunk<CR>
+nnoremap ]gh :GitGutterRevertHunk<CR>
 
 " calendar:
 command! -nargs=* Cal call calendar#show(1, <f-args>)
