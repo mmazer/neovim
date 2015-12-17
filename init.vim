@@ -251,13 +251,12 @@ function! Mode()
 endfunction
 
 function! Branch()
-    let branch = ''
     if !exists('*fugitive#head')
-        return branch
+        return ''
     endif
 
     let branch = fugitive#head()
-    return 'git:'.branch
+    return empty(branch) ? '' : 'git:'.branch
 endfunction
 
 function! Fenc()
