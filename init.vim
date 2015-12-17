@@ -256,8 +256,8 @@ function! Branch()
         return branch
     endif
 
-    let branch = fugitive#statusline()
-    return branch
+    let branch = fugitive#head()
+    return 'git:'.branch
 endfunction
 
 function! Fenc()
