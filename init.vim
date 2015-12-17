@@ -659,6 +659,9 @@ nnoremap GR :GitGutterRevertHunk<CR>
 " calendar:
 command! -nargs=* Cal call calendar#show(1, <f-args>)
 
+" ag
+nnoremap \ :Ag<space>
+
 " }}}
 
 " autocommands: {{{
