@@ -357,7 +357,7 @@ inoremap <C-E> <C-o>$
 
 nnoremap <silent> Q :qa!<CR>
 
-noremap \\v :execute 'edit' g:nvimrc <CR>
+noremap gov :execute 'edit' g:nvimrc <CR>
 
 nnoremap <space>W :w!<CR>
 command! W :w!
@@ -371,7 +371,6 @@ nnoremap <space>d :bp \| bd #<CR>
 
 " goto buffer
 nnoremap gb :ls<CR>:b
-nnoremap \\b :Bonly<CR>
 
 " Source lines - from Steve Losh
 vnoremap X y:execute @@<cr>:echo 'Sourced selection.'<cr>
@@ -783,7 +782,7 @@ function! OpenURI()
         echo "No URI found in line."
     endif
 endfunction
-noremap //u :call OpenURI()<CR>
+noremap gou :call OpenURI()<CR>
 
 " }}}
 
