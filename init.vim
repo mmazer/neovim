@@ -544,7 +544,8 @@ let g:ctrlp_buftag_types = {
     \ 'html'        : '--language-force=XML',
     \ 'taskpaper'   : '--language-force=Taskpaper',
     \ 'wsdl'        : '--language-force=wsdl',
-    \ 'markdown'    : '--language-force=markdown'
+    \ 'markdown'    : '--language-force=markdown',
+    \ 'cucumber'    : '--language-force=cucumber'
     \ }
 
 " tagbar
