@@ -686,7 +686,7 @@ if has("autocmd")
     augroup fugitive_buffers
         autocmd BufRead fugitive\:* xnoremap <buffer> dp :diffput<CR>|xnoremap <buffer> do :diffget<CR>
         autocmd BufReadPost fugitive://* set bufhidden=delete
-        autocmd FileType gitcommit setlocal cursorline
+        autocmd FileType gitcommit setlocal cursorline spell
     augroup END
 
     augroup diff_mode
