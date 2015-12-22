@@ -809,3 +809,9 @@ let b:abbrvs = g:nvim_config . "/abbr.vim"
 if filereadable(glob(b:abbrvs))
     exec 'source' b:abbrvs
 endif
+
+" local configuration
+if filereadable(glob(g:localrc))
+    exec 'source' g:localrc
+endif
+
