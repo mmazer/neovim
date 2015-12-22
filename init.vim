@@ -1,5 +1,6 @@
 let g:nvim_config = "~/.config/nvim"
 let g:nvimrc = g:nvim_config . "/init.vim"
+let g:localrc = g:nvim_config . "/local.vim"
 
 " plugins: {{{
 
