@@ -46,6 +46,10 @@ Plug 'pangloss/vim-javascript'
 
 Plug 'beyondwords/vim-twig'
 
+Plug 'klen/python-mode'
+
+Plug 'mustache/vim-mustache-handlebars'
+
 call plug#end()
 
 " }}}
@@ -588,7 +592,10 @@ let g:syntastic_html_tidy_ignore_errors = [
     \ " proprietary attribute "
     \ ]
 
-" fugitive
+" pymode
+let g:pymode_lint = 0
+
+" fugitive:
 nnoremap <space>gs :Gstatus<CR>
 nnoremap <space>gb :Gblame<CR>
 nnoremap <space>gc :Gcommit -v -q <CR>
