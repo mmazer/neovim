@@ -345,7 +345,8 @@ nnoremap g] G
 " Better mark jumping (line + col)
 nnoremap <expr> ' printf('`%c zz', getchar())
 
-nnoremap \p "*p
+nnoremap \y "+y
+nnoremap \p "+p
 
 " For wrapped lines, navigate normally
 noremap  <buffer> <silent> k gk
