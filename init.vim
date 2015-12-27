@@ -172,6 +172,7 @@ set foldtext=CustomFoldText()
 set modeline
 set ffs=unix,dos,mac "Default file types
 set ff=unix " set initial buffer file format
+set noswapfile
 set backup
 set backupdir=$HOME/.local/share/nvim/backup//
 set autoread
