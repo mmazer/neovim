@@ -703,6 +703,9 @@ if has("autocmd")
         autocmd FilterWritePre * if &diff | nnoremap <buffer> dc :Gdoff<CR> | nnoremap <buffer> du :diffupdate<CR> | endif
     augroup END
 
+    augroup markdown
+        autocmd! FileType markdown  set suffixesadd=.txt,.md
+    augroup END
 endif
 
 " }}}
