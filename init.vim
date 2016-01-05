@@ -708,6 +708,17 @@ if has("autocmd")
     augroup markdown
         autocmd! FileType markdown  set suffixesadd=.txt,.md
     augroup END
+
+    augroup javascript
+        autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
+        autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+    augroup END
+
+    augroup json
+        autocmd FileType json command! Format :%!python -m json.tool<CR>
+        autocmd FileType json setlocal foldmethod=syntax
+        autocmd FileType json setlocal foldnestmax=10
+    augroup END
 endif
 
 " }}}
