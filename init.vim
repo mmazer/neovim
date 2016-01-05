@@ -464,6 +464,12 @@ nnoremap <space>; :call Preserve("s/\\s\*$/;/")<CR>
 nnoremap [w gUiw
 nnoremap ]w guiw
 
+" copy/yank filename
+nnoremap <Leader>cf :let @+=expand('%:p')<CR>
+nnoremap <Leader>cn :let @+=expand('%')<CR>
+nnoremap <Leader>yf :let @"=expand('%:p')<CR>
+nnoremap <Leader>yn :let @"=expand('%')<CR>
+
 " http://vim.wikia.com/wiki/Show_the_length_of_the_current_word
 command! Wlen :echo 'length of' expand('<cword>') 'is' strlen(substitute(expand('<cword>'), '.', 'x', 'g'))
 
