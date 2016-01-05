@@ -472,6 +472,7 @@ nnoremap <Leader>yn :let @"=expand('%')<CR>
 
 " http://vim.wikia.com/wiki/Show_the_length_of_the_current_word
 command! Wlen :echo 'length of' expand('<cword>') 'is' strlen(substitute(expand('<cword>'), '.', 'x', 'g'))
+nnoremap \wc :Wlen<CR>
 
 " }}}
 
