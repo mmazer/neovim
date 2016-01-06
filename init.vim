@@ -568,6 +568,10 @@ let g:ctrlp_buftag_types = {
     \ 'cucumber'    : '--language-force=cucumber'
     \ }
 
+" ag
+" start search from project root
+let g:ag_working_mode="r"
+
 " tagbar
 noremap <silent> [ot :TagbarOpen fg<CR>
 noremap <silent> ]ot :TagbarClose<CR>
