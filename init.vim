@@ -728,6 +728,15 @@ if has("autocmd")
         autocmd FileType json setlocal foldmethod=syntax
         autocmd FileType json setlocal foldnestmax=10
     augroup END
+
+    augroup html_files
+        autocmd FileType html setlocal shiftwidth=2 softtabstop=2 tabstop=2 foldmethod=manual
+        autocmd FileType html setlocal autoindent
+    augroup END
+
+    augroup handlebars
+        autocmd FileType handlebars setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
+    augroup END
 endif
 
 " }}}
