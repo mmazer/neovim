@@ -497,6 +497,8 @@ runtime macros/matchit.vim
 let NERDChristmasTree=1
 let NERDTreeWinSize=35
 let NERDTreeDirArrows=1
+let NERDTreeIgnore=['\.pyc$']
+
 noremap <silent> <C-T> :NERDTreeToggle<CR>
 noremap <space>nc :NERDTreeClose<CR>
 noremap <silent> <space>nf :NERDTreeFind<CR>
