@@ -52,6 +52,8 @@ Plug 'mustache/vim-mustache-handlebars'
 
 Plug 'tpope/vim-markdown'
 
+Plug 'mattn/emmet-vim'
+
 call plug#end()
 
 " }}}
