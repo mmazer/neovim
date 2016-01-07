@@ -689,6 +689,13 @@ command! -nargs=* Cal call calendar#show(1, <f-args>)
 " ag
 nnoremap \ :Ag<space>
 
+" emmet:
+let g:user_emmet_leader_key = '<C-x>'
+let g:user_emmet_settings = {
+\ 'html' : {
+\    'indentation' : '  '
+\ },
+\}
 " }}}
 
 " autocommands: {{{
