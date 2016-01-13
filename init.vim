@@ -462,6 +462,10 @@ nnoremap ql :lclose<CR>
 inoremap ;] <C-o>:call Preserve("s/\\s\*$/;/")<CR>
 nnoremap <space>; :call Preserve("s/\\s\*$/;/")<CR>
 
+" end lines with commas
+inoremap ,] <C-o>:call Preserve("s/\\s\*$/,/")<CR>
+nnoremap <space>, :call Preserve("s/\\s\*$/,/")<CR>
+
 " toggle case of words
 nnoremap [w gUiw
 nnoremap ]w guiw
