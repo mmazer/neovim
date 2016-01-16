@@ -2,6 +2,8 @@ let g:nvim_config = "~/.config/nvim"
 let g:nvimrc = g:nvim_config . "/init.vim"
 let g:localrc = g:nvim_config . "/local.vim"
 
+let g:nvim_config_use_relinsert = 0
+
 " plugins: {{{
 
 call plug#begin(g:nvim_config . '/bundle')
@@ -81,10 +83,12 @@ augroup END
 " line numbers: {{{
 
 set number
+if(g:nvim_config_use_relinsert)
 augroup insert_number
     autocmd InsertEnter * set norelativenumber
     autocmd InsertLeave * set relativenumber
 augroup END
+endif
 
 "}}}
 
