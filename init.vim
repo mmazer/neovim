@@ -217,6 +217,7 @@ set splitright
 set t_Co=256
 set background=dark
 colorscheme monokai
+let &colorcolumn="100,120"
 
 " }}}
 
