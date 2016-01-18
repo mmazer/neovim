@@ -228,7 +228,7 @@ set statusline=%{Mode()}
 set statusline+=%{&paste?'\ (paste)':'\ '}
 set statusline+=\|
 set statusline+=\ %{Branch()}
-set statusline+=\ %f
+set statusline+=\ %t
 set statusline+=\ \[\#%n\]
 set statusline+=%(\[%R%M\]%)      "modified flag
 set statusline+=\ %{SyntasticStatuslineFlag()}
@@ -820,6 +820,7 @@ function! ShowTime()
 endfunction
 nnoremap got :call ShowTime()<CR>
 
+nnoremap gop :echo expand('%')<CR>
 
 " Taken from ctrlp help file
 function! Setcwd()
