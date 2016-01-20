@@ -604,8 +604,11 @@ let g:tagbar_type_html = {
     \ ]
 \ }
 
-" syntastic
-let g:syntastic_check_on_open = 1
+" syntastic:
+let g:syntastic_check_on_open = 0
+let g:syntastic_filetype_map = {
+    \ "html.handlebars": "handlebars"
+    \ }
 let g:syntastic_javascript_checkers=['jshint', 'jscs']
 let g:syntastic_error_symbol='E:'
 let g:syntastic_warning_symbol='W:'
@@ -621,6 +624,7 @@ let g:syntastic_html_tidy_ignore_errors = [
     \ " proprietary attribute "
     \ ]
 
+nnoremap <Leader>s :SyntasticCheck<CR>
 " pymode
 let g:pymode_lint = 0
 
