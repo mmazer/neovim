@@ -56,6 +56,9 @@ Plug 'tpope/vim-markdown'
 
 Plug 'mattn/emmet-vim'
 
+Plug 'tpope/vim-projectionist'
+
+Plug 'Raimondi/delimitMate'
 call plug#end()
 
 " }}}
