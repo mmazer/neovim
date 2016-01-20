@@ -713,6 +713,7 @@ let g:user_emmet_settings = {
 \ },
 \}
 " }}}
+imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
 " autocommands: {{{
 if has("autocmd")
