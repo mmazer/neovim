@@ -484,6 +484,9 @@ nnoremap <Leader>cn :let @+=expand('%')<CR>
 nnoremap <Leader>yf :let @"=expand('%:p')<CR>
 nnoremap <Leader>yn :let @"=expand('%')<CR>
 
+" show full path of file
+nnoremap <space>p :echo expand('%')<CR>
+
 " http://vim.wikia.com/wiki/Show_the_length_of_the_current_word
 command! Wlen :echo 'length of' expand('<cword>') 'is' strlen(substitute(expand('<cword>'), '.', 'x', 'g'))
 nnoremap \wc :Wlen<CR>
