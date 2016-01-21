@@ -835,7 +835,7 @@ function! ShowTime()
 endfunction
 nnoremap got :call ShowTime()<CR>
 
-nnoremap gop :echo expand('%')<CR>
+nnoremap <space>n :echo expand('%')<CR>
 
 " Taken from ctrlp help file
 function! Setcwd()
