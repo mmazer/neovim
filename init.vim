@@ -774,6 +774,10 @@ if has("autocmd")
     augroup html_handlebars
         autocmd FileType html.handlebars setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
     augroup END
+
+    augroup ruby
+        autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
+    augroup END
 endif
 
 " }}}
