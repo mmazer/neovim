@@ -55,6 +55,15 @@ Plug 'mattn/emmet-vim'
 Plug 'tpope/vim-projectionist'
 
 Plug 'Raimondi/delimitMate'
+
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+Plug 'junegunn/fzf.vim'
+
+Plug 'junegunn/gv.vim'
+
+Plug 'epeli/slimux'
+
 call plug#end()
 
 " }}}
@@ -526,21 +535,21 @@ let g:ycm_complete_in_comments = 1
 let g:ycm_seed_identifiers_with_syntax = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
-" ctrlp
+" ctrlp:
+" fzf:
 nmap <space> [ctrlp]
 nnoremap <silent> [ctrlp]a :<C-u>CtrlPBookmarkDirAdd<cr>
-nnoremap <silent> [ctrlp]b :<C-u>CtrlPBuffer<cr>
-nnoremap <silent> [ctrlp]c :<C-u>CtrlPCmdline<cr>
+nnoremap <silent> [ctrlp]b :Buffers<cr>
+nnoremap <silent> [ctrlp]c :History:<CR>
 nnoremap <silent> [ctrlp]C :<C-u>CtrlPClearCache<cr>
 nnoremap <silent> [ctrlp]f :Files<CR>
 nnoremap <silent> [ctrlp]l :BLines<CR>
 nnoremap <silent> [ctrlp]m :Marks<CR>
 nnoremap <silent> [ctrlp]o :<C-u>CtrlPBookmarkDir<cr>
 nnoremap <silent> [ctrlp]q :<C-u>CtrlPQuickfix<cr>
-nnoremap <silent> [ctrlp]s :<C-u>CtrlPFunky<cr>
+nnoremap <silent> [ctrlp]s :History/<CR>
 nnoremap <silent> [ctrlp]t :<C-u>CtrlPBufTag<cr>
 nnoremap <silent> [ctrlp]u :<C-u>CtrlPMRUFiles<cr>
-nnoremap <silent> [ctrlp]y :<C-u>CtrlPYankring<cr>
 
 
 let g:ctrlp_extensions = ['quickfix', 'undo', 'line', 'changes', 'mixed', 'buffertag', 'bookmarkdir']
@@ -580,6 +589,8 @@ let g:ctrlp_buftag_types = {
 " ag
 " start search from project root
 let g:ag_working_mode="r"
+" workaround conflict with fzf.vim
+command! -bang -nargs=* -complete=file Agg call ag#Ag('grep<bang>',<q-args>)
 
 " tagbar
 noremap <silent> [ot :TagbarOpen fg<CR>
@@ -711,6 +722,13 @@ let g:user_emmet_settings = {
 \}
 " }}}
 imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+
+" slimux:
+map <Leader>s :SlimuxREPLSendLine<CR>
+vmap <Leader>s :SlimuxREPLSendSelection<CR>
+map <Leader>a :SlimuxShellLast<CR>
+map <Leader>k :SlimuxSendKeysLast<CR>
+map <Leader>p :SlimuxShellPrompt<CR>
 
 " autocommands: {{{
 if has("autocmd")
