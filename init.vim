@@ -3,6 +3,7 @@ let g:nvimrc = g:nvim_config . "/init.vim"
 let g:localrc = g:nvim_config . "/local.vim"
 
 let g:nvim_config_use_relinsert = 0
+let g:nvim_config_abbrvs = g:nvim_config . "/abbr.vim"
 
 " plugins: {{{
 
@@ -902,9 +903,8 @@ endif
 :iab dts <c-r>=DateTimeStamp()<esc>
 :iab ddt <c-r>=ShortDate()<esc>
 
-let b:abbrvs = g:nvim_config . "/abbr.vim"
-if filereadable(glob(b:abbrvs))
-    exec 'source' b:abbrvs
+if filereadable(glob(g:nvim_config_abbrvs))
+    exec 'source' g:nvim_config_abbrvs
 endif
 
 " local configuration
