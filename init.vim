@@ -16,10 +16,6 @@ Plug 'tpope/vim-surround'
 
 Plug 'tpope/vim-unimpaired'
 
-Plug 'mattn/ctrlp-mark'
-
-Plug 'mattn/ctrlp-register'
-
 Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'FelikZ/ctrlp-py-matcher'
@@ -536,12 +532,10 @@ nnoremap <silent> [ctrlp]a :<C-u>CtrlPBookmarkDirAdd<cr>
 nnoremap <silent> [ctrlp]b :<C-u>CtrlPBuffer<cr>
 nnoremap <silent> [ctrlp]c :<C-u>CtrlPCmdline<cr>
 nnoremap <silent> [ctrlp]C :<C-u>CtrlPClearCache<cr>
-nnoremap <silent> [ctrlp]d :<C-u>CtrlPDir<cr>
-nnoremap <silent> [ctrlp]f :<C-u>CtrlP<cr>
-nnoremap <silent> [ctrlp]k :<C-u>CtrlPMark<cr>
-nnoremap <silent> [ctrlp]m :<C-u>CtrlPMixed<cr>
+nnoremap <silent> [ctrlp]f :Files<CR>
+nnoremap <silent> [ctrlp]l :BLines<CR>
+nnoremap <silent> [ctrlp]m :Marks<CR>
 nnoremap <silent> [ctrlp]o :<C-u>CtrlPBookmarkDir<cr>
-nnoremap <silent> [ctrlp]r :<C-u>CtrlPRegister<cr>
 nnoremap <silent> [ctrlp]q :<C-u>CtrlPQuickfix<cr>
 nnoremap <silent> [ctrlp]s :<C-u>CtrlPFunky<cr>
 nnoremap <silent> [ctrlp]t :<C-u>CtrlPBufTag<cr>
@@ -549,7 +543,7 @@ nnoremap <silent> [ctrlp]u :<C-u>CtrlPMRUFiles<cr>
 nnoremap <silent> [ctrlp]y :<C-u>CtrlPYankring<cr>
 
 
-let g:ctrlp_extensions = ['quickfix', 'dir', 'undo', 'line', 'changes', 'mixed', 'buffertag', 'bookmarkdir', 'funky', 'mark', 'register']
+let g:ctrlp_extensions = ['quickfix', 'undo', 'line', 'changes', 'mixed', 'buffertag', 'bookmarkdir']
 let g:ctrlp_match_window_bottom = 1 " Show at top of window
 let g:ctrlp_working_path_mode = 'ra' " Smart path mode
 let g:ctrlp_mru_files = 1 " Enable Most Recently Used files feature
