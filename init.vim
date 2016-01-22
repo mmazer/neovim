@@ -83,20 +83,23 @@ set showmatch
 
 " disable bell/visual bell
 set noeb vb t_vb=
-augroup visual_bell
-    autocmd GUIEnter * set vb t_vb=
-augroup END
+if has("autocmd")
+    augroup visual_bell
+        autocmd GUIEnter * set vb t_vb=
+    augroup END
+endif
 
 "}}}
 
 " line numbers: {{{
 
 set number
-if(g:nvim_config_use_relinsert)
-augroup insert_number
-    autocmd InsertEnter * set norelativenumber
-    autocmd InsertLeave * set relativenumber
-augroup END
+if (has("autocmd") && g:nvim_config_use_relinsert)
+    augroup insert_number
+        autocmd!
+        autocmd InsertEnter * set norelativenumber
+        autocmd InsertLeave * set relativenumber
+    augroup END
 endif
 
 "}}}
@@ -634,6 +637,7 @@ let g:syntastic_html_tidy_ignore_errors = [
     \ ]
 
 nnoremap <Leader>s :SyntasticCheck<CR>
+
 " pymode
 let g:pymode_lint = 0
 
@@ -733,63 +737,42 @@ map <Leader>p :SlimuxShellPrompt<CR>
 
 " autocommands: {{{
 if has("autocmd")
-    augroup preview
+    augroup Preview
+        autocmd!
         autocmd CompleteDone * pclose
     augroup END
 
     " remove trailing whitespace
-    augroup trailing_whitespace
-        autocmd! FileType vim,css,groovy,java,javascript,less,php,scala,taskpaper,python,ruby,handlebars,html.handlebars autocmd BufWritePre <buffer> :%s/\s\+$//e
+    augroup StripWhitespace
+        autocmd!
+        autocmd! FileType vim,css,groovy,java,javascript,less,php,scala,taskpaper,python,ruby,
+                    \handlebars,html.handlebars autocmd BufWritePre <buffer> :%s/\s\+$//e
     augroup END
 
-    augroup keyword
-        autocmd FileType html,css,javascript setlocal iskeyword+=-
-    augroup END
-
-    augroup vim_files
-        autocmd filetype vim set foldmethod=marker
-    augroup END
-
-    augroup fugitive_buffers
+    augroup FTOptions
+        autocmd!
+        autocmd FileType cucumber setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
         autocmd BufRead fugitive\:* xnoremap <buffer> dp :diffput<CR>|xnoremap <buffer> do :diffget<CR>
         autocmd BufReadPost fugitive://* set bufhidden=delete
         autocmd FileType gitcommit setlocal cursorline spell
-    augroup END
-
-    augroup diff_mode
-        autocmd FilterWritePre * if &diff | nnoremap <buffer> dc :Gdoff<CR> | nnoremap <buffer> du :diffupdate<CR> | endif
-    augroup END
-
-    augroup markdown
-        autocmd! FileType markdown  set suffixesadd=.txt,.md
-    augroup END
-
-    augroup javascript
+        autocmd FileType handlebars setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
+        autocmd FileType html.handlebars setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
+        autocmd FileType html,css,javascript setlocal iskeyword+=-
+        autocmd FileType html setlocal shiftwidth=2 softtabstop=2 tabstop=2 foldmethod=manual
+        autocmd FileType html setlocal autoindent
         autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
         autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-    augroup END
-
-    augroup json
         autocmd FileType json command! Format :%!python -m json.tool<CR>
         autocmd FileType json setlocal foldmethod=syntax
         autocmd FileType json setlocal foldnestmax=10
-    augroup END
-
-    augroup html_files
-        autocmd FileType html setlocal shiftwidth=2 softtabstop=2 tabstop=2 foldmethod=manual
-        autocmd FileType html setlocal autoindent
-    augroup END
-
-    augroup handlebars
-        autocmd FileType handlebars setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
-    augroup END
-
-    augroup html_handlebars
-        autocmd FileType html.handlebars setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
-    augroup END
-
-    augroup ruby
+        autocmd FileType markdown  set suffixesadd=.txt,.md
         autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
+        autocmd FileType scheme autocmd BufWritePre <buffer> :%s/\s\+$//e
+        autocmd Filetype vim set foldmethod=marker
+    augroup END
+
+    augroup DiffMode
+        autocmd FilterWritePre * if &diff | nnoremap <buffer> dc :Gdoff<CR> | nnoremap <buffer> du :diffupdate<CR> | endif
     augroup END
 endif
 
