@@ -729,11 +729,11 @@ let g:user_emmet_settings = {
 imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
 " slimux:
+map <Leader>c :SlimuxShellPrompt<CR>
 map <Leader>s :SlimuxREPLSendLine<CR>
 vmap <Leader>s :SlimuxREPLSendSelection<CR>
 map <Leader>a :SlimuxShellLast<CR>
 map <Leader>k :SlimuxSendKeysLast<CR>
-map <Leader>p :SlimuxShellPrompt<CR>
 
 " autocommands: {{{
 if has("autocmd")
