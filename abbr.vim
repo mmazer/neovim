@@ -1,5 +1,6 @@
 " auto corrections
 
+iab acccount account
 iab becuase because
 iab collander colander
 iab iterm item
