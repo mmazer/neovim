@@ -130,3 +130,7 @@ hi erubyDelimiter               ctermfg=NONE ctermbg=NONE cterm=NONE guifg=NONE 
 hi erubyComment                 ctermfg=95 ctermbg=NONE cterm=NONE guifg=#75715e guibg=NONE gui=NONE
 hi erubyRailsMethod             ctermfg=81 ctermbg=NONE cterm=NONE guifg=#66d9ef guibg=NONE gui=NONE
 
+
+" Git
+" ---
+hi gitCommitSummary             ctermfg=NONE ctermbg=NONE cterm=bold guifg=NONE guibg=NONE gui=bold
