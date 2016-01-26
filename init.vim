@@ -227,8 +227,8 @@ set splitright
 " colors: {{{
 
 set t_Co=256
-set background=dark
 colorscheme monokai
+set background=dark
 let &colorcolumn="100,120"
 
 " }}}
