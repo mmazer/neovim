@@ -657,15 +657,25 @@ nnoremap <space>gp :Ggrep<CR>
 " https://gist.github.com/radmen/5048080
 command! Gdoff diffoff | q | Gedit
 
-function! GitDiffCached()
+function! GitDiffStaged()
     new
     r !git diff -w --cached
     :normal ggdd
     setlocal ft=diff bt=nofile bh=wipe nobl noswf ro
     nnoremap <buffer> q :bw<cr>
 endfunction
-command! Gdiffcached :call GitDiffCached()
-nnoremap Gc :Gdiffcached<CR>
+command! Gdiffstaged :call GitDiffStaged()
+nnoremap <space>gt :Gdiffstaged<CR>
+
+function! GitDiffUnstaged()
+    new
+    r !git diff -w
+    :normal ggdd
+    setlocal ft=diff bt=nofile bh=wipe nobl noswf ro
+    nnoremap <buffer> q :bw<cr>
+endfunction
+command! GdiffUnstaged :call GitDiffUnstaged()
+nnoremap <space>gu :GdiffUnstaged<CR>
 
 function! GitDiffBuf()
     let fname = expand('%')
