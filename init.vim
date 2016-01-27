@@ -65,6 +65,8 @@ Plug 'junegunn/gv.vim'
 
 Plug 'epeli/slimux'
 
+Plug 'nathanaelkane/vim-indent-guides'
+
 call plug#end()
 
 " }}}
@@ -744,6 +746,10 @@ map <Leader>s :SlimuxREPLSendLine<CR>
 vmap <Leader>s :SlimuxREPLSendSelection<CR>
 map <Leader>a :SlimuxShellLast<CR>
 map <Leader>k :SlimuxSendKeysLast<CR>
+
+" indent guides
+let g:indent_guides_guide_size = 1
+nmap <space>ig <Plug>IndentGuidesToggle
 
 " autocommands: {{{
 if has("autocmd")
