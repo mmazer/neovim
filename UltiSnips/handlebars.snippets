@@ -1,0 +1,19 @@
+snippet expr
+{{$0}}
+endsnippet
+
+snippet out
+{{outlet}}
+endsnippet
+
+snippet each
+{{#each ${1:coll} as |${2:item}|}}
+  $0
+{{/each}}
+endsnippet
+
+snippet if
+{{#if ${1} }}
+  $0
+{{/if}}
+endsnippet
