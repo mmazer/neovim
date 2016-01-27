@@ -895,10 +895,6 @@ endif
 " }}}
 
 " abbreviations: {{{
-
-:iab dts <c-r>=DateTimeStamp()<esc>
-:iab ddt <c-r>=ShortDate()<esc>
-
 if filereadable(glob(g:nvim_config_abbrvs))
     exec 'source' g:nvim_config_abbrvs
 endif

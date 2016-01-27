@@ -1,3 +1,6 @@
+iab dts <c-r>=DateTimeStamp()<esc>
+iab ddt <c-r>=ShortDate()<esc>
+
 " auto corrections
 
 iab acccount account
