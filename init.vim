@@ -381,9 +381,6 @@ noremap  <buffer> <silent> j gj
 noremap  <buffer> <silent> 0 g0
 noremap  <buffer> <silent> $ g$
 
-inoremap <C-A> <C-o>^
-inoremap <C-E> <C-o>$
-
 nnoremap <silent> Q :qa!<CR>
 
 noremap gov :execute 'edit' g:nvimrc <CR>
@@ -731,7 +728,7 @@ command! -nargs=* Cal call calendar#show(1, <f-args>)
 nnoremap \ :Ag<space>
 
 " emmet:
-let g:user_emmet_leader_key = '<C-x>'
+let g:user_emmet_expandabbr_key = '<C-e>'
 let g:user_emmet_settings = {
 \ 'html' : {
 \    'indentation' : '  '
