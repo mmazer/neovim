@@ -770,6 +770,7 @@ if has("autocmd")
         autocmd FileType html,css,javascript setlocal iskeyword+=-
         autocmd FileType html setlocal shiftwidth=2 softtabstop=2 tabstop=2 foldmethod=manual
         autocmd FileType html setlocal autoindent
+        autocmd FileType scss setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
         autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
         autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
         autocmd FileType json command! Format :%!python -m json.tool<CR>
