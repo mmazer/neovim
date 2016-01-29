@@ -498,6 +498,9 @@ nnoremap <space>p :echo expand('%')<CR>
 command! Wlen :echo 'length of' expand('<cword>') 'is' strlen(substitute(expand('<cword>'), '.', 'x', 'g'))
 nnoremap \wc :Wlen<CR>
 
+" re-indent buffer and return to current position
+nnoremap g= gg=G``
+
 " }}}
 
 " spelling: {{{
