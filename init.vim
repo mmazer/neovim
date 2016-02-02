@@ -884,7 +884,7 @@ noremap gou :call OpenURI()<CR>
 
 " commands: {{{
 
-nnoremap gos :silent e ~/00INFOBASE/00INBOX/SCRATCH.txt<CR>
+nnoremap gos :silent e ~/00INFOBASE/01FILES/SCRATCH.md<CR>
 nnoremap goT :silent e ~/00INFOBASE/01FILES/TODO.taskpaper<CR>
 
 if executable("dos2unix")
