@@ -543,13 +543,13 @@ nmap <space> [ctrlp]
 nnoremap <silent> [ctrlp]a :<C-u>CtrlPBookmarkDirAdd<cr>
 nnoremap <silent> [ctrlp]b :Buffers<cr>
 nnoremap <silent> [ctrlp]c :History:<CR>
-nnoremap <silent> [ctrlp]C :<C-u>CtrlPClearCache<cr>
+nnoremap <silent> [ctrlp]C :BCommits<CR>
 nnoremap <silent> [ctrlp]f :Files<CR>
-nnoremap <silent> [ctrlp]l :BLines<CR>
+nnoremap <silent> [ctrlp]l :Lines<CR>
 nnoremap <silent> [ctrlp]m :Marks<CR>
 nnoremap <silent> [ctrlp]o :<C-u>CtrlPBookmarkDir<cr>
 nnoremap <silent> [ctrlp]q :<C-u>CtrlPQuickfix<cr>
-nnoremap <silent> [ctrlp]s :History/<CR>
+nnoremap <silent> [ctrlp]s :BLines<CR>
 nnoremap <silent> [ctrlp]t :<C-u>CtrlPBufTag<cr>
 nnoremap <silent> [ctrlp]u :<C-u>CtrlPMRUFiles<cr>
 
