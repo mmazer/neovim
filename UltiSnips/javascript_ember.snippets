@@ -32,3 +32,12 @@ snippet emget
 get('${1:key}')
 endsnippet
 
+snippet emfor
+${1}.forEach(${2}) {
+  $0
+};
+endsnippet
+
+snippet emg "ember get" w
+${1}.get('${2}')${0}
+endsnippet
