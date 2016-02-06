@@ -244,11 +244,10 @@ set statusline+=%{&paste?'\ (paste)':'\ '}
 set statusline+=\|
 set statusline+=\ %{Branch()}
 set statusline+=\ %f
-set statusline+=\ \[\#%n\]
+set statusline+=\ %y      "filetype
 set statusline+=%(\[%R%M\]%)      "modified flag
 set statusline+=%=
 set statusline+=\ %{StatuslineWhitespace()}
-set statusline+=\ %y      "filetype
 set statusline+=\ %{&ff}  "file format
 set statusline+=:%{Fenc()} " file encoding
 set statusline+=\ %{&expandtab?'\ (et)':'\ (noet)'}
