@@ -313,11 +313,11 @@ function! StatuslineWhitespace()
     let trailing = search('\s\+$', 'nw') != 0
     if trailing
         let trailing_warning = 'trail'
-     else
+    else
         let trailing_warning = ''
-     endif
+    endif
 
-     " check indents
+    " check indents
     let tabs = search('^\t', 'nw') != 0
     let spaces = search('^ ', 'nw') != 0
     let mixed = tabs && spaces
@@ -718,10 +718,10 @@ nnoremap \ :Ag<space>
 " emmet:
 let g:user_emmet_expandabbr_key = '<C-e>'
 let g:user_emmet_settings = {
-\ 'html' : {
-\    'indentation' : '  '
-\ },
-\}
+            \ 'html' : {
+            \    'indentation' : '  '
+            \ },
+            \}
 " }}}
 imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
@@ -736,7 +736,7 @@ map <Leader>k :SlimuxSendKeysLast<CR>
 let g:indent_guides_guide_size = 1
 nmap <space>ig <Plug>IndentGuidesToggle
 
-" autocommands: {{{
+" autocmds: {{{
 if has("autocmd")
     augroup Neomake
         autocmd!
@@ -805,7 +805,7 @@ endfunction
 nnoremap gol :call QuickLook()<CR>
 
 function! Marked()
-        exec ":silent !marked \"%\""
+    exec ":silent !marked \"%\""
 endfunction
 command! Marked :call Marked()
 
@@ -829,7 +829,7 @@ endfunction
 command! Strip :call StripTrailingWhitespace()
 
 function! SyntaxItem()
-  return synIDattr(synID(line("."),col("."),1),"name")
+    return synIDattr(synID(line("."),col("."),1),"name")
 endfunction
 command! Syntax :echo SyntaxItem()
 
