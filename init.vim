@@ -67,6 +67,7 @@ Plug 'epeli/slimux'
 
 Plug 'nathanaelkane/vim-indent-guides'
 
+Plug 'qpkorr/vim-bufkill'
 call plug#end()
 
 " }}}
