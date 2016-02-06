@@ -21,8 +21,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'FelikZ/ctrlp-py-matcher'
 
-Plug 'scrooloose/syntastic'
-
+Plug 'benekastah/neomake'
 
 Plug 'majutsushi/tagbar'
 
@@ -244,7 +243,6 @@ set statusline+=\ %{Branch()}
 set statusline+=\ %f
 set statusline+=\ \[\#%n\]
 set statusline+=%(\[%R%M\]%)      "modified flag
-set statusline+=\ %{SyntasticStatuslineFlag()}
 set statusline+=%=
 set statusline+=\ %{StatuslineWhitespace()}
 set statusline+=\ %y      "filetype
@@ -607,33 +605,23 @@ let g:tagbar_type_javascript = {
 \ }
 
 let g:tagbar_type_html = {
-    \ 'ctagstype'   :'xml',
-    \ 'kinds'       : [
-        \ 'e:elements'
-    \ ]
-\ }
+            \ 'ctagstype'   :'xml',
+            \ 'kinds'       : [
+            \ 'e:elements'
+            \ ]
+            \ }
 
-" syntastic:
-let g:syntastic_check_on_open = 0
-let g:syntastic_filetype_map = {
-    \ "html.handlebars": "handlebars"
-    \ }
-let g:syntastic_javascript_checkers=['jshint', 'jscs']
-let g:syntastic_error_symbol='E:'
-let g:syntastic_warning_symbol='W:'
-let g:syntastic_always_populate_loc_list= 1
-let g:syntastic_python_checkers=['flake8']
-let g:syntastic_stl_format = '| ✗ %E{E: %fe #%e}%B{, }%W{W: %fw #%w} | '
-
-let g:syntastic_mode_map = { 'mode': 'active',
-            \ 'passive_filetypes': ['xml', 'java'] }
-
-let g:syntastic_html_tidy_exec = 'tidy5'
-let g:syntastic_html_tidy_ignore_errors = [
-    \ " proprietary attribute "
-    \ ]
-
-nnoremap <Leader>s :SyntasticCheck<CR>
+" neomake:
+let g:neomake_open_list=1
+let g:neomake_javascript_enabled_makers = ['jshint', 'jscs']
+let g:neomake_error_sign = {
+        \ 'text': 'E>',
+        \ 'texthl': 'ErrorMsg',
+        \ }
+let g:neomake_warning = {
+        \ 'text': 'W>',
+        \ 'texthl': 'ErrorMsg',
+        \ }
 
 " pymode
 let g:pymode_lint = 0
@@ -748,6 +736,11 @@ nmap <space>ig <Plug>IndentGuidesToggle
 
 " autocommands: {{{
 if has("autocmd")
+    augroup Neomake
+        autocmd!
+        autocmd! BufWritePost * Neomake
+    augroup END
+
     augroup Preview
         autocmd!
         autocmd CompleteDone * pclose
