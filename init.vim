@@ -17,6 +17,8 @@ Plug 'tpope/vim-surround'
 
 Plug 'tpope/vim-unimpaired'
 
+Plug 'tpope/vim-commentary'
+
 Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'FelikZ/ctrlp-py-matcher'
