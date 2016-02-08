@@ -850,7 +850,8 @@ function! Setcwd()
     endfo
     exe 'lc!' fnameescape(wd == '' ? cph : substitute(wd, mkr.'$', '.', ''))
 endfunction
-command! Cd :silent call Setcwd() | pwd
+command! Cd :silent call Setcwd()
+nnoremap gop :Cd<CR>:pwd<CR>
 
 function! OpenURI()
     " 2011-01-21 removed colon ':' from regexp to allow for port numbers in URLs
