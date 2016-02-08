@@ -248,10 +248,10 @@ set statusline+=\ %y      "filetype
 set statusline+=%(\[%R%M\]%)      "modified flag
 set statusline+=%=
 set statusline+=\ %{StatuslineWhitespace()}
-set statusline+=\ %{&ff}  "file format
-set statusline+=:%{Fenc()} " file encoding
 set statusline+=\ %{&expandtab?'\ (et)':'\ (noet)'}
-set statusline+=\ %5.l/%L\:%c\    "cursor line/total lines:column
+set statusline+=\ %{&ff}  "file format
+set statusline+=\ %{Fenc()} " file encoding
+set statusline+=\ %5.l/%L\:%3.c\    "cursor line/total lines:column
 
 " Adapted from https://github.com/maciakl/vim-neatstatus
 function! Mode()
