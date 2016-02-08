@@ -284,7 +284,7 @@ function! Branch()
     endif
 
     let branch = fugitive#head()
-    return empty(branch) ? '' : '{git:'.branch.'}'
+    return empty(branch) ? '' : '{'.branch.'}'
 endfunction
 
 function! Fenc()
