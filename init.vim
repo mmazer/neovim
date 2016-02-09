@@ -723,7 +723,6 @@ let g:user_emmet_settings = {
             \ },
             \}
 " }}}
-imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
 
 " slimux:
 map <Leader>c :SlimuxShellPrompt<CR>
