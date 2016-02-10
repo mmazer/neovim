@@ -664,16 +664,6 @@ endfunction
 command! GdiffUnstaged :call GitDiffUnstaged()
 nnoremap <space>gu :GdiffUnstaged<CR>
 
-function! GitDiffBuf()
-    let fname = expand('%')
-    new
-    exec "r! git diff ".printf('%s', fname)
-    :normal ggdd
-    setlocal ft=diff bt=nofile bh=wipe nobl noswf ro
-    nnoremap <buffer> q :bw<cr>
-endfunction
-nnoremap Gb :call GitDiffBuf()<CR>
-
 function! GitIncoming()
     new
     r !git log --pretty=oneline --abbrev-commit --graph ..@{u}
