@@ -504,6 +504,11 @@ nnoremap g= gg=G``
 
 " completion
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" center after next/previous change
+nnoremap ]c ]czz
+nnoremap [c [czz
+
 " }}}
 
 " spelling: {{{
