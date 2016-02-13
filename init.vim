@@ -502,6 +502,8 @@ nnoremap \wc :Wlen<CR>
 " re-indent buffer and return to current position
 nnoremap g= gg=G``
 
+" completion
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " }}}
 
 " spelling: {{{
