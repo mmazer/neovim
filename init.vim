@@ -622,15 +622,15 @@ let g:tagbar_type_html = {
             \ }
 
 " neomake:
-let g:neomake_open_list=1
+let g:neomake_open_list=2
 let g:neomake_javascript_enabled_makers = ['jshint', 'jscs']
 let g:neomake_error_sign = {
         \ 'text': 'E>',
-        \ 'texthl': 'ErrorMsg',
+        \ 'texthl': 'ErrorMsg'
         \ }
-let g:neomake_warning = {
+let g:neomake_warning_sign = {
         \ 'text': 'W>',
-        \ 'texthl': 'ErrorMsg',
+        \ 'texthl': 'ErrorMsg'
         \ }
 
 " pymode
