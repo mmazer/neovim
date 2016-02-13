@@ -756,7 +756,7 @@ if has("autocmd")
         autocmd!
         autocmd FileType cucumber setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
         autocmd BufRead fugitive\:* xnoremap <buffer> dp :diffput<CR>|xnoremap <buffer> do :diffget<CR>
-        autocmd BufReadPost fugitive://* set bufhidden=delete
+        autocmd BufNewFile,BufRead fugitive://* set bufhidden=delete
         autocmd FileType gitcommit setlocal cursorline spell
         autocmd FileType handlebars setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
         autocmd FileType html.handlebars setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
