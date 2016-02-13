@@ -65,6 +65,8 @@ Plug 'epeli/slimux'
 
 Plug 'nathanaelkane/vim-indent-guides'
 
+Plug 'mmazer/vim-http-client'
+
 Plug 'qpkorr/vim-bufkill'
 call plug#end()
 
@@ -718,6 +720,10 @@ let g:user_emmet_settings = {
             \    'indentation' : '  '
             \ },
             \}
+" http-client
+nnoremap [r :HTTPClientDoRequest<CR>
+command! Rest :HTTPClientDoRequest
+
 " }}}
 
 " slimux:
