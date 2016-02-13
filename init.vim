@@ -543,7 +543,8 @@ nnoremap <silent> [ctrlp]a :<C-u>CtrlPBookmarkDirAdd<cr>
 nnoremap <silent> [ctrlp]b :Buffers<cr>
 nnoremap <silent> [ctrlp]c :History:<CR>
 nnoremap <silent> [ctrlp]C :BCommits<CR>
-nnoremap <silent> [ctrlp]f :Files<CR>
+nnoremap <silent> [ctrlp]e :Files<CR>
+nnoremap <silent> [ctrlp]f :GitFiles<CR>
 nnoremap <silent> [ctrlp]l :Lines<CR>
 nnoremap <silent> [ctrlp]m :Marks<CR>
 nnoremap <silent> [ctrlp]o :<C-u>CtrlPBookmarkDir<cr>
