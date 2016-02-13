@@ -43,8 +43,6 @@ Plug 'mattn/calendar-vim'
 
 Plug 'pangloss/vim-javascript'
 
-Plug 'beyondwords/vim-twig'
-
 Plug 'klen/python-mode'
 
 Plug 'mustache/vim-mustache-handlebars'
