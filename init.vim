@@ -1,3 +1,5 @@
+" Variables: {{{
+
 let g:nvim_config = "~/.config/nvim"
 let g:nvimrc = g:nvim_config . "/init.vim"
 let g:localrc = g:nvim_config . "/local.vim"
@@ -5,7 +7,9 @@ let g:localrc = g:nvim_config . "/local.vim"
 let g:nvim_config_use_relinsert = 0
 let g:nvim_config_abbrvs = g:nvim_config . "/abbr.vim"
 
-" plugins: {{{
+" }}}
+
+" Loading Plugins: {{{
 
 call plug#begin(g:nvim_config . '/bundle')
 
@@ -73,42 +77,53 @@ call plug#end()
 
 " }}}
 
-" basic: {{{
+" Basics: {{{
 
 filetype plugin indent on
-set cursorline
-set scrolloff=2
-set listchars=tab:▸\ ,trail:·,nbsp:¬
-set list
-set shortmess=aTItoO
-set ruler
-set noshowcmd
-set showmatch
-
-" disable bell/visual bell
-set noeb vb t_vb=
-if has("autocmd")
-    augroup visual_bell
-        autocmd GUIEnter * set vb t_vb=
-    augroup END
-endif
 
 "}}}
 
-" line numbers: {{{
+" Moving: {{{
 
-set number
-if (has("autocmd") && g:nvim_config_use_relinsert)
-    augroup insert_number
-        autocmd!
-        autocmd InsertEnter * set norelativenumber
-        autocmd InsertLeave * set relativenumber
-    augroup END
-endif
+nnoremap g[ gg
+nnoremap g] G
 
-"}}}
+" Better mark jumping (line + col)
+nnoremap <expr> ' printf('`%c zz', getchar())
 
-" search: {{{
+nnoremap \c "+y
+vnoremap \c "+y
+nnoremap \p "+p
+
+" For wrapped lines, navigate normally
+noremap  <buffer> <silent> k gk
+noremap  <buffer> <silent> j gj
+noremap  <buffer> <silent> 0 g0
+noremap  <buffer> <silent> $ g$
+
+nnoremap K H
+" preserve J
+nnoremap <space>j J
+nnoremap J L
+noremap H ^
+noremap L $
+vnoremap L g_
+
+" center after next/previous change
+nnoremap ]c ]czz
+nnoremap [c [czz
+
+" center window when moving to next search match
+nnoremap n nzzzv
+nnoremap N Nzzzv
+nnoremap * *zz
+nnoremap # #zz
+nnoremap g* g*zz
+nnoremap g# g#zz
+
+" }}}
+
+" Searching: {{{
 
 set incsearch
 set hlsearch
@@ -127,7 +142,136 @@ vnoremap / /\v
 
 " }}}
 
-" indentation: {{{
+" Displaying Text: {{{
+
+set listchars=tab:▸\ ,trail:·,nbsp:¬
+set list
+set number
+if (has("autocmd") && g:nvim_config_use_relinsert)
+    augroup insert_number
+        autocmd!
+        autocmd InsertEnter * set norelativenumber
+        autocmd InsertLeave * set relativenumber
+    augroup END
+endif
+
+set scrolloff=2
+set wrap linebreak textwidth=0
+
+"}}}
+
+" Syntax: {{{
+
+syntax on
+syntax sync minlines=256
+
+" }}}
+
+" Highlighting: {{{
+
+set cursorline
+let &colorcolumn="100,120"
+
+" }}}
+
+" Messages: {{{
+
+" disable bell/visual bell
+set noeb vb t_vb=
+if has("autocmd")
+    augroup visual_bell
+        autocmd GUIEnter * set vb t_vb=
+    augroup END
+endif
+set noshowcmd
+set ruler
+set shortmess=aTItoO
+
+"}}}
+
+" Editing Text: {{{
+
+set completeopt=longest,menuone,preview
+set showmatch
+" avoid the escape key - remember <C-[> also maps to Esc
+inoremap kj <ESC>`^
+
+" Save last search and cursor position before executing a command
+" http://technotales.wordpress.com/2010/03/31/preserve-a-vim-function-that-keeps-your-state/
+function! Preserve(command)
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    execute a:command
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+
+function! StripTrailingWhitespace()
+    call Preserve("%s/\\s\\+$//e")
+endfunction
+command! Strip :call StripTrailingWhitespace()
+nnoremap =S :Strip<CR>
+
+" reselect visual block after indent
+vnoremap < <gv
+vnoremap > >gv
+
+" Use ,d (or ,dd or ,dj or 20,dd) to delete a line without adding it to the
+" yanked stack (also, in visual mode)
+nnoremap <silent> <leader>d "_d
+vnoremap <silent> <leader>d "_d
+
+" Quick yanking to the end of the line
+nnoremap Y y$
+
+" make it easier to work with some text objects
+vnoremap ir i]
+vnoremap ar a]
+vnoremap ia i>
+vnoremap aa a>
+onoremap ir i]
+onoremap ar a]
+onoremap ia i>
+onoremap aa a>
+
+" end lines with semicolons
+inoremap ;] <C-o>:call Preserve("s/\\s\*$/;/")<CR>
+nnoremap <space>; :call Preserve("s/\\s\*$/;/")<CR>
+
+" end lines with commas
+inoremap ,] <C-o>:call Preserve("s/\\s\*$/,/")<CR>
+nnoremap <space>, :call Preserve("s/\\s\*$/,/")<CR>
+
+" toggle case of words
+nnoremap [w gUiw
+nnoremap ]w guiw
+
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" re-indent buffer and return to current position
+nnoremap g= gg=G``
+
+" http://vim.wikia.com/wiki/Show_the_length_of_the_current_word
+command! Wlen :echo 'length of' expand('<cword>') 'is' strlen(substitute(expand('<cword>'), '.', 'x', 'g'))
+nnoremap \wc :Wlen<CR>
+
+" Source lines - from Steve Losh
+vnoremap X y:execute @@<cr>:echo 'Sourced selection.'<cr>
+nnoremap X ^vg_y:execute @@<cr>:echo 'Sourced line.'<cr>
+
+" copy/yank filename
+nnoremap <Leader>cf :let @+=expand('%:p')<CR>
+nnoremap <Leader>cn :let @+=expand('%')<CR>
+nnoremap <Leader>yf :let @"=expand('%:p')<CR>
+nnoremap <Leader>yn :let @"=expand('%')<CR>
+
+" }}} Editing Text
+
+" Tabs and Indentation: {{{
 
 set expandtab
 set shiftwidth=4
@@ -148,15 +292,10 @@ function! TabToggle()
   endif
 endfunction
 nnoremap coe :call TabToggle()<CR>
-"}}}
-
-" line wrap: {{{
-
-set wrap linebreak textwidth=0
 
 "}}}
 
-" folding: {{{
+" Folding: {{{
 
 set foldmethod=syntax                   "fold based on indent
 set foldnestmax=2                       "deepest fold is 10 levels
@@ -193,51 +332,93 @@ function! CustomFoldText()
 endfunction
 set foldtext=CustomFoldText()
 
-" }}}
+" toggling following vim-unimpaired
+nnoremap [of :setlocal foldcolumn=3<CR>
+nnoremap ]of :setlocal foldcolumn=0<CR>
 
-" files: {{{
+" }}} Folding
 
-set modeline
+" Reading and Writing Files: {{{
+
+set autoread
 set ffs=unix,dos,mac "Default file types
 set ff=unix " set initial buffer file format
+set modeline
+
 set noswapfile
 set backup
 set backupdir=$HOME/.local/share/nvim/backup//
-set autoread
 
 nnoremap g! :e!<CR>
+nnoremap <space>w :w<CR>
+nnoremap <space>W :w!<CR>
+nnoremap <C-s> :w!<CR>
+inoremap <C-s> <C-o>:w!<CR>
+
+" show full path of file
+nnoremap <space>p :echo expand('%')<CR>
+
+noremap gov :execute 'edit' g:nvimrc <CR>
+nnoremap gos :silent e ~/00INFOBASE/01FILES/SCRATCH.md<CR>
+nnoremap goT :silent e ~/00INFOBASE/01FILES/TODO.taskpaper<CR>
 
 " }}}
 
-" syntax: {{{
-
-syntax on
-syntax sync minlines=256
-
-" }}}
-
-" windows: {{{
+" Windows and Buffers: {{{
 
 set hidden
 set splitbelow
 set splitright
 
+" manage windows
+nnoremap W <C-w>
+
+" window navigation: use ctrl-h/j/k/l to switch between splits
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
+
+" Resize windows using a reasonable amount
+" http://flaviusim.com/blog/resizing-vim-window-splits-like-a-boss/
+noremap <silent>  //+ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> //- :exe "resize " . (winheight(0) * 2/3)<CR>
+
+nnoremap <space>B :b#<CR>
+nnoremap <space>d :bp \| bd #<CR>
+
+" goto buffer
+nnoremap gb :ls<CR>:b
+
+" quick fix window
+nnoremap oq :copen<CR>
+nnoremap qq :cclose<CR>
+
+" location list
+nnoremap ol :lopen<CR>
+nnoremap ql :lclose<CR>
+
 "}}}
 
-" buffers: {{{
+" Tab Pages: {{{
 
-" }}}
+nnoremap th  :tabfirst<CR>
+nnoremap tj  :tabnext<CR>
+nnoremap tk  :tabprev<CR>
+nnoremap tl  :tablast<CR>
+nnoremap td  :tabclose<CR>
 
-" colors: {{{
+"}}}
+
+" Colors: {{{
 
 set t_Co=256
 colorscheme monokai
 set background=dark
-let &colorcolumn="100,120"
 
 " }}}
 
-" status line: {{{
+" Statusline: {{{
 
 set laststatus=2
 set statusline=%{Mode()}
@@ -350,182 +531,25 @@ augroup statusline_whitespace
     autocmd CursorHold,BufWritePost * unlet! b:statusline_whitespace
 augroup END
 
-" }}}
+" }}} Statusline
 
-" completion: {{{
-
-set completeopt=longest,menuone,preview
-
-" }}}
-
-" mappings: {{{
+" Command Line: {{{
 
 nmap <space><space> :
 nmap <space>h :h<space>
-
-" Avoid the escape key - remember <C-[> also maps to Esc
-inoremap kj <ESC>`^
-
-nnoremap g[ gg
-nnoremap g] G
-
-" Better mark jumping (line + col)
-nnoremap <expr> ' printf('`%c zz', getchar())
-
-nnoremap \c "+y
-vnoremap \c "+y
-nnoremap \p "+p
-
-" For wrapped lines, navigate normally
-noremap  <buffer> <silent> k gk
-noremap  <buffer> <silent> j gj
-noremap  <buffer> <silent> 0 g0
-noremap  <buffer> <silent> $ g$
-
-nnoremap <silent> Q :qa!<CR>
-
-noremap gov :execute 'edit' g:nvimrc <CR>
-
-nnoremap <space>W :w!<CR>
-command! W :w!
-
-" for use in terminal - c-s must be disabled using stty -ixon
-nnoremap <C-s> :w!<CR>
-inoremap <C-s> <C-o>:w!<CR>
-nnoremap <space>w :w<CR>
-nnoremap <space>B :b#<CR>
-nnoremap <space>d :bp \| bd #<CR>
-
-" goto buffer
-nnoremap gb :ls<CR>:b
-
-" Source lines - from Steve Losh
-vnoremap X y:execute @@<cr>:echo 'Sourced selection.'<cr>
-nnoremap X ^vg_y:execute @@<cr>:echo 'Sourced line.'<cr>
-
-nnoremap <space>j J
-
-nnoremap K H
-nnoremap J L
-noremap H ^
-noremap L $
-vnoremap L g_
-
-" reselect visual block after indent
-vnoremap < <gv
-vnoremap > >gv
-
-" Use ,d (or ,dd or ,dj or 20,dd) to delete a line without adding it to the
-" yanked stack (also, in visual mode)
-nnoremap <silent> <leader>d "_d
-vnoremap <silent> <leader>d "_d
-
-" Quick yanking to the end of the line
-nnoremap Y y$
-
-" manage windows
-nnoremap W <C-w>
-
-" window navigation: use ctrl-h/j/k/l to switch between splits
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-nnoremap <C-h> <C-w>h
-
-" Resize windows using a reasonable amount
-" http://flaviusim.com/blog/resizing-vim-window-splits-like-a-boss/
-noremap <silent>  //+ :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> //- :exe "resize " . (winheight(0) * 2/3)<CR>
-
-" tab navigation
-nnoremap th  :tabfirst<CR>
-nnoremap tj  :tabnext<CR>
-nnoremap tk  :tabprev<CR>
-nnoremap tl  :tablast<CR>
-nnoremap td  :tabclose<CR>
-
-" center window when moving to next search match
-nnoremap n nzzzv
-nnoremap N Nzzzv
-nnoremap * *zz
-nnoremap # #zz
-nnoremap g* g*zz
-nnoremap g# g#zz
-
-" toggling following vim-unimpaired
-nnoremap [of :setlocal foldcolumn=3<CR>
-nnoremap ]of :setlocal foldcolumn=0<CR>
-
-" make it easier to work with some text objects
-vnoremap ir i]
-vnoremap ar a]
-vnoremap ia i>
-vnoremap aa a>
-onoremap ir i]
-onoremap ar a]
-onoremap ia i>
-onoremap aa a>
-
 nnoremap gh :h<space>
-
-" quick fix window
-nnoremap oq :copen<CR>
-nnoremap qq :cclose<CR>
-
-nnoremap ol :lopen<CR>
-nnoremap ql :lclose<CR>
-
-" end lines with semicolons
-inoremap ;] <C-o>:call Preserve("s/\\s\*$/;/")<CR>
-nnoremap <space>; :call Preserve("s/\\s\*$/;/")<CR>
-
-" end lines with commas
-inoremap ,] <C-o>:call Preserve("s/\\s\*$/,/")<CR>
-nnoremap <space>, :call Preserve("s/\\s\*$/,/")<CR>
-
-" toggle case of words
-nnoremap [w gUiw
-nnoremap ]w guiw
-
-" copy/yank filename
-nnoremap <Leader>cf :let @+=expand('%:p')<CR>
-nnoremap <Leader>cn :let @+=expand('%')<CR>
-nnoremap <Leader>yf :let @"=expand('%:p')<CR>
-nnoremap <Leader>yn :let @"=expand('%')<CR>
-
-" show full path of file
-nnoremap <space>p :echo expand('%')<CR>
-
-" http://vim.wikia.com/wiki/Show_the_length_of_the_current_word
-command! Wlen :echo 'length of' expand('<cword>') 'is' strlen(substitute(expand('<cword>'), '.', 'x', 'g'))
-nnoremap \wc :Wlen<CR>
-
-" re-indent buffer and return to current position
-nnoremap g= gg=G``
-
-" completion
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" center after next/previous change
-nnoremap ]c ]czz
-nnoremap [c [czz
+nnoremap <silent> Q :qa!<CR>
 
 " }}}
 
-" spelling: {{{
+" Spelling: {{{
 
 set spelllang=en
 set spellfile=~/.config/nvim/spell/spellfile.en.add
 
 "}}}
 
-" macros: {{{
-
-runtime macros/matchit.vim
-
-" }}}
-
-" plugin settings: {{{
+" Plugin Settings: {{{
 
 " nerdtree
 let NERDChristmasTree=1
@@ -544,8 +568,8 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsListSnippets="<c-h>"
 
-" ctrlp:
-" fzf:
+" ctrlp/fzf: {{{2
+
 nmap <space> [ctrlp]
 nnoremap <silent> [ctrlp]a :<C-u>CtrlPBookmarkDirAdd<cr>
 nnoremap <silent> [ctrlp]b :Buffers<cr>
@@ -560,7 +584,6 @@ nnoremap <silent> [ctrlp]q :<C-u>CtrlPQuickfix<cr>
 nnoremap <silent> [ctrlp]s :BLines<CR>
 nnoremap <silent> [ctrlp]t :<C-u>CtrlPBufTag<cr>
 nnoremap <silent> [ctrlp]u :<C-u>CtrlPMRUFiles<cr>
-
 
 let g:ctrlp_extensions = ['quickfix', 'undo', 'line', 'changes', 'mixed', 'buffertag', 'bookmarkdir']
 let g:ctrlp_match_window_bottom = 1 " Show at top of window
@@ -597,13 +620,17 @@ let g:ctrlp_buftag_types = {
     \ 'sh'          : '--language-force=sh'
     \ }
 
-" ag
+" }}} ctrlp/fzf
+
+" ag:
+
 " start search from project root
 let g:ag_working_mode="r"
 " workaround conflict with fzf.vim
-command! -bang -nargs=* -complete=file Agg call ag#Ag('grep<bang>',<q-args>)
+command! -bang -nargs=* -complete=file AG call ag#Ag('grep<bang>',<q-args>)
+nnoremap \\ :AG<space>
 
-" tagbar
+" tagbar: {{{2
 noremap <silent> [ot :TagbarOpen fg<CR>
 noremap <silent> ]ot :TagbarClose<CR>
 noremap <silent> cot :TagbarToggle<CR>
@@ -622,6 +649,7 @@ let g:tagbar_type_html = {
             \ 'e:elements'
             \ ]
             \ }
+"}}}
 
 " neomake:
 let g:neomake_open_list=2
@@ -638,7 +666,8 @@ let g:neomake_warning_sign = {
 " pymode
 let g:pymode_lint = 0
 
-" fugitive:
+" fugitive: {{{2
+
 nnoremap <space>gs :Gstatus<CR>
 nnoremap <space>gb :Gblame<CR>
 nnoremap <space>gc :Gcommit -v -q <CR>
@@ -692,7 +721,9 @@ endfunction
 command! Goutgoing :call GitOutgoing()
 nnoremap Go :Goutgoing<CR>
 
-" gitgutter
+"}}} fugitive
+
+" gitgutter {{{2
 
 let g:gitgutter_enabled = 0
 let g:gitgutter_diff_args = '-w'
@@ -708,12 +739,10 @@ nnoremap [gg :GitGutterPrevHun<CR>zz
 
 nnoremap [gh :GitGutterStageHunk<CR>
 nnoremap ]gh :GitGutterRevertHunk<CR>
+"}}}
 
 " calendar:
 command! -nargs=* Cal call calendar#show(1, <f-args>)
-
-" ag
-nnoremap \ :Ag<space>
 
 " emmet:
 let g:user_emmet_expandabbr_key = '<C-e>'
@@ -722,11 +751,9 @@ let g:user_emmet_settings = {
             \    'indentation' : '  '
             \ },
             \}
-" http-client
+" http-client:
 nnoremap [r :HTTPClientDoRequest<CR>
 command! Rest :HTTPClientDoRequest
-
-" }}}
 
 " slimux:
 map <Leader>c :SlimuxShellPrompt<CR>
@@ -739,7 +766,10 @@ map <Leader>k :SlimuxSendKeysLast<CR>
 let g:indent_guides_guide_size = 1
 nmap <space>ig <Plug>IndentGuidesToggle
 
-" autocmds: {{{
+" }}} Plugin Settings
+
+" AutoGroups: {{{
+
 if has("autocmd")
     augroup Neomake
         autocmd!
@@ -788,7 +818,7 @@ endif
 
 " }}}
 
-" functions: {{{
+" Functions: {{{
 
 function! DateTimeStamp()
     return strftime("%H:%M-%m.%d.%Y")
@@ -811,25 +841,6 @@ function! Marked()
     exec ":silent !marked \"%\""
 endfunction
 command! Marked :call Marked()
-
-" Save last search and cursor position before executing a command
-" http://technotales.wordpress.com/2010/03/31/preserve-a-vim-function-that-keeps-your-state/
-function! Preserve(command)
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    execute a:command
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
-endfunction
-
-function! StripTrailingWhitespace()
-    call Preserve("%s/\\s\\+$//e")
-endfunction
-command! Strip :call StripTrailingWhitespace()
 
 function! SyntaxItem()
     return synIDattr(synID(line("."),col("."),1),"name")
@@ -882,23 +893,18 @@ noremap gou :call OpenURI()<CR>
 
 " }}}
 
-" commands: {{{
+" Abbreviations: {{{
 
-nnoremap gos :silent e ~/00INFOBASE/01FILES/SCRATCH.md<CR>
-nnoremap goT :silent e ~/00INFOBASE/01FILES/TODO.taskpaper<CR>
-
-if executable("dos2unix")
-    command! Dos2Unix :%!dos2unix
-endif
-" }}}
-
-" abbreviations: {{{
 if filereadable(glob(g:nvim_config_abbrvs))
     exec 'source' g:nvim_config_abbrvs
 endif
 
-" local configuration
+" }}}
+
+" Local Configuration: {{{
+
 if filereadable(glob(g:localrc))
     exec 'source' g:localrc
 endif
 
+" }}}
