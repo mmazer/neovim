@@ -11,7 +11,7 @@ let g:colors_name = "monokai"
 
 hi Normal           ctermfg=231 ctermbg=235 cterm=NONE guifg=#f8f8f2 guibg=#272822 gui=NONE
 hi StatusLine       ctermfg=231 ctermbg=241 cterm=NONE guifg=#f8f8f2 guibg=#64645e gui=NONE
-hi StatusLineNC     ctermfg=231 ctermbg=237 cterm=NONE guifg=#f8f8f2 guibg=#3c3d37 gui=NONE
+hi StatusLineNC     ctermfg=241 ctermbg=237 cterm=NONE guifg=#f8f8f2 guibg=#3c3d37 gui=NONE
 hi Cursor           ctermfg=235 ctermbg=231 cterm=NONE guifg=#272822 guibg=#f8f8f0 gui=NONE
 hi CursorLine       ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#3c3d37 gui=NONE
 hi ColorColumn      ctermfg=NONE ctermbg=237 cterm=NONE guifg=NONE guibg=#3c3d37 gui=NONE
