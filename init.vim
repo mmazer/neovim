@@ -448,14 +448,15 @@ function! Mode()
 
     let l:mode = mode()
 
-    if     mode ==# "n"  | return "NOR"
-    elseif mode ==# "i"  | return "INS"
-    elseif mode ==# "c"  | return "COM"
-    elseif mode ==# "!"  | return "SHE"
-    elseif mode ==# "R"  | return "REP"
-    elseif mode ==# "v"  | return "VIS"
-    elseif mode ==# "V"  | return "V-L"
-    elseif mode ==# ""   | return "V-B"
+    if     mode ==# "n"  | return "N"
+    elseif mode ==# "i"  | return "I"
+    elseif mode ==# "c"  | return "C"
+    elseif mode ==# "!"  | return "S"
+    elseif mode ==# "R"  | return "R"
+    elseif mode ==# "t"  | return "T"
+    elseif mode ==# "v"  | return "V"
+    elseif mode ==# "V"  | return "L"
+    elseif mode ==# ""   | return "B"
     else                 | return l:mode
     endif
 endfunction
@@ -466,7 +467,7 @@ function! Branch()
     endif
 
     let branch = fugitive#head()
-    return empty(branch) ? '' : '{'.branch.'}'
+    return empty(branch) ? '' : "git:".branch
 endfunction
 
 function! Fenc()
