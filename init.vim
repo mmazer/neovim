@@ -49,7 +49,7 @@ Plug 'pangloss/vim-javascript'
 
 Plug 'klen/python-mode'
 
-Plug 'mustache/vim-mustache-handlebars'
+Plug 'joukevandermaas/vim-ember-hbs'
 
 Plug 'tpope/vim-markdown'
 
@@ -796,7 +796,6 @@ if has("autocmd")
         autocmd BufNewFile,BufRead fugitive://* set bufhidden=delete
         autocmd FileType gitcommit setlocal cursorline spell
         autocmd FileType handlebars setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
-        autocmd FileType html.handlebars setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
         autocmd FileType html,css,javascript setlocal iskeyword+=-
         autocmd FileType html setlocal shiftwidth=2 softtabstop=2 tabstop=2 foldmethod=manual
         autocmd FileType html setlocal autoindent
