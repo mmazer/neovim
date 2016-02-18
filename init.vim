@@ -390,12 +390,8 @@ nnoremap <space>d :bp \| bd #<CR>
 " goto buffer
 nnoremap gb :ls<CR>:b
 
-" quick fix window
-nnoremap oq :copen<CR>
+" close quick fix and location list
 nnoremap qq :cclose<CR>
-
-" location list
-nnoremap ol :lopen<CR>
 nnoremap ql :lclose<CR>
 
 "}}}
