@@ -580,7 +580,7 @@ nnoremap <silent> [ctrlp]s :BLines<CR>
 nnoremap <silent> [ctrlp]t :<C-u>CtrlPBufTag<cr>
 nnoremap <silent> [ctrlp]u :<C-u>CtrlPMRUFiles<cr>
 
-let g:ctrlp_extensions = ['quickfix', 'undo', 'line', 'changes', 'mixed', 'buffertag', 'bookmarkdir']
+let g:ctrlp_extensions = ['quickfix', 'buffertag', 'bookmarkdir']
 let g:ctrlp_match_window_bottom = 1 " Show at top of window
 let g:ctrlp_working_path_mode = 'ra' " Smart path mode
 let g:ctrlp_mru_files = 1 " Enable Most Recently Used files feature
