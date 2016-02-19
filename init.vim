@@ -49,7 +49,7 @@ Plug 'pangloss/vim-javascript'
 
 Plug 'klen/python-mode'
 
-Plug 'joukevandermaas/vim-ember-hbs'
+Plug 'mustache/vim-mustache-handlebars'
 
 Plug 'tpope/vim-markdown'
 
