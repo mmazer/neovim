@@ -418,18 +418,17 @@ set background=dark
 
 set laststatus=2
 set statusline=%{Mode()}
-set statusline+=%{&paste?'\ (paste)':'\ '}
-set statusline+=\|
+set statusline+=%{&paste?'\ [paste]':''}
 set statusline+=\ %{Branch()}
 set statusline+=\ %f
-set statusline+=\ %y      "filetype
 set statusline+=%(\[%R%M\]%)      "modified flag
 set statusline+=%=
 set statusline+=\ %{StatuslineWhitespace()}
-set statusline+=\ %{&expandtab?'\ (et)':'\ (noet)'}
+set statusline+=\ %y      "filetype
 set statusline+=\ %{&ff}  "file format
-set statusline+=\ %{Fenc()} " file encoding
-set statusline+=\ %5.l/%L\:%3.c\    "cursor line/total lines:column
+set statusline+=%{Fenc()} " file encoding
+set statusline+=\ %{&expandtab?'Spaces':'Tabs'}
+set statusline+=\ %5.l/%L\:%-3.c\    "cursor line/total lines:column
 
 " Adapted from https://github.com/maciakl/vim-neatstatus
 function! Mode()
@@ -463,19 +462,20 @@ function! Branch()
     endif
 
     let branch = fugitive#head()
-    return empty(branch) ? '' : "git:".branch
+    return empty(branch) ? '' : "(⎇ ".branch.")"
 endfunction
 
 function! Fenc()
-    if &fenc == ''
-        return "-"
+    let enc = &fenc
+    if enc == ''
+        return enc
     endif
 
-    if &fenc !~ "^$\|utf-8" || &bomb
-        return &fenc . (&bomb ? "-bom" : "" )
-    else
-        return "-"
+    if enc !~ "^$\|utf-8" || &bomb
+        let enc = enc . (&bomb ? "-bom" : "" )
     endif
+
+    return '('.enc.')'
 endfun
 
 " Detect trailing whitespace and mixed indentation
