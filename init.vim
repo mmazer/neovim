@@ -25,8 +25,6 @@ Plug 'tpope/vim-commentary'
 
 Plug 'ctrlpvim/ctrlp.vim'
 
-Plug 'FelikZ/ctrlp-py-matcher'
-
 Plug 'benekastah/neomake'
 
 Plug 'majutsushi/tagbar'
@@ -593,8 +591,6 @@ let g:ctrlp_follow_symlinks = 1
 let g:ctrlp_custom_ignore = {
     \ 'dir':  '.git\|.svn\|target\|node_modules\|.settings'
     \ }
-
-let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
 if executable('ag')
     let g:ctrlp_user_command = 'ag -l --nocolor --follow -g "" %s'
