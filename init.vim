@@ -425,7 +425,7 @@ set statusline+=\ %{StatuslineWhitespace()}
 set statusline+=\ %y      "filetype
 set statusline+=\ %{&ff}  "file format
 set statusline+=%{Fenc()} " file encoding
-set statusline+=\ %{&expandtab?'Spaces':'Tabs'}
+set statusline+=\ %{&expandtab?'spaces':'tabs'}
 set statusline+=\ %5.l/%L\:%-3.c\    "cursor line/total lines:column
 
 " Adapted from https://github.com/maciakl/vim-neatstatus
