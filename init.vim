@@ -384,6 +384,7 @@ nnoremap <silent> //- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 nnoremap <space>B :b#<CR>
 nnoremap <space>d :bp \| bd #<CR>
+nnoremap <space>D :BD<CR> " use buffkil
 
 " goto buffer
 nnoremap gb :ls<CR>:b
