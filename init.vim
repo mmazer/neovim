@@ -168,7 +168,7 @@ syntax sync minlines=256
 " Highlighting: {{{
 
 set cursorline
-let &colorcolumn="100,120"
+let &colorcolumn="110"
 
 " }}}
 
