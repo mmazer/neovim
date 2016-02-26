@@ -6,6 +6,7 @@ iab ddt <c-r>=ShortDate()<esc>
 iab acccount account
 iab becuase because
 iab collander colander
+iab emtpy empty
 iab iterm item
 iab negociate negotiate
 iab onself oneself
