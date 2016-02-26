@@ -408,8 +408,8 @@ nnoremap td  :tabclose<CR>
 " Colors: {{{
 
 set t_Co=256
-colorscheme monokai
 set background=dark
+colorscheme monokai
 
 " }}}
 
