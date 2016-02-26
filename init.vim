@@ -9,6 +9,12 @@ let g:nvim_config_abbrvs = g:nvim_config . "/abbr.vim"
 
 " }}}
 
+" Important: {{{
+
+let g:python_host_skip_check = 1
+
+" }}}
+
 " Loading Plugins: {{{
 
 call plug#begin(g:nvim_config . '/bundle')
