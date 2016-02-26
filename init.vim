@@ -710,7 +710,7 @@ function! GitIncoming()
     nnoremap <buffer> q :bw<cr>
 endfunction
 command! Gincoming :call GitIncoming()
-nnoremap Gi :Gincoming<CR>
+nnoremap <space>gi :Gincoming<CR>
 
 function! GitOutgoing()
     new
@@ -719,7 +719,7 @@ function! GitOutgoing()
     nnoremap <buffer> q :bw<cr>
 endfunction
 command! Goutgoing :call GitOutgoing()
-nnoremap Go :Goutgoing<CR>
+nnoremap <space>go :Goutgoing<CR>
 
 "}}} fugitive
 
