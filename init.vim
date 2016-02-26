@@ -151,7 +151,8 @@ vnoremap / /\v
 set listchars=tab:▸\ ,trail:·,nbsp:¬
 set list
 set number
-if (has("autocmd") && g:nvim_config_use_relinsert)
+if has("autocmd") && g:nvim_config_use_relinsert
+    set relativenumber
     augroup insert_number
         autocmd!
         autocmd InsertEnter * set norelativenumber
