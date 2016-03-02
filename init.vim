@@ -29,6 +29,8 @@ Plug 'tpope/vim-unimpaired'
 
 Plug 'tpope/vim-commentary'
 
+Plug 'tpope/vim-cucumber'
+
 Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'benekastah/neomake'
