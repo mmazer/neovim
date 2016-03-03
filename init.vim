@@ -784,6 +784,14 @@ if has("autocmd")
         autocmd CompleteDone * pclose
     augroup END
 
+    augroup Cursorline
+        autocmd!
+        autocmd WinEnter    * set cursorline
+        autocmd WinLeave    * set nocursorline
+        autocmd InsertEnter * set nocursorline
+        autocmd InsertLeave * set cursorline
+    augroup END
+
     " remove trailing whitespace
     augroup StripWhitespace
         autocmd!
