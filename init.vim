@@ -642,22 +642,7 @@ nnoremap \\ :AG<space>
 " tagbar: {{{2
 noremap <silent> [ot :TagbarOpen fg<CR>
 noremap <silent> ]ot :TagbarClose<CR>
-noremap <silent> cot :TagbarToggle<CR>
 
-let g:tagbar_type_javascript = {
-    \ 'ctagstype'   :'js',
-    \ 'kinds'       : [
-        \ 'o:objects',
-        \ 'f:functions'
-    \ ]
-\ }
-
-let g:tagbar_type_html = {
-            \ 'ctagstype'   :'xml',
-            \ 'kinds'       : [
-            \ 'e:elements'
-            \ ]
-            \ }
 "}}}
 
 " neomake:
