@@ -558,13 +558,13 @@ set spellfile=~/.config/nvim/spell/spellfile.en.add
 
 " Plugin Settings: {{{
 
-" nerdtree
+" nerdtree:
 let NERDChristmasTree=1
 let NERDTreeWinSize=35
 let NERDTreeDirArrows=1
 let NERDTreeIgnore=['\.pyc$']
 
-noremap <silent> <C-T> :NERDTreeToggle<CR>
+noremap <silent> cot :NERDTreeToggle<CR>
 noremap <space>nc :NERDTreeClose<CR>
 noremap <silent> gon :NERDTreeFind<CR>
 noremap <space>no :NERDTree %:p:h<CR>
