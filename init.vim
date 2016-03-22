@@ -79,6 +79,8 @@ Plug 'mmazer/vim-http-client'
 
 Plug 'qpkorr/vim-bufkill'
 
+Plug 'ajh17/VimCompletesMe'
+
 call plug#end()
 
 " }}}
@@ -614,6 +616,7 @@ endif
 let g:ctrlp_buftag_types = {
     \ 'javascript'  : '--language-force=js',
     \ 'css'         : '--language-force=css',
+    \ 'scss'        : '--language-force=css',
     \ 'gsp'         : '--language-force=XML',
     \ 'xml'         : '--language-force=XML',
     \ 'spring'      : '--language-force=XML',
