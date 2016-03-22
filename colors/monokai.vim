@@ -33,7 +33,7 @@ hi Character ctermfg=141 ctermbg=NONE cterm=NONE guifg=#ae81ff guibg=NONE gui=NO
 hi Conditional ctermfg=197 ctermbg=NONE cterm=NONE guifg=#f92672 guibg=NONE gui=NONE
 hi Float ctermfg=141 ctermbg=NONE cterm=NONE guifg=#ae81ff guibg=NONE gui=NONE
 hi Label ctermfg=186 ctermbg=NONE cterm=NONE guifg=#e6db74 guibg=NONE gui=NONE
-hi NonText ctermfg=59 ctermbg=236 cterm=NONE guifg=#49483e guibg=#31322c gui=NONE
+hi NonText          ctermfg=104 ctermbg=NONE cterm=NONE guifg=#49483e guibg=#31322c gui=NONE
 hi Operator ctermfg=197 ctermbg=NONE cterm=NONE guifg=#f92672 guibg=NONE gui=NONE
 hi SpecialKey       ctermfg=231 ctermbg=235 cterm=NONE guifg=#49483e guibg=#3c3d37 gui=NONE
 hi StorageClass ctermfg=81 ctermbg=NONE cterm=NONE guifg=#66d9ef guibg=NONE gui=italic
@@ -88,6 +88,10 @@ hi SpellBad             guifg=#D70000 guibg=NONE gui=undercurl ctermfg=160 cterm
 hi SpellRare            guifg=#D75F87 guibg=NONE gui=underline ctermfg=168 ctermbg=NONE cterm=underline
 hi SpellCap             guifg=#D0D0FF guibg=NONE gui=underline ctermfg=189 ctermbg=NONE cterm=underline
 hi SpellLocal           guifg=#00FFFF guibg=NONE gui=undercurl ctermfg=51 ctermbg=NONE cterm=underline
+
+" JavaScript
+" ----------
+hi jsOperator           ctermfg=221 ctermbg=NONE cterm=NONE guifg=#FFC66D guibg=NONE gui=NONE
 
 " CSS
 " ---
