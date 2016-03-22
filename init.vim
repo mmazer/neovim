@@ -590,6 +590,7 @@ nnoremap <silent> [ctrlp]o :<C-u>CtrlPBookmarkDir<cr>
 nnoremap <silent> [ctrlp]q :<C-u>CtrlPQuickfix<cr>
 nnoremap <silent> [ctrlp]s :BLines<CR>
 nnoremap <silent> [ctrlp]t :<C-u>CtrlPBufTag<cr>
+nnoremap <silent> [ctrlp]T :Tags<CR>
 nnoremap <silent> [ctrlp]u :<C-u>CtrlPMRUFiles<cr>
 
 let g:ctrlp_extensions = ['quickfix', 'buffertag', 'bookmarkdir']
