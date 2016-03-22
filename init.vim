@@ -4,7 +4,7 @@ let g:nvim_config = "~/.config/nvim"
 let g:nvimrc = g:nvim_config . "/init.vim"
 let g:localrc = g:nvim_config . "/local.vim"
 
-let g:nvim_config_use_relinsert = 0
+let g:nvim_config_use_relinsert = 1
 let g:nvim_config_abbrvs = g:nvim_config . "/abbr.vim"
 
 " }}}
