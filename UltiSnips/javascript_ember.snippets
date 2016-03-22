@@ -37,3 +37,13 @@ endsnippet
 snippet emg "ember get" w
 ${1}.get('${2}')${0}
 endsnippet
+
+snippet i18n
+Ember.I18n.t($0)
+endsnippet
+
+snippet erun
+Ember.run(${1:target}, function() {
+  ${0}
+});
+endsnippet
