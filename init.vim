@@ -81,6 +81,10 @@ Plug 'qpkorr/vim-bufkill'
 
 Plug 'ajh17/VimCompletesMe'
 
+if has("mac")
+    Plug 'rizzatti/dash.vim'
+endif
+
 call plug#end()
 
 " }}}
@@ -761,6 +765,11 @@ map <Leader>k :SlimuxSendKeysLast<CR>
 " indent guides
 let g:indent_guides_guide_size = 1
 nmap <space>ig <Plug>IndentGuidesToggle
+
+" dash:
+if has("mac")
+    nnoremap gK :Dash <C-r><C-w><space>
+endif
 
 " }}} Plugin Settings
 
