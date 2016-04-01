@@ -798,7 +798,7 @@ if has("autocmd")
     augroup StripWhitespace
         autocmd!
         autocmd! FileType vim,css,scss,groovy,java,javascript,less,php,scala,taskpaper,python,ruby,
-                    \handlebars,html.handlebars autocmd BufWritePre <buffer> :%s/\s\+$//e
+                    \handlebars,html.handlebars,scheme autocmd BufWritePre <buffer> :%s/\s\+$//e
     augroup END
 
     augroup FTOptions
@@ -820,7 +820,7 @@ if has("autocmd")
         autocmd FileType json setlocal foldnestmax=10
         autocmd FileType markdown  set suffixesadd=.txt,.md
         autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
-        autocmd FileType scheme autocmd BufWritePre <buffer> :%s/\s\+$//e
+        autocmd FileType scheme setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
         autocmd Filetype vim set foldmethod=marker
     augroup END
 
