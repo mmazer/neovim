@@ -641,7 +641,7 @@ let g:ctrlp_buftag_types = {
 let g:ag_working_mode="r"
 " workaround conflict with fzf.vim
 command! -bang -nargs=* -complete=file AG call ag#Ag('grep<bang>',<q-args>)
-nnoremap \\ :AG<space>
+nnoremap \\ :AG <C-R><C-W><CR>
 
 " tagbar: {{{2
 noremap <silent> [ot :TagbarOpen fg<CR>
