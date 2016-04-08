@@ -683,6 +683,16 @@ nnoremap <space>gp :Ggrep<CR>
 " https://gist.github.com/radmen/5048080
 command! Gdoff diffoff | q | Gedit
 
+function! GitDiffBuf()
+    let fname = expand('%')
+    new
+    exec "r! git diff ".printf('%s', fname)
+    :normal ggdd
+    setlocal ft=diff bt=nofile bh=wipe nobl noswf ro
+    nnoremap <buffer> q :bw<cr>
+endfunction
+nnoremap <space>gD :call GitDiffBuf()<CR>
+
 function! GitDiffStaged()
     new
     r !git diff -w --cached
