@@ -35,11 +35,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 
 Plug 'benekastah/neomake'
 
-Plug 'majutsushi/tagbar'
-
 Plug 'SirVer/ultisnips'
-
-Plug 'scrooloose/nerdtree'
 
 Plug 'jeetsukumaran/vim-filebeagle'
 
@@ -62,8 +58,6 @@ Plug 'tpope/vim-markdown'
 Plug 'mattn/emmet-vim'
 
 Plug 'tpope/vim-projectionist'
-
-Plug 'Raimondi/delimitMate'
 
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
@@ -639,10 +633,6 @@ let g:ag_working_mode="r"
 " workaround conflict with fzf.vim
 command! -bang -nargs=* -complete=file AG call ag#Ag('grep<bang>',<q-args>)
 nnoremap \\ :AG <C-R><C-W><CR>
-
-" tagbar: {{{2
-noremap <silent> [ot :TagbarOpen fg<CR>
-noremap <silent> ]ot :TagbarClose<CR>
 
 "}}}
 
