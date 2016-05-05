@@ -735,7 +735,7 @@ nnoremap ]gg :GitGutterNextHunk<CR>zz
 nnoremap [gg :GitGutterPrevHun<CR>zz
 
 nnoremap [gh :GitGutterStageHunk<CR>
-nnoremap ]gh :GitGutterRevertHunk<CR>
+nnoremap ]gh :GitGutterUndoHunk<CR>
 "}}}
 
 " calendar:
