@@ -147,7 +147,7 @@ vnoremap / /\v
 
 " Displaying Text: {{{
 
-set listchars=tab:▸\ ,trail:·,nbsp:¬
+set listchars=tab:▸\ ,trail:·,nbsp:¬,extends:›,precedes:‹
 set list
 set number
 if has("autocmd") && g:nvim_config_use_relinsert
