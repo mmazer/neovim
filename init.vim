@@ -243,11 +243,11 @@ onoremap ia i>
 onoremap aa a>
 
 " end lines with semicolons
-inoremap ;] <C-o>:call Preserve("s/\\s\*$/;/")<CR>
+inoremap ;] <C-\><C-O>:call Preserve("s/\\s\*$/;/")<CR>
 nnoremap <space>; :call Preserve("s/\\s\*$/;/")<CR>
 
 " end lines with commas
-inoremap ,] <C-o>:call Preserve("s/\\s\*$/,/")<CR>
+inoremap ,] <C-\><C-O>:call Preserve("s/\\s\*$/,/")<CR>
 nnoremap <space>, :call Preserve("s/\\s\*$/,/")<CR>
 
 " toggle case of words
