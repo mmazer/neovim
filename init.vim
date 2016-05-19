@@ -2,7 +2,7 @@
 
 let g:nvim_config = "~/.config/nvim"
 let g:nvimrc = g:nvim_config . "/init.vim"
-let g:localrc = g:nvim_config . "/local.vim"
+let g:local_config = "~/.config/local/nvim/init.vim"
 
 let g:nvim_config_use_relinsert = 1
 let g:nvim_config_abbrvs = g:nvim_config . "/abbr.vim"
@@ -913,8 +913,8 @@ endif
 
 " Local Configuration: {{{
 
-if filereadable(glob(g:localrc))
-    exec 'source' g:localrc
+if filereadable(glob(g:local_config))
+    exec 'source' g:local_config
 endif
 
 " }}}
