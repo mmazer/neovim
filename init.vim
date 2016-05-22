@@ -46,8 +46,6 @@ Plug 'rking/ag.vim'
 
 Plug 'davidoc/taskpaper.vim'
 
-Plug 'mattn/calendar-vim'
-
 Plug 'pangloss/vim-javascript'
 
 Plug 'klen/python-mode'
@@ -738,9 +736,6 @@ nnoremap [gg :GitGutterPrevHun<CR>zz
 nnoremap [gh :GitGutterStageHunk<CR>
 nnoremap ]gh :GitGutterUndoHunk<CR>
 "}}}
-
-" calendar:
-command! -nargs=* Cal call calendar#show(1, <f-args>)
 
 " emmet:
 let g:user_emmet_expandabbr_key = '<C-e>'
