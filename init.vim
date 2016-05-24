@@ -66,7 +66,7 @@ Plug 'junegunn/gv.vim'
 
 Plug 'epeli/slimux'
 
-Plug 'nathanaelkane/vim-indent-guides'
+Plug 'Yggdroot/indentLine'
 
 Plug 'mmazer/vim-http-client'
 
@@ -756,8 +756,8 @@ map <Leader>a :SlimuxShellLast<CR>
 map <Leader>k :SlimuxSendKeysLast<CR>
 
 " indent guides
-let g:indent_guides_guide_size = 1
-nmap <space>ig <Plug>IndentGuidesToggle
+let g:indentLine_enabled = 0
+nmap <space>ig :IndentLinesToggle<CR>
 
 " dash:
 if has("mac")
