@@ -48,8 +48,6 @@ Plug 'davidoc/taskpaper.vim'
 
 Plug 'pangloss/vim-javascript'
 
-Plug 'klen/python-mode'
-
 Plug 'mustache/vim-mustache-handlebars'
 
 Plug 'tpope/vim-markdown'
