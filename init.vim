@@ -76,6 +76,8 @@ if has("mac")
     Plug 'rizzatti/dash.vim'
 endif
 
+Plug 'ajh17/Spacegray.vim'
+
 call plug#end()
 
 " }}}
@@ -411,8 +413,7 @@ nnoremap td  :tabclose<CR>
 " Colors: {{{
 
 set t_Co=256
-set background=dark
-colorscheme monokai
+colorscheme space
 
 " }}}
 
