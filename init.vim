@@ -801,8 +801,8 @@ if has("autocmd")
         autocmd BufRead fugitive\:* xnoremap <buffer> dp :diffput<CR>|xnoremap <buffer> do :diffget<CR>
         autocmd BufNewFile,BufRead fugitive://* set bufhidden=delete
         autocmd FileType gitcommit setlocal cursorline spell
-        autocmd FileType handlebars setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
-        autocmd FileType html.handlebars setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
+        autocmd FileType handlebars setlocal shiftwidth=2 softtabstop=2 foldmethod=manual
+        autocmd FileType html.handlebars setlocal shiftwidth=2 softtabstop=2 foldmethod=manual
         autocmd FileType html,css,scss,javascript setlocal iskeyword+=-
         autocmd FileType html setlocal shiftwidth=2 softtabstop=2 tabstop=2 foldmethod=manual
         autocmd FileType html setlocal autoindent
