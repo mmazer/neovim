@@ -394,6 +394,8 @@ nnoremap <space>D :BD<CR> " use buffkil
 " goto buffer
 nnoremap gb :ls<CR>:b
 
+nnoremap goe :enew<CR>
+
 " close quick fix and location list
 nnoremap qq :cclose<CR>
 nnoremap ql :lclose<CR>
