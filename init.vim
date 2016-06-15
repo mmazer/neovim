@@ -631,8 +631,9 @@ let g:ctrlp_buftag_types = {
 " start search from project root
 let g:ag_working_mode="r"
 " workaround conflict with fzf.vim
-command! -bang -nargs=* -complete=file AG call ag#Ag('grep<bang>',<q-args>)
+command! -bang -nargs=* -complete=file -range AG call ag#Ag('grep<bang>',<q-args>)
 nnoremap \\ :AG! <C-R><C-W><CR>
+vnoremap \\ y<bar>:<C-U>AG! <C-R>"<CR>
 
 "}}}
 
