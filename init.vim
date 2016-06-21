@@ -561,9 +561,9 @@ let NERDTreeWinSize=35
 let NERDTreeDirArrows=1
 let NERDTreeIgnore=['\.pyc$']
 
-noremap <silent> cot :NERDTreeToggle<CR>
 noremap <space>nc :NERDTreeClose<CR>
-noremap <silent> gon :NERDTreeFind<CR>
+noremap <space>nf :NERDTreeFind<CR>
+noremap <silent> gon :NERDTreeToggle<CR>
 noremap <space>no :NERDTree %:p:h<CR>
 
 " ultisnips
