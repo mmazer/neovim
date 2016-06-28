@@ -814,6 +814,7 @@ if has("autocmd")
         autocmd FileType json setlocal foldmethod=syntax
         autocmd FileType json setlocal foldnestmax=10
         autocmd FileType markdown  set suffixesadd=.txt,.md
+        autocmd Filetype php set shiftwidth=8 softtabstop=0 noexpandtab
         autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
         autocmd FileType scheme setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
         autocmd Filetype vim set foldmethod=marker
