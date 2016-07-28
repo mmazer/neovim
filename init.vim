@@ -6,6 +6,7 @@ let g:local_config = "~/.config/local/nvim/init.vim"
 
 let g:nvim_config_use_relinsert = 1
 let g:nvim_config_abbrvs = g:nvim_config . "/abbr.vim"
+let g:jira_browse = ""
 
 " }}}
 
