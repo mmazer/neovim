@@ -3,7 +3,7 @@
 let g:nvim_config = "~/.config/nvim"
 let g:nvimrc = g:nvim_config . "/init.vim"
 let g:local_config = "~/.config/local/nvim/init.vim"
-
+let g:nvim_autocompletion_enabled = 0
 let g:nvim_config_use_relinsert = 1
 let g:nvim_config_abbrvs = g:nvim_config . "/abbr.vim"
 let g:jira_browse = ""
@@ -71,7 +71,11 @@ Plug 'mmazer/vim-http-client'
 
 Plug 'qpkorr/vim-bufkill'
 
-Plug 'ajh17/VimCompletesMe'
+function! UpdateRemote(arg)
+    UpdateRemotePlugins
+endfunction
+
+Plug 'Shougo/deoplete.nvim', { 'do': function('UpdateRemote') }
 
 if has("mac")
     Plug 'rizzatti/dash.vim'
@@ -766,6 +770,29 @@ nmap <space>ig :IndentLinesToggle<CR>
 if has("mac")
     nnoremap gK :Dash <C-r><C-w><space>
 endif
+
+" autocompletion:
+let g:deoplete#enable_at_startup = g:nvim_autocompletion_enabled
+
+function! ToggleComplete()
+    if g:nvim_autocompletion_enabled == 1
+        let g:nvim_autocompletion_enabled=0
+        :silent call deoplete#disable()
+    else
+        let g:nvim_autocompletion_enabled=1
+        :silent call deoplete#enable()
+    endif
+
+    echo (g:nvim_autocompletion_enabled ? 'auto-completion on' : 'auto-completion off')
+endfunction
+nnoremap <silent> coa :call ToggleComplete()<CR>
+
+" buffergator:
+let g:buffergator_show_full_directory_path=0
+let g:buffergator_vsplit_size=60
+nnoremap [of :BuffergatorOpen<CR>
+nnoremap ]of :BuffergatorClose<CR>
+nnoremap cof :BuffergatorToggle<CR>
 
 " }}} Plugin Settings
 
