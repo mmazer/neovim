@@ -392,7 +392,7 @@ nnoremap <space>d :bp \| bd #<CR>
 nnoremap <space>D :BD<CR> " use buffkil
 
 " goto buffer
-nnoremap gb :ls<CR>:b
+nnoremap gob :ls<CR>:b
 
 nnoremap goe :enew<CR>
 
