@@ -739,6 +739,7 @@ nnoremap ]og :GitGutterDisable<CR>
 nnoremap cog :GitGutterToggle<CR>
 nnoremap ]gg :GitGutterNextHunk<CR>zz
 nnoremap [gg :GitGutterPrevHun<CR>zz
+nnoremap ]gv :GitGutterPreviewHunk<CR>
 
 nnoremap [gh :GitGutterStageHunk<CR>
 nnoremap ]gh :GitGutterUndoHunk<CR>
