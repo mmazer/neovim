@@ -653,11 +653,11 @@ let g:neomake_python_enabled_makers = ['flake8']
 let g:neomake_ruby_enabled_makers = ['rubocop']
 
 let g:neomake_error_sign = {
-        \ 'text': 'E>',
+        \ 'text': '~E',
         \ 'texthl': 'ErrorMsg'
         \ }
 let g:neomake_warning_sign = {
-        \ 'text': 'W>',
+        \ 'text': '~W',
         \ 'texthl': 'ErrorMsg'
         \ }
 
