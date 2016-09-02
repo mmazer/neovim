@@ -83,6 +83,8 @@ endif
 
 Plug 'ajh17/Spacegray.vim'
 
+Plug 'davidhalter/jedi-vim'
+
 call plug#end()
 
 " }}}
