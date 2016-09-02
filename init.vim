@@ -628,6 +628,7 @@ let g:ctrlp_buftag_types = {
     \ 'taskpaper'   : '--language-force=Taskpaper',
     \ 'wsdl'        : '--language-force=wsdl',
     \ 'markdown'    : '--language-force=markdown',
+    \ 'text'        : '--language-force=markdown',
     \ 'cucumber'    : '--language-force=cucumber',
     \ 'sh'          : '--language-force=sh'
     \ }
