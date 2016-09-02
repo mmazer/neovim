@@ -370,6 +370,7 @@ nnoremap <space>p :echo expand('%')<CR>
 
 noremap gov :execute 'edit' g:nvimrc <CR>
 nnoremap gos :silent e ~/00INFOBASE/01FILES/SCRATCH.md<CR>
+nnoremap gor :silent e ~/Dropbox/00INFOBASE/01FILES/reading-list.txt<CR>
 nnoremap goT :silent e ~/00INFOBASE/01FILES/TODO.taskpaper<CR>
 
 " }}}
