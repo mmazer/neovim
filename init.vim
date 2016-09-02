@@ -839,7 +839,8 @@ if has("autocmd")
         autocmd FileType json command! Format :%!python -m json.tool<CR>
         autocmd FileType json setlocal foldmethod=syntax
         autocmd FileType json setlocal foldnestmax=10
-        autocmd FileType markdown  set suffixesadd=.txt,.md
+        autocmd FileType json setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
+        autocmd FileType markdown  set shiftwidth=2 softtabstop=2 suffixesadd=.txt,.md
         autocmd Filetype php set shiftwidth=8 softtabstop=0 noexpandtab
         autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
         autocmd FileType scheme setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
