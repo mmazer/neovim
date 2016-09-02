@@ -792,13 +792,6 @@ function! ToggleComplete()
 endfunction
 nnoremap <silent> coa :call ToggleComplete()<CR>
 
-" buffergator:
-let g:buffergator_show_full_directory_path=0
-let g:buffergator_vsplit_size=60
-nnoremap [of :BuffergatorOpen<CR>
-nnoremap ]of :BuffergatorClose<CR>
-nnoremap cof :BuffergatorToggle<CR>
-
 " }}} Plugin Settings
 
 " AutoGroups: {{{
