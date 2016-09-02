@@ -661,8 +661,7 @@ let g:neomake_warning_sign = {
         \ 'texthl': 'ErrorMsg'
         \ }
 
-" pymode
-let g:pymode_lint = 0
+command! Rtags :NeomakeSh ctags -R
 
 " fugitive: {{{2
 
