@@ -1,0 +1,79 @@
+*csstips*               CSS Tips
+*css*
+
+CONTENTS
+                                                    *csstips-contents*
+=============================================================================
+padding                                             |css-padding|
+margin                                              |css-margin|
+
+=============================================================================
+
+padding:                                            *css-padding*
+
+>
+     padding:25px 50px 75px 100px;
+<
+     * padding-top: 25px;
+     * padding-right: 50px;
+     * padding-bottom: 75px;
+     * padding-left:  100px;
+
+>
+    padding:25px 50px 75px;
+<
+     * padding-top: 25px;
+     * padding-right: 50px;
+     * padding-bottom: 75px;
+     * padding-left:  50px;
+
+>
+    padding:25px 50px;
+<
+     * padding-top: 25px;
+     * padding-right: 50px;
+     * padding-bottom: 25px;
+     * padding-left:  50px;
+
+>
+    padding:25px 50px;
+<
+     * padding-top: 25px;
+     * padding-right: 25px;
+     * padding-bottom: 25px;
+     * padding-left:  25px;
+
+margin:                                            *css-margin*
+
+>
+     margin:25px 50px 75px 100px;
+<
+     * margin-top: 25px;
+     * margin-right: 50px;
+     * margin-bottom: 75px;
+     * margin-left:  100px;
+
+>
+    margin:25px 50px 75px;
+<
+     * margin-top: 25px;
+     * margin-right: 50px;
+     * margin-bottom: 75px;
+     * margin-left:  50px;
+
+>
+    margin:25px 50px;
+<
+     * margin-top: 25px;
+     * margin-right: 50px;
+     * margin-bottom: 25px;
+     * margin-left:  50px;
+
+>
+    margin:25px 50px;
+<
+     * margin-top: 25px;
+     * margin-right: 25px;
+     * margin-bottom: 25px;
+     * margin-left:  25px;
+

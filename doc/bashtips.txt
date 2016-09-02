@@ -1,0 +1,31 @@
+*bashtips*    Bash Tips
+
+CONTENTS                        *bashtips-contents*
+
+=========================================================
+
+1. File Test Operators          *bashtips-filetests*
+2. Other Comparison Operators   *bashtips-comparisons*
+
+=========================================================
+
+1. File Test Operators          |bashtips-filtests|
+
+-e      file exists
+-a      file exists [DEPRECATED]
+-f      file is a *regular* file
+-s      file is not zero size
+-d      file is a directory
+-b      file is a block device
+-c      file is a character device
+-p      file is a pipe
+-h      file is a symbolic link
+-r      file is readable
+-w      file is writable
+-x      file is executable
+
+2. Other Comparison Operators   |bashtips-comparisons|
+
+-z      string is *null*, i.e. zero length
+-n      string is not *null*
+

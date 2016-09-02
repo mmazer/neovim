@@ -1,0 +1,28 @@
+*gittips*               Git Tips
+*git*
+
+CONTENTS
+                                                    *gittips-contents*
+=============================================================================
+Remote Branches                                     |git-remote|
+Working with history                                |git-history|
+
+=============================================================================
+
+Remote Branches:                                    *git-remote*
+
+
+Set remote tracking branch for existing branch:
+
+    `git branch -u <upstream>`
+
+Working with History:                               *git-history*
+ 
+Delete last commit (not pushed to remote): 
+
+    `git reset --soft HEAD~1`
+
+List file changes between 2 commits:
+
+   `git diff --name-status HEAD@{3} HEAD@{0}` 
+

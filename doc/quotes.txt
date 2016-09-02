@@ -1,0 +1,28 @@
+*Quotes*                                            Quotes
+*quote*
+
+CONTENTS
+                                                    *quotecontents*
+=============================================================================
+Programming                                         *prog-quotes*
+
+=============================================================================
+
+Programming:
+
+All non-trivial abstractations, to some degree are leaky.
+ - Joel Spolsky
+
+Simplicity is prerequisite for reliability.
+ - Edsger Dijkstra
+
+Syntactic sugar causes cancer of the semicolon.
+ - Alan Perlis cited in SICP
+
+Program testing can be used to show the presence of bugs, but never to show
+their absence.
+ - Edsger Dijkstra
+
+Simplicity and elegance are unpopular because they require hard work and
+discipline to achieve and education to appreciate.
+ - Edsger Dijkstra

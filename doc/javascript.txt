@@ -1,0 +1,80 @@
+*javascript*    Javascript
+
+CONTENTS                        *javascript-contents*
+
+=========================================================
+
+1. Reserved Words               *javascript-reserved*
+2. Node Types                   *javascript-nodetypes*
+
+=========================================================
+
+1. Reserved Words                   |javascript-reserved|
+
+See https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Reserved_Words
+ 
+break
+case
+catch
+continue
+debugger
+default
+delete
+do
+else
+finally
+for
+function
+if
+in
+instanceof
+new
+return
+switch
+this
+throw
+try
+typeof
+var
+void
+while
+with
+ 
+ 
+// Reserved for future use - 'strict' or 'non-strict' modes
+ 
+class
+enum
+export
+extends
+import
+super
+ 
+// Reserved for future use in 'strict' mode
+ 
+implements
+interface
+let
+package
+private
+protected
+public
+static
+yield
+
+2. Node Types                       *javascript-nodetypes*
+
+1 ELEMENT_NODE
+2 ATTRIBUTE_NODE
+3 TEXT_NODE
+4 CDATA_SECTION_NODE
+5 ENTITY_REFERENCE_NODE
+6 ENTITY_NODE
+7 PROCESSING_INSTRUCTION_NODE
+8 COMMENT_NODE
+9 DOCUMENT_NODE
+10 DOCUMENT_TYPE_NODE
+11 DOCUMENT_FRAGMENT_NODE
+12 NOTATION_NODE
+
+
