@@ -3,6 +3,7 @@
 let g:nvim_config = "~/.config/nvim"
 let g:nvimrc = g:nvim_config . "/init.vim"
 let g:local_config = "~/.config/local/nvim/init.vim"
+let g:nvim_bundle=g:nvim_config.'/bundle'
 let g:nvim_autocompletion_enabled = 0
 let g:nvim_config_use_relinsert = 1
 let g:nvim_config_abbrvs = g:nvim_config . "/abbr.vim"
@@ -19,7 +20,7 @@ let g:python3_host_skip_check = 1
 
 " Loading Plugins: {{{
 
-call plug#begin(g:nvim_config . '/bundle')
+call plug#begin(g:nvim_bundle)
 
 Plug 'tpope/vim-fugitive'
 
