@@ -431,11 +431,10 @@ colorscheme space
 " Statusline: {{{
 
 set laststatus=2
-set statusline=%{Mode()}
-set statusline+=%{&paste?'\ [paste]':''}
-set statusline+=\ %{Branch()}
+set statusline+=%{Branch()}
 set statusline+=\ %f
-set statusline+=%(\[%R%M\]%)      "modified flag
+set statusline+=%(\ %R%M%)      "modified flag
+set statusline+=%{&paste?'\ [paste]':''}
 set statusline+=\ %{neomake#statusline#LoclistStatus('✗\ lc:\ ')}
 set statusline+=\ %{neomake#statusline#QflistStatus('✗\ qf:\ ')}
 set statusline+=%=
@@ -445,6 +444,7 @@ set statusline+=\ %{&ff}  "file format
 set statusline+=%{Fenc()} " file encoding
 set statusline+=\ %{&expandtab?'spaces':'tabs'}
 set statusline+=\ %5.l/%L\:%-3.c\    "cursor line/total lines:column
+set statusline+=\ #%n
 
 " Adapted from https://github.com/maciakl/vim-neatstatus
 function! Mode()
@@ -478,7 +478,7 @@ function! Branch()
     endif
 
     let branch = fugitive#head()
-    return empty(branch) ? '' : "(⎇ ".branch.")"
+    return empty(branch) ? '' : "⎇ ".branch.""
 endfunction
 
 function! Fenc()
@@ -491,7 +491,7 @@ function! Fenc()
         let enc = enc . (&bomb ? "-bom" : "" )
     endif
 
-    return '('.enc.')'
+    return ':'.enc
 endfun
 
 " Detect trailing whitespace and mixed indentation
