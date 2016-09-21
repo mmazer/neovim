@@ -302,7 +302,7 @@ function! TabToggle()
     echo "using spaces"
   endif
 endfunction
-nnoremap cot :call TabToggle()<CR>
+nnoremap coe :call TabToggle()<CR>
 
 "}}}
 
