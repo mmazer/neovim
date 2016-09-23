@@ -17,7 +17,9 @@ iab saavy savvy
 iab seperate separate
 iab seperately separately
 iab seperated separated
+iab subscritpion subscription
 iab teh the
+iab wiat wait
 
 " Markdown
 iab hh1 #
