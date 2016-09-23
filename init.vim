@@ -86,6 +86,8 @@ Plug 'ajh17/Spacegray.vim'
 
 Plug 'davidhalter/jedi-vim'
 
+Plug 'majutsushi/tagbar'
+
 call plug#end()
 
 " }}}
@@ -804,6 +806,15 @@ function! ToggleComplete()
     echo (g:nvim_autocompletion_enabled ? 'auto-completion on' : 'auto-completion off')
 endfunction
 nnoremap <silent> coa :call ToggleComplete()<CR>
+
+" tagbar:
+nnoremap cot :TagbarToggle<CR>
+let g:tagbar_type_markdown = {
+    \ 'ctagstype' : 'markdown',
+    \ 'kinds' : [
+        \ 'h:Headings'
+    \ ]
+\ }
 
 " }}} Plugin Settings
 
