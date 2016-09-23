@@ -68,7 +68,7 @@ Plug 'epeli/slimux'
 
 Plug 'Yggdroot/indentLine'
 
-Plug 'mmazer/vim-http-client'
+Plug 'aquach/vim-http-client'
 
 Plug 'qpkorr/vim-bufkill'
 
@@ -758,6 +758,7 @@ let g:user_emmet_settings = {
             \ },
             \}
 " http-client:
+let g:http_client_verify_ssl = 0
 nnoremap [r :HTTPClientDoRequest<CR>
 command! Rest :HTTPClientDoRequest
 
