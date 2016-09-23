@@ -729,6 +729,17 @@ endfunction
 command! Goutgoing :call GitOutgoing()
 nnoremap <space>go :Goutgoing<CR>
 
+command! Glast :Glog -n 5 --
+
+function! GitTags()
+    new
+    r !git log --oneline --decorate --tags --no-walk
+    :normal ggdd
+    setlocal ft=fugitive bt=nofile bh=wipe nobl noswf ro
+    nnoremap <buffer> q :bw<cr>
+endfunction
+command! Gtags :call GitTags()
+
 "}}} fugitive
 
 " gitgutter {{{2
