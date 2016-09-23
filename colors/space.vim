@@ -19,3 +19,10 @@ hi PmenuThumb      ctermbg=235  ctermfg=137     guibg=NONE     guifg=#171717  ct
 " NERDTree
 hi link NERDTreeDir NERDTreeDirSlash
 
+" markdown
+hi link  markdownH1 markdownHeadingDelimiter
+hi link  markdownH2 markdownHeadingDelimiter
+hi link  markdownH3 markdownHeadingDelimiter
+hi link  markdownH4 markdownHeadingDelimiter
+hi link  markdownH5 markdownHeadingDelimiter
+
