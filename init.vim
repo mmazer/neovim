@@ -233,8 +233,8 @@ vnoremap > >gv
 
 " Use ,d (or ,dd or ,dj or 20,dd) to delete a line without adding it to the
 " yanked stack (also, in visual mode)
-nnoremap <silent> <leader>d "_d
-vnoremap <silent> <leader>d "_d
+nnoremap <silent> ,d "_d
+vnoremap <silent> ,d "_d
 
 " Quick yanking to the end of the line
 nnoremap Y y$
