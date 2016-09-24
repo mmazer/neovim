@@ -914,8 +914,6 @@ function! ShowTime()
 endfunction
 nnoremap got :call ShowTime()<CR>
 
-nnoremap <space>n :echo expand('%')<CR>
-
 " Taken from ctrlp help file
 function! Setcwd()
     let cph = expand('%:p:h', 1)
