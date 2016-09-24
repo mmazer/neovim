@@ -633,7 +633,8 @@ let g:ctrlp_buftag_types = {
     \ 'markdown'    : '--language-force=markdown',
     \ 'text'        : '--language-force=markdown',
     \ 'cucumber'    : '--language-force=cucumber',
-    \ 'sh'          : '--language-force=sh'
+    \ 'sh'          : '--language-force=sh',
+    \ 'dosini'      : '--language-force=ini'
     \ }
 
 " }}} ctrlp/fzf
