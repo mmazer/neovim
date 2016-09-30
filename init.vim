@@ -133,6 +133,9 @@ nnoremap # #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 
+" center moving when jumping bac
+nnoremap <C-o> <C-o>zz
+
 " }}}
 
 " Searching: {{{
