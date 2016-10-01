@@ -807,7 +807,7 @@ function! ToggleComplete()
         :silent call deoplete#enable()
     endif
 
-    echo (g:nvim_autocompletion_enabled ? 'auto-completion on' : 'auto-completion off')
+    echo 'auto-completion '.(g:nvim_autocompletion_enabled ? 'on' : 'off')
 endfunction
 nnoremap <silent> coa :call ToggleComplete()<CR>
 
