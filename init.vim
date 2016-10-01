@@ -886,7 +886,7 @@ endif
 " Functions: {{{
 
 function! DateTimeStamp()
-    return strftime("%H:%M-%m.%d.%Y")
+    return strftime("%Y-%m-%d %H:%M")
 endfun
 
 function! ShortDate()
