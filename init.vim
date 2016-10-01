@@ -64,8 +64,6 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'junegunn/gv.vim'
 
-Plug 'epeli/slimux'
-
 Plug 'Yggdroot/indentLine'
 
 Plug 'aquach/vim-http-client'
@@ -778,13 +776,6 @@ let g:user_emmet_settings = {
 let g:http_client_verify_ssl = 0
 nnoremap [r :HTTPClientDoRequest<CR>
 command! Rest :HTTPClientDoRequest
-
-" slimux:
-map <Leader>c :SlimuxShellPrompt<CR>
-map <Leader>s :SlimuxREPLSendLine<CR>
-vmap <Leader>s :SlimuxREPLSendSelection<CR>
-map <Leader>a :SlimuxShellLast<CR>
-map <Leader>k :SlimuxSendKeysLast<CR>
 
 " indent guides
 let g:indentLine_enabled = 0
