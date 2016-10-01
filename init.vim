@@ -426,7 +426,7 @@ nnoremap td :tabclose<CR>
 
 " Colors: {{{
 
-set t_Co=256
+set termguicolors
 colorscheme space
 
 " }}}
