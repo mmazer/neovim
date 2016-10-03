@@ -912,7 +912,7 @@ nnoremap got :call ShowTime()<CR>
 function! Setcwd()
     let cph = expand('%:p:h', 1)
     if cph =~ '^.\+://' | retu | en
-    for mkr in ['.git/', '.hg/', '.svn/', '.bzr/', '_darcs/', '.vimprojects', '.project', '.ctrlp', '.top']
+    for mkr in ['.top', '.project', '.git/', '.hg/', '.svn/', '.vimprojects']
         let wd = call('find'.(mkr =~ '/$' ? 'dir' : 'file'), [mkr, cph.';'])
         if wd != '' | let &acd = 0 | brea | en
     endfo
