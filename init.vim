@@ -8,6 +8,8 @@ let g:nvim_autocompletion_enabled = 0
 let g:nvim_config_use_relinsert = 1
 let g:nvim_config_abbrvs = g:nvim_config . "/abbr.vim"
 let g:jira_browse = ""
+let g:infobase_scratch_file = "~/00INFOBASE/01FILES/SCRATCH.md"
+let g:infobase_reading_list = "~/Dropbox/00INFOBASE/01FILES/reading-list.txt"
 
 " }}}
 
@@ -372,10 +374,9 @@ inoremap <C-s> <C-o>:w!<CR>
 " show full path of file
 nnoremap <space>p :echo expand('%')<CR>
 
-noremap gov :execute 'edit' g:nvimrc <CR>
-nnoremap gos :silent e ~/00INFOBASE/01FILES/SCRATCH.md<CR>
-nnoremap gor :silent e ~/Dropbox/00INFOBASE/01FILES/reading-list.txt<CR>
-nnoremap goT :silent e ~/00INFOBASE/01FILES/TODO.taskpaper<CR>
+nnoremap gov :exec 'edit' g:nvimrc <CR>
+nnoremap gos :exec 'edit' g:infobase_scratch_file<CR>
+nnoremap gor :exec 'edit' g:infobase_reading_list<CR>
 
 " }}}
 
