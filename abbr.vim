@@ -6,6 +6,7 @@ iab ddt <c-r>=ShortDate()<esc>
 iab acccount account
 iab becuase because
 iab collander colander
+iab destory destroy
 iab emtpy empty
 iab hwo how
 iab iterm item
