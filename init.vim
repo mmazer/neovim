@@ -389,11 +389,11 @@ set splitright
 " manage windows
 nnoremap W <C-w>
 
-" window navigation: use ctrl-h/j/k/l to switch between splits
+" window navigation consistent with term mode mappings
+nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
-nnoremap <C-h> <C-w>h
 
 " Resize windows using a reasonable amount
 " http://flaviusim.com/blog/resizing-vim-window-splits-like-a-boss/
