@@ -84,6 +84,8 @@ endif
 
 Plug 'ajh17/Spacegray.vim'
 
+Plug 'AlessandroYorba/Despacio'
+
 Plug 'davidhalter/jedi-vim'
 
 Plug 'majutsushi/tagbar'
@@ -428,7 +430,8 @@ nnoremap td :tabclose<CR>
 " Colors: {{{
 
 set termguicolors
-colorscheme space
+set background=dark
+colorscheme despacio
 
 " }}}
 
