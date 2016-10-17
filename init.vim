@@ -582,14 +582,15 @@ noremap <silent> gon :NERDTreeToggle<CR>
 noremap <space>no :NERDTree %:p:h<CR>
 "}}}
 
-" ultisnips
+" ultisnips: {{{2
 let g:UltiSnipsExpandTrigger="<c-j>"
 let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsListSnippets="<c-h>"
 
-" ctrlp/fzf: {{{2
+"}}}
 
+" ctrlp/fzf: {{{2
 nmap <space> [ctrlp]
 nnoremap <silent> [ctrlp]a :<C-u>CtrlPBookmarkDirAdd<cr>
 nnoremap <silent> [ctrlp]b :Buffers<cr>
@@ -623,7 +624,7 @@ if executable('ag')
     let g:ctrlp_use_caching = 1
 endif
 
-" ctrlp_buftag
+" ctrlp_buftag:
 let g:ctrlp_buftag_types = {
     \ 'javascript'  : '--language-force=js',
     \ 'css'         : '--language-force=css',
@@ -644,18 +645,16 @@ let g:ctrlp_buftag_types = {
 
 " }}} ctrlp/fzf
 
-" ag:
-
+"ag: {{{2
 " start search from project root
 let g:ag_working_mode="r"
 " workaround conflict with fzf.vim
 command! -bang -nargs=* -complete=file -range AG call ag#Ag('grep<bang>',<q-args>)
 nnoremap \\ :AG! <C-R><C-W><CR>
 vnoremap \\ y<bar>:<C-U>AG! <C-R>"<CR>
-
 "}}}
 
-" neomake:
+" neomake:{{{2
 let g:neomake_open_list=0
 let g:neomake_javascript_enabled_makers = ['jshint', 'jscs']
 let g:neomake_python_enabled_makers = ['flake8']
@@ -671,9 +670,9 @@ let g:neomake_warning_sign = {
         \ }
 
 command! Rtags :NeomakeSh ctags -R
+"}}}
 
 " fugitive: {{{2
-
 nnoremap <space>gs :Gstatus<CR>
 nnoremap <space>gb :Gblame<CR>
 nnoremap <space>gc :Gcommit -v -q <CR>
