@@ -68,7 +68,7 @@ Plug 'junegunn/gv.vim'
 
 Plug 'Yggdroot/indentLine'
 
-Plug 'aquach/vim-http-client'
+Plug 'jiangmiao/auto-pairs'
 
 Plug 'qpkorr/vim-bufkill'
 
