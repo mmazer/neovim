@@ -744,7 +744,7 @@ function! GitTags()
     new
     r !git log --oneline --decorate --tags --no-walk
     :normal ggdd
-    setlocal ft=fugitive bt=nofile bh=wipe nobl noswf ro
+    setlocal ft=git bt=nofile bh=wipe nobl noswf ro
     nnoremap <buffer> q :bw<cr>
 endfunction
 command! Gtags :call GitTags()
