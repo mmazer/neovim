@@ -56,6 +56,8 @@ Plug 'mustache/vim-mustache-handlebars'
 
 Plug 'tpope/vim-markdown'
 
+Plug 'rodjek/vim-puppet'
+
 Plug 'mattn/emmet-vim'
 
 Plug 'tpope/vim-projectionist'
