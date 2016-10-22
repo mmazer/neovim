@@ -253,6 +253,9 @@ vnoremap <silent> ,d "_d
 " Quick yanking to the end of the line
 nnoremap Y y$
 
+" slightly easier to reach than <C-w>
+inoremap <C-d> <C-w>
+
 " make it easier to work with some text objects
 vnoremap ir i]
 vnoremap ar a]
