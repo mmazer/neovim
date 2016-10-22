@@ -122,8 +122,13 @@ nnoremap K H
 nnoremap <space>j J
 nnoremap J L
 noremap H ^
+nnoremap gh ^
 noremap L $
+nnoremap gl $
 vnoremap L g_
+
+" move to middle of text line
+nnoremap gm :call cursor(0, virtcol('$')/2)<CR>
 
 " center after next/previous change
 nnoremap ]c ]czz
