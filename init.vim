@@ -431,10 +431,9 @@ nnoremap ql :lclose<CR>
 
 " Tab Pages: {{{
 
-nnoremap th :tabfirst<CR>
-nnoremap tj :tabnext<CR>
-nnoremap tk :tabprev<CR>
-nnoremap tl :tablast<CR>
+nnoremap <C-<>     :tabfirst<CR>
+nnoremap <C-right> :tabnext<CR>
+nnoremap <C-left>  :tabprev<CR>
 nnoremap td :tabclose<CR>
 
 "}}}
