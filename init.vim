@@ -392,7 +392,9 @@ nnoremap gor :exec 'edit' g:infobase_reading_list<CR>
 
 " }}}
 
-" Windows and Buffers: {{{
+" Windows and buffers: {{{
+
+set title
 
 set hidden
 set splitbelow
