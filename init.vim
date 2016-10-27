@@ -570,7 +570,6 @@ augroup END
 
 nmap <space><space> :
 nmap <space>h :h<space>
-nnoremap gh :h<space>
 nnoremap <silent> Q :qa!<CR>
 
 " }}}
