@@ -665,6 +665,7 @@ let g:ag_working_mode="r"
 command! -bang -nargs=* -complete=file -range AG call ag#Ag('grep<bang>',<q-args>)
 nnoremap \\ :AG! <C-R><C-W><CR>
 vnoremap \\ y<bar>:<C-U>AG! <C-R>"<CR>
+nnoremap <space>/ :AG!<space>
 "}}}
 
 " neomake:{{{2
