@@ -443,8 +443,7 @@ nnoremap td :tabclose<CR>
 " Colors: {{{
 
 set termguicolors
-set background=dark
-colorscheme despacio
+colorscheme space
 
 " }}}
 
