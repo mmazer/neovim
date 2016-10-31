@@ -920,15 +920,6 @@ function! ShortDate()
     return strftime("%Y-%m-%d")
 endfun
 
-function! QuickLook()
-    if has('mac')
-        exec ":silent !ql \"%\""
-    else
-        echo "Quicklook not supported on this system"
-    endif
-endfunction
-nnoremap gol :call QuickLook()<CR>
-
 function! Marked()
     exec ":silent !marked \"%\""
 endfunction
