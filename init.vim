@@ -921,7 +921,11 @@ function! ShortDate()
 endfun
 
 function! Marked()
+    if executable("marked")
     exec ":silent !marked \"%\""
+    else
+        echo "Marked application not found"
+    endif
 endfunction
 command! Marked :call Marked()
 
