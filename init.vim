@@ -858,7 +858,9 @@ tnoremap <C-l> <C-\><C-n><C-w>l
 if has("autocmd")
     augroup Neomake
         autocmd!
-        autocmd! BufWritePost * Neomake
+        autocmd! FileType vim,javascript,python,sql autocmd BufWritePost,BufEnter * Neomake
+        " A fix for issue running rubocop in a project directory with rvm
+        autocmd! FileType ruby autocmd BufWritePost,BufEnter * lcd /tmp | Neomake | CdProjRoot
     augroup END
 
     augroup Preview
@@ -953,8 +955,8 @@ function! Setcwd()
     endfo
     exe 'lc!' fnameescape(wd == '' ? cph : substitute(wd, mkr.'$', '.', ''))
 endfunction
-command! Cd :silent call Setcwd()
-nnoremap gop :Cd<CR>:pwd<CR>
+command! CdProjRoot :silent call Setcwd()
+nnoremap gop :CdProjRoot<CR>:pwd<CR>
 
 function! OpenURI()
     " 2011-01-21 removed colon ':' from regexp to allow for port numbers in URLs
