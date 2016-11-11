@@ -897,7 +897,7 @@ if has("autocmd")
         autocmd FileType scss setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
         autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
         autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-        autocmd FileType json command! Format :%!pretty-json<CR>
+        autocmd FileType json nnoremap <buffer> <leader>p :%!pretty-json<CR>
         autocmd FileType json setlocal foldmethod=syntax
         autocmd FileType json setlocal foldnestmax=10
         autocmd FileType json setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
