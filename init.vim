@@ -748,6 +748,11 @@ if has("autocmd")
     augroup DiffMode
         autocmd FilterWritePre * if &diff | nnoremap <buffer> dc :Gdoff<CR> | nnoremap <buffer> du :diffupdate<CR> | endif
     augroup END
+
+    augroup Checktime
+        autocmd CursorHold * checktime
+        autocmd BufWinEnter * checktime
+    augroup END
 endif
 
 " }}}
