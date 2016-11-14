@@ -1,0 +1,14 @@
+*mactips.txt*           Mac OS X Tips
+
+CONTENTS 
+                                            *mactips-contents*
+==============================================================================
+1. Managing Windows                         |mactips-windows|
+
+==============================================================================
+
+Managing Windows                            *mactips-windows*
+
+Minimize front window           Cmd+M
+Hide windows of front app       Cmd+H
+Minimize all windows            Cmd+Opt+H+M
