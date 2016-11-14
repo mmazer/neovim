@@ -545,7 +545,8 @@ let g:ctrlp_buftag_types = {
     \ 'cucumber'    : '--language-force=cucumber',
     \ 'sh'          : '--language-force=sh',
     \ 'dosini'      : '--language-force=ini',
-    \ 'scheme'      : '--language-force=scm'
+    \ 'scheme'      : '--language-force=scm',
+    \ 'yaml'        : '--language-force=yaml'
     \ }
 
 " }}} ctrlp/fzf
