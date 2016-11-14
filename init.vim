@@ -299,6 +299,10 @@ nnoremap <Leader>cn :let @+=expand('%')<CR>
 nnoremap <Leader>yf :let @"=expand('%:p')<CR>
 nnoremap <Leader>yn :let @"=expand('%')<CR>
 
+if exists('&inccommand')
+  set inccommand=split
+endif
+
 " }}} Editing Text
 
 " Tabs and Indentation: {{{
