@@ -74,6 +74,8 @@ Plug 'Yggdroot/indentLine'
 
 Plug 'jiangmiao/auto-pairs'
 
+Plug 'mmazer/vim-http-client'
+
 Plug 'qpkorr/vim-bufkill'
 
 function! UpdateRemote(arg)
