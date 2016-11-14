@@ -716,7 +716,7 @@ if has("autocmd")
     augroup StripWhitespace
         autocmd!
         autocmd! FileType vim,css,scss,groovy,java,javascript,less,php,scala,taskpaper,python,ruby,
-                    \handlebars,html.handlebars,scheme autocmd BufWritePre <buffer> :%s/\s\+$//e
+                    \handlebars,html.handlebars,scheme,yaml autocmd BufWritePre <buffer> :%s/\s\+$//e
     augroup END
 
     augroup FTOptions
