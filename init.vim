@@ -392,6 +392,7 @@ inoremap <C-s> <C-o>:w!<CR>
 " show full path of file
 nnoremap <space>p :echo expand('%')<CR>
 
+nnoremap <silent> goh :lcd ~<CR>
 nnoremap gov :exec 'edit' g:nvimrc <CR>
 nnoremap gos :exec 'edit' g:infobase_scratch_file<CR>
 nnoremap gor :exec 'edit' g:infobase_reading_list<CR>
