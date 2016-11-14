@@ -111,7 +111,7 @@ nnoremap <expr> ' printf('`%c zz', getchar())
 
 nnoremap \c "+y
 vnoremap \c "+y
-nnoremap \p "+p
+nnoremap \v "+p
 
 " For wrapped lines, navigate normally
 noremap  <buffer> <silent> k gk
