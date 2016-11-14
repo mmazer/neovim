@@ -1,0 +1,14 @@
+snippet book
+- name: ${1}
+  url: ${2}
+  date: `!v ShortDate()`
+  comments: ${3}
+endsnippet
+
+snippet done
+!done(`!v ShortDate()`)
+endsnippet
+
+snippet wait
+!wait(`!v ShortDate()`)
+endsnippet
