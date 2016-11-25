@@ -48,7 +48,7 @@ Plug 'jeetsukumaran/vim-filebeagle'
 
 Plug 'scrooloose/nerdtree'
 
-Plug 'rking/ag.vim'
+Plug 'mileszs/ack.vim'
 
 Plug 'davidoc/taskpaper.vim'
 
@@ -105,6 +105,7 @@ call plug#end()
 " Basics: {{{
 
 filetype plugin indent on
+set shell=/usr/local/bin/bash\ -O\ globstar
 
 "}}}
 
@@ -163,6 +164,7 @@ set smartcase   "case sensitive if search term contains upppecase letter
 if executable('ag')
     set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
     set grepformat=%f:%l:%c:%m
+    let g:ackprg = 'ag --vimgrep'
 endif
 
 " Use Perl/Ruby style regex patterns
@@ -556,11 +558,9 @@ let g:ctrlp_buftag_types = {
 let g:ag_working_mode="r"
 " increase height of quickfix for search results
 let g:ag_qhandler="copen 15"
-" workaround conflict with fzf.vim
-command! -bang -nargs=* -complete=file -range AG call ag#Ag('grep<bang>',<q-args>)
-nnoremap \\ :AG! <C-R><C-W><CR>
-vnoremap \\ y<bar>:<C-U>AG! <C-R>"<CR>
-nnoremap <space>/ :AG! -C <space>
+nnoremap \\ :Ack! <C-R><C-W><CR>
+vnoremap \\ y<bar>:<C-U>Ack! <C-R>"<CR>
+nnoremap <space>/ :Ack! -C <space>
 "}}}
 
 " neomake:{{{2
