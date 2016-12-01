@@ -1,5 +1,6 @@
 set laststatus=2
-set statusline+=%{Branch()}
+set statusline+=%{Mode()}
+set statusline+=\ %{Branch()}
 set statusline+=\ %f
 set statusline+=%(\ %R%M%)      "modified flag
 set statusline+=%{&paste?'\ [paste]':''}
