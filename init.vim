@@ -783,7 +783,7 @@ endfunction
 nnoremap got :call ShowTime()<CR>
 
 " Taken from ctrlp help file
-function! Setcwd()
+function! SetCwd()
     let cph = expand('%:p:h', 1)
     if cph =~ '^.\+://' | retu | en
     for mkr in ['.top', '.project', '.git/', '.hg/', '.svn/', '.vimprojects']
@@ -792,8 +792,8 @@ function! Setcwd()
     endfo
     exe 'lc!' fnameescape(wd == '' ? cph : substitute(wd, mkr.'$', '.', ''))
 endfunction
-command! CdProjRoot :silent call Setcwd()
-nnoremap gop :CdProjRoot<CR>:pwd<CR>
+command! SetCwd :silent call SetCwd()
+nnoremap gop :SetCwd<CR>:pwd<CR>
 
 function! OpenURI()
     " 2011-01-21 removed colon ':' from regexp to allow for port numbers in URLs
