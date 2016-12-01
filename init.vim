@@ -734,11 +734,6 @@ function! SyntaxItem()
 endfunction
 command! Syntax :echo SyntaxItem()
 
-function! ShowTime()
-    echo strftime('%a %d %b %H:%M:%S')
-endfunction
-nnoremap got :call ShowTime()<CR>
-
 " Taken from ctrlp help file
 function! SetCwd()
     let cph = expand('%:p:h', 1)
