@@ -698,9 +698,7 @@ tnoremap <C-l> <C-\><C-n><C-w>l
 if has("autocmd")
     augroup Neomake
         autocmd!
-        autocmd! FileType vim,javascript,python,sql autocmd BufWritePost,BufEnter * Neomake
-        " A fix for issue running rubocop in a project directory with rvm
-        autocmd! FileType ruby autocmd BufWritePost,BufEnter * lcd /tmp | Neomake | CdProjRoot
+        autocmd! FileType vim,javascript,python,ruby,sql autocmd BufWritePost,BufEnter * Neomake
     augroup END
 
     augroup Preview
