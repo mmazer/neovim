@@ -98,6 +98,8 @@ Plug 'majutsushi/tagbar'
 
 Plug 'kassio/neoterm'
 
+Plug 'AndrewRadev/simple_bookmarks.vim'
+
 call plug#end()
 
 " }}}
@@ -403,7 +405,7 @@ nnoremap gov :exec 'edit' g:nvimrc <CR>
 nnoremap gos :exec 'edit' g:infobase_scratch_file<CR>
 nnoremap gor :exec 'edit' g:infobase_reading_list<CR>
 nnoremap god :exec 'edit' g:infobase_todo<CR>
-nnoremap gom :exec 'edit' g:infobase_bookmarks<CR>
+nnoremap gom :GotoBookmark<space>
 
 " }}}
 
