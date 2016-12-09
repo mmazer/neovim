@@ -555,11 +555,7 @@ let g:ctrlp_buftag_types = {
 
 " }}} ctrlp/fzf
 
-"ag: {{{2
-" start search from project root
-let g:ag_working_mode="r"
-" increase height of quickfix for search results
-let g:ag_qhandler="copen 15"
+"ack: {{{2
 nnoremap \\ :Ack! <C-R><C-W><CR>
 vnoremap \\ y<bar>:<C-U>Ack! <C-R>"<CR>
 nnoremap <space>/ :Ack! -C <space>
@@ -760,9 +756,6 @@ endif
 
 " }}}
 
-" Functions: {{{
-
-"}}}
 
 " Functions: {{{
 
