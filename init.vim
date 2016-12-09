@@ -337,49 +337,6 @@ nnoremap coe :call TabToggle()<CR>
 
 "}}}
 
-" Folding: {{{
-
-set foldmethod=syntax                   "fold based on indent
-set foldnestmax=2                       "deepest fold is 10 levels
-set nofoldenable                        "don't fold by default
-let g:xml_syntax_folding=1              "enable xml folding
-
-nnoremap <Space>z za
-vnoremap <Space>z za
-
-" refocus fold under cursor - from Steve Losh
-nnoremap ,z zMzvzz
-
-"http://www.gregsexton.org/2011/03/improving-the-text-displayed-in-a-fold/
-function! CustomFoldText()
-    "get first non-blank line
-    let fs = v:foldstart
-    while getline(fs) =~ '^\s*$' | let fs = nextnonblank(fs + 1)
-    endwhile
-    if fs > v:foldend
-        let line = getline(v:foldstart)
-    else
-        let line = substitute(getline(fs), '\t', repeat(' ', &tabstop), 'g')
-    endif
-
-    let w = winwidth(0) - &foldcolumn - (&numberend ? 8 : 0)
-    let foldSize = 1 + v:foldend - v:foldstart
-    let foldSizeStr = " (" . foldSize . " lines) "
-    let foldLevelStr = repeat("+--", v:foldlevel)
-    let lineCount = line("$")
-    let foldPercentage = printf("[%.1f", (foldSize*1.0)/lineCount*100) . "%] "
-    let marker = "» "
-    let expansionString = repeat(".", w - strwidth(marker.foldSizeStr.line.foldLevelStr.foldPercentage))
-    return marker . line . foldSizeStr
-endfunction
-set foldtext=CustomFoldText()
-
-" toggling following vim-unimpaired
-nnoremap [of :setlocal foldcolumn=3<CR>
-nnoremap ]of :setlocal foldcolumn=0<CR>
-
-" }}} Folding
-
 " Reading and Writing Files: {{{
 
 set autoread
@@ -773,13 +730,8 @@ function! SyntaxItem()
 endfunction
 command! Syntax :echo SyntaxItem()
 
-function! ShowTime()
-    echo strftime('%a %d %b %H:%M:%S')
-endfunction
-nnoremap got :call ShowTime()<CR>
-
 " Taken from ctrlp help file
-function! Setcwd()
+function! SetCwd()
     let cph = expand('%:p:h', 1)
     if cph =~ '^.\+://' | retu | en
     for mkr in ['.top', '.project', '.git/', '.hg/', '.svn/', '.vimprojects']
@@ -788,32 +740,8 @@ function! Setcwd()
     endfo
     exe 'lc!' fnameescape(wd == '' ? cph : substitute(wd, mkr.'$', '.', ''))
 endfunction
-command! CdProjRoot :silent call Setcwd()
-nnoremap gop :CdProjRoot<CR>:pwd<CR>
-
-function! OpenURI()
-    " 2011-01-21 removed colon ':' from regexp to allow for port numbers in URLs
-    " original regexp: [a-z]*:\/\/[^ >,;:]*
-    let uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;\)\"]*')
-    if uri != ""
-        let uri = escape(uri, "#%; ")
-        echo uri
-
-        if has('win32')
-            exec ":silent !cmd /C start /min " . uri
-        elseif has('mac')
-            exec ":silent !open \"" . printf("%s", uri) . "\""
-        elseif has('unix')
-            exec ":silent !firefox \"" . printf("%s", uri) . "\""
-        else
-            echo "OpenURI not supported on this system"
-        endif
-        exec ":redraw!"
-    else
-        echo "No URI found in line."
-    endif
-endfunction
-noremap gou :call OpenURI()<CR>
+command! SetCwd :silent call SetCwd()
+nnoremap gop :SetCwd<CR>:pwd<CR>
 
 " }}}
 
