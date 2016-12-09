@@ -744,6 +744,7 @@ if has("autocmd")
         autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
         autocmd FileType scheme setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
         autocmd Filetype vim set foldmethod=marker
+        autocmd FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
         autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
     augroup END
 
