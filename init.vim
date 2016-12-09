@@ -451,7 +451,7 @@ nnoremap ql :lclose<CR>
 nnoremap <C-<>     :tabfirst<CR>
 nnoremap <C-right> :tabnext<CR>
 nnoremap <C-left>  :tabprev<CR>
-nnoremap td :tabclose<CR>
+nnoremap td        :tabclose<CR>
 
 "}}}
 
@@ -553,7 +553,7 @@ let g:ctrlp_buftag_types = {
     \ 'yaml'        : '--language-force=yaml'
     \ }
 
-" }}} ctrlp/fzf
+"}}} ctrlp/fzf
 
 "ack: {{{2
 nnoremap \\ :Ack! <C-R><C-W><CR>
@@ -761,7 +761,7 @@ endif
 
 function! Marked()
     if executable("marked")
-    exec ":silent !marked \"%\""
+        exec ":silent !marked \"%\""
     else
         echo "Marked application not found"
     endif
