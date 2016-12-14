@@ -6,7 +6,6 @@ let g:local_config = "~/.config/local/nvim/init.vim"
 let g:nvim_bundle=g:nvim_config.'/bundle'
 let g:nvim_autocompletion_enabled = 0
 let g:nvim_config_use_relinsert = 1
-let g:nvim_abbrvs = g:nvim_config . "/abbr.vim"
 let g:jira_browse = ""
 let g:infobase_scratch_file = "~/00INFOBASE/01FILES/SCRATCH.md"
 let g:infobase_reading_list = "~/Dropbox/00INFOBASE/01FILES/reading-list.txt"
