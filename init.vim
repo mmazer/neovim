@@ -7,10 +7,6 @@ let g:nvim_bundle=g:nvim_config.'/bundle'
 let g:nvim_autocompletion_enabled = 0
 let g:nvim_config_use_relinsert = 1
 let g:jira_browse = ""
-let g:infobase_scratch_file = "~/00INFOBASE/01FILES/SCRATCH.md"
-let g:infobase_reading_list = "~/Dropbox/00INFOBASE/01FILES/reading-list.txt"
-let g:infobase_todo = "~/00INFOBASE/01FILES/TODO.yml"
-let g:infobase_bookmarks = "~/Dropbox/00INFOBASE/01FILES/bookmarks.yml"
 
 " }}}
 
@@ -358,10 +354,9 @@ nnoremap <space>p :echo expand('%')<CR>
 
 nnoremap <silent> goh :lcd ~<CR>
 nnoremap gov :exec 'edit' g:nvimrc <CR>
-nnoremap gos :exec 'edit' g:infobase_scratch_file<CR>
-nnoremap gor :exec 'edit' g:infobase_reading_list<CR>
-nnoremap god :exec 'edit' g:infobase_todo<CR>
 nnoremap gom :GotoBookmark<space>
+nnoremap gos :GotoBookmark scratch<CR>
+nnoremap gor :GotoBookmark reading<CR>
 
 " }}}
 
