@@ -517,11 +517,11 @@ let g:neomake_yaml_enabled_makers = ['yamllint']
 let g:neomake_sql_enabled_makers = ['sqlint']
 
 let g:neomake_error_sign = {
-        \ 'text': 'Х',
+        \ 'text': 'E',
         \ 'texthl': 'ErrorMsg'
         \ }
 let g:neomake_warning_sign = {
-        \ 'text': '⚠',
+        \ 'text': 'W',
         \ 'texthl': 'ErrorMsg'
         \ }
 
