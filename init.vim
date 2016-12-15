@@ -510,7 +510,7 @@ nnoremap <space>/ :Ack! -C <space>
 
 " neomake:{{{2
 let g:neomake_open_list=0
-let g:neomake_javascript_enabled_makers = ['jshint', 'jscs']
+let g:neomake_javascript_enabled_makers = ['eslint', 'jscs']
 let g:neomake_python_enabled_makers = ['flake8']
 let g:neomake_ruby_enabled_makers = ['rubocop']
 let g:neomake_yaml_enabled_makers = ['yamllint']
