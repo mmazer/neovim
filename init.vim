@@ -706,14 +706,14 @@ endif
 
 " Functions: {{{
 
-function! Marked()
+function! PreviewMarkdown()
     if executable("marked")
         exec ":silent !marked \"%\""
     else
         echo "Marked application not found"
     endif
 endfunction
-command! Marked :call Marked()
+command! Marked :call PreviewMarkdown()
 
 function! SyntaxItem()
     return synIDattr(synID(line("."),col("."),1),"name")
