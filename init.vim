@@ -45,8 +45,6 @@ Plug 'scrooloose/nerdtree'
 
 Plug 'mileszs/ack.vim'
 
-Plug 'davidoc/taskpaper.vim'
-
 Plug 'pangloss/vim-javascript'
 
 Plug 'mustache/vim-mustache-handlebars'
@@ -84,8 +82,6 @@ if has("mac")
 endif
 
 Plug 'ajh17/Spacegray.vim'
-
-Plug 'AlessandroYorba/Despacio'
 
 Plug 'davidhalter/jedi-vim'
 
