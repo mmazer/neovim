@@ -706,19 +706,11 @@ endif
 
 " Functions: {{{
 
-function! PreviewMarkdown()
-    if executable("marked")
-        exec ":silent !marked \"%\""
-    else
-        echo "Marked application not found"
-    endif
-endfunction
-command! Marked :call PreviewMarkdown()
-
 function! SyntaxItem()
     return synIDattr(synID(line("."),col("."),1),"name")
 endfunction
 command! Syntax :echo SyntaxItem()
+nnoremap <leader>s :Syntax<CR>
 
 " Taken from ctrlp help file
 function! SetCwd()
