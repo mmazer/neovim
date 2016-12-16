@@ -91,6 +91,10 @@ Plug 'kassio/neoterm'
 
 Plug 'AndrewRadev/simple_bookmarks.vim'
 
+Plug 'tpope/vim-dispatch'
+
+Plug 'radenling/vim-dispatch-neovim'
+
 call plug#end()
 
 " }}}
@@ -524,8 +528,6 @@ let g:neomake_warning_sign = {
         \ 'text': 'W',
         \ 'texthl': 'ErrorMsg'
         \ }
-
-command! Rtags :NeomakeSh ctags -R
 "}}}
 
 " fugitive: {{{2
@@ -703,7 +705,10 @@ endif
 
 " }}}
 
-
+" Tags: {{{2
+nnoremap T :Dispatch! ctags -R<CR>
+"}}}
+"
 " Functions: {{{
 
 function! SyntaxItem()
