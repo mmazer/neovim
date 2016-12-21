@@ -636,6 +636,10 @@ tnoremap <C-l> <C-\><C-n><C-w>l
 
 " }}}
 
+" jedi: {{{2
+let g:jedi#force_py_version = 3
+" }}}
+"
 " }}} Plugin Settings
 
 " AutoGroups: {{{
