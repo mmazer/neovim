@@ -85,6 +85,8 @@ Plug 'ajh17/Spacegray.vim'
 
 Plug 'davidhalter/jedi-vim'
 
+Plug 'vim-ruby/vim-ruby'
+
 Plug 'majutsushi/tagbar'
 
 Plug 'kassio/neoterm'
