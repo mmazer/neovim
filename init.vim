@@ -674,29 +674,9 @@ if has("autocmd")
 
     augroup FTOptions
         autocmd!
-        autocmd FileType cucumber setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
         autocmd BufRead fugitive\:* xnoremap <buffer> dp :diffput<CR>|xnoremap <buffer> do :diffget<CR>
         autocmd BufNewFile,BufRead fugitive://* set bufhidden=delete
-        autocmd FileType gitcommit setlocal cursorline spell
-        autocmd FileType handlebars setlocal shiftwidth=2 softtabstop=2 foldmethod=manual
         autocmd FileType html.handlebars setlocal shiftwidth=2 softtabstop=2 foldmethod=manual
-        autocmd FileType html,css,scss,javascript setlocal iskeyword+=-
-        autocmd FileType html setlocal shiftwidth=2 softtabstop=2 tabstop=2 foldmethod=manual
-        autocmd FileType html setlocal autoindent
-        autocmd FileType scss setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
-        autocmd FileType javascript setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
-        autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-        autocmd FileType json nnoremap <buffer> <leader>p :%!pretty-json<CR>
-        autocmd FileType json setlocal foldmethod=syntax
-        autocmd FileType json setlocal foldnestmax=10
-        autocmd FileType json setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
-        autocmd FileType markdown  set shiftwidth=2 softtabstop=2 suffixesadd=.txt,.md
-        autocmd Filetype php set shiftwidth=8 softtabstop=0 noexpandtab
-        autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
-        autocmd FileType scheme setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
-        autocmd Filetype vim set foldmethod=marker
-        autocmd FileType xml setlocal equalprg=xmllint\ --format\ --recover\ -\ 2>/dev/null
-        autocmd FileType yaml setlocal shiftwidth=2 softtabstop=2 foldmethod=indent
     augroup END
 
     augroup DiffMode
