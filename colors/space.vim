@@ -9,7 +9,7 @@ runtime colors/spacegray.vim
 set background=dark
 let g:colors_name = "space"
 
-hi MatchParen      ctermbg=NONE ctermfg=11      guibg=NONE     guifg=#E5C078  cterm=bold,underline  gui=bold
+hi MatchParen      ctermbg=NONE ctermfg=11      guibg=NONE     guifg=#E5C078  cterm=bold,underline  gui=bold,underline
 
 hi Pmenu           ctermbg=0    ctermfg=NONE    guibg=#171717  guifg=#E8A973  cterm=none      gui=NONE
 hi PmenuSel        ctermbg=234  ctermfg=196     guibg=#252525  guifg=#FF2A1F  cterm=NONE      gui=bold
