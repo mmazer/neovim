@@ -19,8 +19,10 @@ nnoremap gop :SetCwd<CR>:pwd<CR>
 
 function! Calendar()
     new
-    r !cal
     :normal gg
+    :put =strftime('%c')
+    :normal o
+    r !cal
     setlocal bt=nofile bh=wipe nobl noswf ro
     nnoremap <buffer> q :bw<cr>
 endfunction
