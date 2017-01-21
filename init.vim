@@ -32,8 +32,6 @@ Plug 'tpope/vim-commentary'
 
 Plug 'tpope/vim-cucumber'
 
-Plug 'ctrlpvim/ctrlp.vim'
-
 Plug 'benekastah/neomake'
 
 Plug 'SirVer/ultisnips'
@@ -436,6 +434,7 @@ let NERDChristmasTree=1
 let NERDTreeWinSize=35
 let NERDTreeDirArrows=1
 let NERDTreeIgnore=['\.pyc$']
+noremap <space>nb :NERDTreeFromBookmark<SPACE>
 noremap <space>nc :NERDTreeCWD<CR>
 noremap <space>nf :NERDTreeFind<CR>
 noremap <silent> gon :NERDTreeToggle<CR>
@@ -450,62 +449,38 @@ let g:UltiSnipsListSnippets="<c-h>"
 
 "}}}
 
-" ctrlp/fzf: {{{2
-nmap <space> [ctrlp]
-nnoremap <silent> [ctrlp]a :<C-u>CtrlPBookmarkDirAdd<cr>
-nnoremap <silent> [ctrlp]b :Buffers<cr>
-nnoremap <silent> [ctrlp]c :History:<CR>
-nnoremap <silent> [ctrlp]C :BCommits<CR>
-nnoremap <silent> [ctrlp]f :Files<CR>
-nnoremap <silent> [ctrlp]g :GitFiles<CR>
-nnoremap <silent> [ctrlp]l :Lines<CR>
-nnoremap <silent> [ctrlp]m :Marks<CR>
-nnoremap <silent> [ctrlp]o :<C-u>CtrlPBookmarkDir<cr>
-nnoremap <silent> [ctrlp]q :<C-u>CtrlPQuickfix<cr>
-nnoremap <silent> [ctrlp]s :BLines<CR>
-nnoremap <silent> [ctrlp]t :<C-u>CtrlPBufTag<cr>
-nnoremap <silent> [ctrlp]T :Tags<CR>
-nnoremap <silent> [ctrlp]u :<C-u>CtrlPMRUFiles<cr>
+" fzf: {{{2
+let g:fzf_tags_command = 'ctags --extra=+f -R'
 
-let g:ctrlp_extensions = ['quickfix', 'buffertag', 'bookmarkdir']
-let g:ctrlp_match_window_bottom = 1 " Show at top of window
-let g:ctrlp_working_path_mode = 'ra' " Smart path mode
-let g:ctrlp_mru_files = 1 " Enable Most Recently Used files feature
-let g:ctrlp_jump_to_buffer = 2 " Jump to tab AND buffer if already open
-let g:ctrlp_match_window_reversed = 1
-let g:ctrlp_root_markers = ['.top', '.project', '.ctrlp']
-let g:ctrlp_follow_symlinks = 1
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '.git\|.svn\|target\|node_modules\|.settings'
-    \ }
+let g:fzf_colors =
+    \ { 'fg':      ['fg', 'Normal'],
+    \ 'bg':      ['bg', 'Normal'],
+    \ 'hl':      ['fg', 'Comment'],
+    \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+    \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+    \ 'hl+':     ['fg', 'Statement'],
+    \ 'info':    ['fg', 'PreProc'],
+    \ 'prompt':  ['fg', 'Conditional'],
+    \ 'pointer': ['fg', 'Exception'],
+    \ 'marker':  ['fg', 'Keyword'],
+    \ 'spinner': ['fg', 'Label'],
+    \ 'header':  ['fg', 'Comment'] }
 
-if executable('ag')
-    let g:ctrlp_user_command = 'ag -l --nocolor --follow -g "" %s'
-    let g:ctrlp_use_caching = 1
-endif
+nmap <space> [fzf]
+nnoremap <silent> [fzf]a :Ag<CR>
+nnoremap <silent> [fzf]b :Buffers<cr>
+nnoremap <silent> [fzf]c :History:<CR>
+nnoremap <silent> [fzf]C :BCommits<CR>
+nnoremap <silent> [fzf]f :Files<CR>
+nnoremap <silent> [fzf]g :GitFiles<CR>
+nnoremap <silent> [fzf]l :Lines<CR>
+nnoremap <silent> [fzf]m :Marks<CR>
+nnoremap <silent> [fzf]s :BLines<CR>
+nnoremap <silent> [fzf]t :BTags<cr>
+nnoremap <silent> [fzf]T :Tags<CR>
+nnoremap <silent> [fzf]u :History<CR>
 
-" ctrlp_buftag:
-let g:ctrlp_buftag_types = {
-    \ 'javascript'  : '--language-force=js',
-    \ 'css'         : '--language-force=css',
-    \ 'scss'        : '--language-force=css',
-    \ 'gsp'         : '--language-force=XML',
-    \ 'xml'         : '--language-force=XML',
-    \ 'spring'      : '--language-force=XML',
-    \ 'jsp'         : '--language-force=XML',
-    \ 'html'        : '--language-force=XML',
-    \ 'taskpaper'   : '--language-force=Taskpaper',
-    \ 'wsdl'        : '--language-force=wsdl',
-    \ 'markdown'    : '--language-force=markdown',
-    \ 'text'        : '--language-force=markdown',
-    \ 'cucumber'    : '--language-force=cucumber',
-    \ 'sh'          : '--language-force=sh',
-    \ 'dosini'      : '--language-force=ini',
-    \ 'scheme'      : '--language-force=scm',
-    \ 'yaml'        : '--language-force=yaml'
-    \ }
-
-"}}} ctrlp/fzf
+"}}} fzf
 
 "ack: {{{2
 nnoremap \\ :Ack! <C-R><C-W><CR>
