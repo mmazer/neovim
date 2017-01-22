@@ -485,7 +485,7 @@ nnoremap <silent> [fzf]u :History<CR>
 "ack: {{{2
 nnoremap \\ :Ack! <C-R><C-W><CR>
 vnoremap \\ y<bar>:<C-U>Ack! <C-R>"<CR>
-nnoremap <space>/ :Ack! -C <space>
+nnoremap <space>/ :Ack!<space>
 "}}}
 
 " neomake:{{{2
