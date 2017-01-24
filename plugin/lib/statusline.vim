@@ -4,8 +4,9 @@ set statusline+=\ %{Branch()}
 set statusline+=\ %f
 set statusline+=%(\ %R%M%)      "modified flag
 set statusline+=%{&paste?'\ [paste]':''}
-set statusline+=\ %{neomake#statusline#LoclistStatus('✗\ lc:\ ')}
-set statusline+=\ %{neomake#statusline#QflistStatus('✗\ qf:\ ')}
+" set statusline+=\ %{neomake#statusline#LoclistStatus('✗\ lc:\ ')}
+" set statusline+=\ %{neomake#statusline#QflistStatus('✗\ qf:\ ')}
+set statusline+=\ %{ALEGetStatusLine()}
 set statusline+=%=
 set statusline+=\ %{StatuslineWhitespace()}
 set statusline+=\ %y      "filetype

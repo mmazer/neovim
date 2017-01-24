@@ -622,7 +622,11 @@ tnoremap <C-l> <C-\><C-n><C-w>l
 " jedi: {{{2
 let g:jedi#force_py_version = 3
 " }}}
-"
+
+" simple_bookmarks: {{{2
+let g:simple_bookmarks_filename = g:local_data . 'vim_bookmarks'
+"}}}
+
 " }}} Plugin Settings
 
 " AutoGroups: {{{
