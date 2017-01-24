@@ -9,6 +9,7 @@ let g:nvim_bundle=g:nvim_config.'bundle'
 let g:nvim_autocompletion_enabled = 0
 let g:nvim_config_use_relinsert = 1
 let g:jira_browse = ""
+let g:nvim_scratch_file = g:local_data . 'scratch.txt'
 
 " }}}
 
@@ -357,8 +358,7 @@ nnoremap <space>p :echo expand('%')<CR>
 nnoremap <silent> goh :lcd ~<CR>
 nnoremap gov :exec 'edit' g:nvimrc <CR>
 nnoremap gol :exec 'edit' g:site_nvimrc <CR>
-nnoremap gos :GotoBookmark scratch<CR>
-nnoremap gor :GotoBookmark reading<CR>
+nnoremap gos :exec 'edit' g:nvim_scratch_file<CR>
 
 " }}}
 
