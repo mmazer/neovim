@@ -667,6 +667,6 @@ endif
 " }}}
 
 " Tags: {{{2
-nnoremap T :Dispatch! ctags -R<CR>
+nnoremap T :Dispatch! ctags --extra+=f -R<CR>
 "}}}
 
