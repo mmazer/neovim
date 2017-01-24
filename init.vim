@@ -420,6 +420,8 @@ colorscheme space
 nmap <space><space> :
 nmap <space>h :h<space>
 nnoremap <silent> Q :qa!<CR>
+" For quick one line expressions
+nnoremap <space>x :<C-R>=
 
 " }}}
 
