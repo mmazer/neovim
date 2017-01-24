@@ -36,7 +36,7 @@ Plug 'tpope/vim-commentary'
 
 Plug 'tpope/vim-cucumber'
 
-Plug 'benekastah/neomake'
+Plug 'w0rp/ale'
 
 Plug 'SirVer/ultisnips'
 
@@ -477,22 +477,38 @@ vnoremap \\ y<bar>:<C-U>Ack! <C-R>"<CR>
 nnoremap <space>/ :Ack!<space>
 "}}}
 
-" neomake:{{{2
-let g:neomake_open_list=0
-let g:neomake_javascript_enabled_makers = ['eslint', 'jscs']
-let g:neomake_python_enabled_makers = ['flake8']
-let g:neomake_ruby_enabled_makers = ['rubocop']
-let g:neomake_yaml_enabled_makers = ['yamllint']
-let g:neomake_sql_enabled_makers = ['sqlint']
+" ctrlsf: {{{2
+nmap <C-S> [ctrlsf]
+nmap     [ctrlsf]f <Plug>CtrlSFPrompt
+vmap     [ctrlsf]f <Plug>CtrlSFVwordPath
+vmap     [ctrlsf]F <Plug>CtrlSFVwordExec
+nmap     [ctrlsf]n <Plug>CtrlSFCwordPath
+nmap     [ctrlsf]p <Plug>CtrlSFPwordPath
+nnoremap [ctrlsf]o :CtrlSFOpen<CR>
+nnoremap [ctrlsf]t :CtrlSFToggle<CR>
+inoremap [ctrlsf]t <Esc>:CtrlSFToggle<CR>
+nmap     [ctrlsf]l <Plug>CtrlSFQuickfixPrompt
+vmap     [ctrlsf]l <Plug>CtrlSFQuickfixVwordPath
+vmap     [ctrlsf]L <Plug>CtrlSFQuickfixVwordExec
 
-let g:neomake_error_sign = {
-        \ 'text': 'E',
-        \ 'texthl': 'ErrorMsg'
+" }}}
+
+" ale: {{{2
+let g:ale_linters = {
+    \   'javascript':   ['eslint'],
+    \   'ruby':         ['rubocop'],
+    \   'python':       ['flake8']
         \ }
-let g:neomake_warning_sign = {
-        \ 'text': 'W',
-        \ 'texthl': 'ErrorMsg'
-        \ }
+
+let g:ale_statusline_format = ['E:%d', 'W:%d', '✓']
+let g:ale_sign_error = 'E'
+let g:ale_sign_warning = 'W'
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+nmap <silent> <]e> <Plug>(ale_next_wrap)
+nmap <silent> <[e> <Plug>(ale_previous_wrap)
+
 "}}}
 
 " fugitive: {{{2
@@ -610,10 +626,6 @@ let g:jedi#force_py_version = 3
 " AutoGroups: {{{
 
 if has("autocmd")
-    augroup Neomake
-        autocmd!
-        autocmd! FileType vim,javascript,python,ruby,sql autocmd BufWritePost,BufEnter * Neomake
-    augroup END
 
     augroup Preview
         autocmd!
