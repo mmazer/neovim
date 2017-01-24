@@ -1,7 +1,9 @@
 " Variables: {{{
 
 let g:nvim_config = "~/.config/nvim"
+let g:nvim_site_config = "~/.local/share/nvim/site/plugin/"
 let g:nvimrc = g:nvim_config . "/init.vim"
+let g:site_nvimrc = g:nvim_site_config . "site.vim"
 let g:nvim_bundle=g:nvim_config.'/bundle'
 let g:nvim_autocompletion_enabled = 0
 let g:nvim_config_use_relinsert = 1
@@ -353,7 +355,7 @@ nnoremap <space>p :echo expand('%')<CR>
 
 nnoremap <silent> goh :lcd ~<CR>
 nnoremap gov :exec 'edit' g:nvimrc <CR>
-nnoremap gom :GotoBookmark<space>
+nnoremap gol :exec 'edit' g:site_nvimrc <CR>
 nnoremap gos :GotoBookmark scratch<CR>
 nnoremap gor :GotoBookmark reading<CR>
 
