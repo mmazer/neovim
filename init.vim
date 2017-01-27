@@ -62,6 +62,8 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 Plug 'junegunn/fzf.vim'
 
+Plug 'dyng/ctrlsf.vim'
+
 Plug 'junegunn/gv.vim'
 
 Plug 'Yggdroot/indentLine'
@@ -349,8 +351,6 @@ set backupdir=$HOME/.local/share/nvim/backup//
 nnoremap g! :e!<CR>
 nnoremap <space>w :w<CR>
 nnoremap <space>W :w!<CR>
-nnoremap <C-s> :w!<CR>
-inoremap <C-s> <C-o>:w!<CR>
 
 " show full path of file
 nnoremap <space>p :echo expand('%')<CR>
@@ -480,6 +480,7 @@ nnoremap <space>/ :Ack!<space>
 "}}}
 
 " ctrlsf: {{{2
+let g:ctrlsf_ackprg = '/usr/local/bin/rg'
 nmap <C-S> [ctrlsf]
 nmap     [ctrlsf]f <Plug>CtrlSFPrompt
 vmap     [ctrlsf]f <Plug>CtrlSFVwordPath
