@@ -161,10 +161,10 @@ set hlsearch
 set ignorecase
 set smartcase   "case sensitive if search term contains upppecase letter
 
-if executable('ag')
-    set grepprg=ag\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
+if executable('rg')
+    set grepprg=rg\ --nogroup\ --column\ --smart-case\ --nocolor\ --follow
     set grepformat=%f:%l:%c:%m
-    let g:ackprg = 'ag --vimgrep'
+    let g:ackprg = 'rg --vimgrep'
 endif
 
 " Use Perl/Ruby style regex patterns
