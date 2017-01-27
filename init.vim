@@ -2,6 +2,7 @@
 
 let g:nvim_config = "~/.config/nvim/"
 let g:nvim_site_config = "~/.local/share/nvim/site/plugin/"
+let g:nvim_settings = '~/.config/nvim/settings/'
 let g:local_data = "~/.local/share/data/"
 let g:nvimrc = g:nvim_config . "init.vim"
 let g:site_nvimrc = g:nvim_site_config . "site.vim"
@@ -229,24 +230,7 @@ set showmatch
 " avoid the escape key - remember <C-[> also maps to Esc
 inoremap kj <ESC>`^
 
-" Save last search and cursor position before executing a command
-" http://technotales.wordpress.com/2010/03/31/preserve-a-vim-function-that-keeps-your-state/
-function! Preserve(command)
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    execute a:command
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
-endfunction
-
-function! StripTrailingWhitespace()
-    call Preserve("%s/\\s\\+$//e")
-endfunction
-command! Strip :call StripTrailingWhitespace()
+command! Strip :call Preserve("%s/\\s\\+$//e")
 nnoremap =S :Strip<CR>
 
 " reselect visual block after indent
@@ -317,21 +301,6 @@ set expandtab
 set shiftwidth=4
 set softtabstop=4
 let g:html_indent_inctags = "html,body,head,tbody"
-
-function! TabToggle()
-  if &expandtab
-    set shiftwidth=8
-    set softtabstop=0
-    set noexpandtab
-    echo "using tabs"
-  else
-    set shiftwidth=4
-    set softtabstop=4
-    set expandtab
-    echo "using spaces"
-  endif
-endfunction
-nnoremap coe :call TabToggle()<CR>
 
 "}}}
 
@@ -430,248 +399,12 @@ set spellfile=~/.config/nvim/spell/spellfile.en.add
 
 "}}}
 
-" Plugin Settings: {{{
-
-" nerdtree: {{{2
-let NERDChristmasTree=1
-let NERDTreeWinSize=35
-let NERDTreeDirArrows=1
-let NERDTreeIgnore=['\.pyc$']
-noremap <space>nb :NERDTreeFromBookmark<SPACE>
-noremap <space>nc :NERDTreeCWD<CR>
-noremap <space>nf :NERDTreeFind<CR>
-noremap <silent> gon :NERDTreeToggle<CR>
-noremap <space>no :NERDTree %:p:h<CR>
-"}}}
-
-" ultisnips: {{{2
-let g:UltiSnipsExpandTrigger="<c-j>"
-let g:UltiSnipsJumpForwardTrigger="<c-j>"
-let g:UltiSnipsJumpBackwardTrigger="<c-k>"
-let g:UltiSnipsListSnippets="<c-h>"
-
-"}}}
-
-" fzf: {{{2
-let g:fzf_tags_command = 'ctags --extra=+f -R'
-
-nmap <space> [fzf]
-nnoremap <silent> [fzf]a :Ag<CR>
-nnoremap <silent> [fzf]b :Buffers<cr>
-nnoremap <silent> [fzf]c :History:<CR>
-nnoremap <silent> [fzf]C :BCommits<CR>
-nnoremap <silent> [fzf]f :Files<CR>
-nnoremap <silent> [fzf]g :GitFiles<CR>
-nnoremap <silent> [fzf]l :Lines<CR>
-nnoremap <silent> [fzf]m :Marks<CR>
-nnoremap <silent> [fzf]s :BLines<CR>
-nnoremap <silent> [fzf]t :BTags<cr>
-nnoremap <silent> [fzf]T :Tags<CR>
-nnoremap <silent> [fzf]u :History<CR>
-
-"}}} fzf
-
-"ack: {{{2
-nnoremap \\ :Ack! <C-R><C-W><CR>
-vnoremap \\ y<bar>:<C-U>Ack! <C-R>"<CR>
-nnoremap <space>/ :Ack!<space>
-"}}}
-
-" ctrlsf: {{{2
-let g:ctrlsf_ackprg = '/usr/local/bin/rg'
-nmap <C-S> [ctrlsf]
-nmap     [ctrlsf]f <Plug>CtrlSFPrompt
-vmap     [ctrlsf]f <Plug>CtrlSFVwordPath
-vmap     [ctrlsf]F <Plug>CtrlSFVwordExec
-nmap     [ctrlsf]n <Plug>CtrlSFCwordPath
-nmap     [ctrlsf]p <Plug>CtrlSFPwordPath
-nnoremap [ctrlsf]o :CtrlSFOpen<CR>
-nnoremap [ctrlsf]t :CtrlSFToggle<CR>
-inoremap [ctrlsf]t <Esc>:CtrlSFToggle<CR>
-nmap     [ctrlsf]l <Plug>CtrlSFQuickfixPrompt
-vmap     [ctrlsf]l <Plug>CtrlSFQuickfixVwordPath
-vmap     [ctrlsf]L <Plug>CtrlSFQuickfixVwordExec
-
-" }}}
-
-" ale: {{{2
-let g:ale_linters = {
-    \   'javascript':   ['eslint'],
-    \   'ruby':         ['rubocop'],
-    \   'python':       ['flake8']
-        \ }
-
-let g:ale_statusline_format = ['E:%d', 'W:%d', '✓']
-let g:ale_sign_error = 'E'
-let g:ale_sign_warning = 'W'
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-nmap <silent> <]e> <Plug>(ale_next_wrap)
-nmap <silent> <[e> <Plug>(ale_previous_wrap)
-
-"}}}
-
-" fugitive: {{{2
-nnoremap <space>gs :Gstatus<CR>
-nnoremap <space>gb :Gblame<CR>
-nnoremap <space>gc :Gcommit -v -q <CR>
-nnoremap <space>gd :Gdiff<CR>
-nnoremap <space>ge :Gedit<CR>
-nnoremap <space>gl :Glog<CR>
-nnoremap <space>gr :Gread<CR>
-nnoremap <space>gw :Gwrite<CR>
-nnoremap <space>gp :Ggrep<CR>
-
-" Simple way to turn off Gdiff splitscreen
-" works only when diff buffer is focused
-" https://gist.github.com/radmen/5048080
-command! Gdoff diffoff | q | Gedit
-
-"}}} fugitive
-
-" gitgutter {{{2
-
-let g:gitgutter_enabled = 0
-let g:gitgutter_diff_args = '-w'
-let g:gitgutter_sign_added = '+'
-let g:gitgutter_sign_modified = '='
-let g:gitgutter_sign_removed = '--'
-let g:gitgutter_sign_modified_removed = '~'
-nnoremap [og :GitGutterEnable<CR>
-nnoremap ]og :GitGutterDisable<CR>
-nnoremap cog :GitGutterToggle<CR>
-nnoremap ]gg :GitGutterNextHunk<CR>zz
-nnoremap [gg :GitGutterPrevHun<CR>zz
-nnoremap ]gv :GitGutterPreviewHunk<CR>
-
-nnoremap [gh :GitGutterStageHunk<CR>
-nnoremap ]gh :GitGutterUndoHunk<CR>
-"}}}
-
-" emmet:
-let g:user_emmet_expandabbr_key = '<C-e>'
-let g:user_emmet_settings = {
-            \ 'html' : {
-            \    'indentation' : '  '
-            \ },
-            \}
-
-" http-client:
-let g:http_client_verify_ssl = 0
-let g:http_client_preserve_responses = 1
-nnoremap [r :HTTPClientDoRequest<CR>
-command! Rest :HTTPClientDoRequest
-
-" indent guides
-let g:indentLine_enabled = 0
-nmap <space>ig :IndentLinesToggle<CR>
-
-" dash:
-if has("mac")
-    nnoremap gK :Dash <C-r><C-w><space>
-endif
-
-" autocompletion:
-let g:deoplete#enable_at_startup = g:nvim_autocompletion_enabled
-
-function! ToggleComplete()
-    if g:nvim_autocompletion_enabled == 1
-        let g:nvim_autocompletion_enabled=0
-        :silent call deoplete#disable()
-    else
-        let g:nvim_autocompletion_enabled=1
-        :silent call deoplete#enable()
-    endif
-
-    echo 'auto-completion '.(g:nvim_autocompletion_enabled ? 'on' : 'off')
-endfunction
-nnoremap <silent> coa :call ToggleComplete()<CR>
-
-" tagbar:
-nnoremap cot :TagbarToggle<CR>
-let g:tagbar_type_markdown = {
-    \ 'ctagstype' : 'markdown',
-    \ 'kinds' : [
-        \ 'h:Headings'
-    \ ]
-\ }
-
-" neoterm: {{{2
-" use half of current window for neoterm
-let g:neoterm_size=''
-nnoremap <silent> tv :Tpos vertical<CR>
-nnoremap <silent> th :Tpos horizontal<CR>
-nnoremap <silent> tn :Tnew<CR>
-nnoremap <silent> to :Topen<CR>
-nnoremap <silent> tc :Tclose<CR>
-nnoremap <silent> tl :TREPLSendLine<CR>
-vnoremap <silent> tl :TREPLSendSelection<CR>
-nnoremap tt :T<space>
-
-" general terminal bindings
-tnoremap <C-x> <C-\><C-n>
-tnoremap <C-h> <C-\><C-n><C-w>h
-tnoremap <C-j> <C-\><C-n><C-w>j
-tnoremap <C-k> <C-\><C-n><C-w>k
-tnoremap <C-l> <C-\><C-n><C-w>l
-
-" }}}
-
-" jedi: {{{2
-let g:jedi#force_py_version = 3
-" }}}
-
-" simple_bookmarks: {{{2
-let g:simple_bookmarks_filename = g:local_data . 'vim_bookmarks'
-"}}}
-
-" }}} Plugin Settings
-
-" AutoGroups: {{{
-
-if has("autocmd")
-
-    augroup Preview
-        autocmd!
-        autocmd CompleteDone * pclose
-    augroup END
-
-    augroup Cursorline
-        autocmd!
-        autocmd WinEnter    * set cursorline
-        autocmd WinLeave    * set nocursorline
-        autocmd InsertEnter * set nocursorline
-        autocmd InsertLeave * set cursorline
-    augroup END
-
-    " remove trailing whitespace
-    augroup StripWhitespace
-        autocmd!
-        autocmd! FileType vim,css,scss,groovy,java,javascript,less,php,scala,taskpaper,python,ruby,
-                    \handlebars,html.handlebars,scheme,yaml autocmd BufWritePre <buffer> :%s/\s\+$//e
-    augroup END
-
-    augroup FTOptions
-        autocmd!
-        autocmd BufRead fugitive\:* xnoremap <buffer> dp :diffput<CR>|xnoremap <buffer> do :diffget<CR>
-        autocmd BufNewFile,BufRead fugitive://* set bufhidden=delete
-        autocmd FileType html.handlebars setlocal shiftwidth=2 softtabstop=2 foldmethod=manual
-    augroup END
-
-    augroup DiffMode
-        autocmd FilterWritePre * if &diff | nnoremap <buffer> dc :Gdoff<CR> | nnoremap <buffer> du :diffupdate<CR> | endif
-    augroup END
-
-    augroup Checktime
-        autocmd CursorHold * checktime
-        autocmd BufWinEnter * checktime
-    augroup END
-endif
-
-" }}}
-
 " Tags: {{{2
 nnoremap T :Dispatch! ctags --extra+=f -R<CR>
 "}}}
 
+" === Settings === {{{2
+for f in split(globpath(g:nvim_settings, '*.vim'), '\n')
+  exe 'source' f
+endfor
+" }}}
