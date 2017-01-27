@@ -56,8 +56,6 @@ Plug 'rodjek/vim-puppet'
 
 Plug 'mattn/emmet-vim'
 
-Plug 'tpope/vim-projectionist'
-
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 Plug 'junegunn/fzf.vim'
