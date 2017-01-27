@@ -22,3 +22,6 @@ function! Calendar()
 endfunction
 command! Cal :call Calendar()
 nnoremap goc :Cal<CR>
+
+iab dts <c-r>=DateTimeStamp()<esc>
+iab ddt <c-r>=ShortDate()<esc>
