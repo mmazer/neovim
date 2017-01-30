@@ -7,7 +7,7 @@ function! ShortDate()
 endfun
 
 function! ShowTime()
-    echo strftime('%a %d %b %H:%M:%S')
+    echo strftime('%a %d %b %H:%M:%S Week %W')
 endfunction
 nnoremap got :call ShowTime()<CR>
 
