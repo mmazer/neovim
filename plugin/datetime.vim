@@ -11,16 +11,20 @@ function! ShowTime()
 endfunction
 nnoremap got :call ShowTime()<CR>
 
-function! Calendar()
+function! Calendar(month)
+    let cmd = '!cal'
+    if a:month || a:month != ''
+        let cmd = cmd . ' -m ' . a:month
+    endif
     new
     :put =strftime('%c')
     :normal o
-    :silent exec 'r !cal'
+    :silent exec 'r ' . cmd
     :normal gg
     setlocal bt=nofile bh=wipe nobl noswf ro
     nnoremap <buffer> q :bw<cr>
 endfunction
-command! Cal :call Calendar()
+command! -nargs=? Cal :call Calendar('<args>')
 nnoremap goc :Cal<CR>
 
 iab dts <c-r>=DateTimeStamp()<esc>
