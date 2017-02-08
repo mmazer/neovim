@@ -46,7 +46,7 @@ endfunction
 command! Goutgoing :call GitOutgoing()
 nnoremap <space>go :Goutgoing<CR>
 
-command! Glast :Glog -n 5 --
+command! Glast :Glog -n 8 --
 
 function! GitTags()
     new
@@ -65,3 +65,13 @@ function! GitShow(object)
     nnoremap <buffer> q :bw<cr>
 endfunction
 command! -nargs=1 Gshow call GitShow(<f-args>)
+
+function! GitHelp(command)
+    new
+    execute "r !git help " . a:command
+    :normal ggdd
+    setlocal ft=man bt=nofile bh=wipe nobl noswf ro
+    nnoremap <buffer> q :bw<cr>
+endfunction
+command! -nargs=1 Ghelp call GitHelp(<f-args>)
+nnoremap <space>gh :Ghelp<space>
