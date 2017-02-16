@@ -106,7 +106,6 @@ call plug#end()
 " Basics: {{{
 
 filetype plugin indent on
-set shell=/usr/local/bin/bash\ -O\ globstar
 
 "}}}
 
