@@ -1,14 +1,9 @@
-let g:deoplete#enable_at_startup = g:nvim_autocompletion_enabled
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#disable_auto_complete = g:nvim_autocompletion_enabled ? 0 : 1
 
-function! ToggleComplete()
-    if g:nvim_autocompletion_enabled == 1
-        let g:nvim_autocompletion_enabled=0
-        :silent call deoplete#disable()
-    else
-        let g:nvim_autocompletion_enabled=1
-        :silent call deoplete#enable()
-    endif
+if has("gui_running") || has("gui_vimr")
+    inoremap <silent><expr><C-Space> deoplete#mappings#manual_complete()
+else
+    inoremap <silent><expr><C-@> deoplete#mappings#manual_complete()
+endif
 
-    echo 'auto-completion '.(g:nvim_autocompletion_enabled ? 'on' : 'off')
-endfunction
-nnoremap <silent> coa :call ToggleComplete()<CR>
