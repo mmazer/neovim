@@ -12,3 +12,24 @@ endsnippet
 snippet wait
 !wait(`!v ShortDate()`)
 endsnippet
+
+snippet task
+- task: ${1}
+  description: ${2}
+  priority: ${3}
+  created: `!v ShortDate()`
+endsnippet
+
+snippet month
+- month: ${1}
+  cal: |
+    ${2}
+  recurring: ${3}
+  events:
+    ${4}
+endsnippet
+
+snippet event
+- date: ${1}
+  title: ${2}
+endsnippet
