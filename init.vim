@@ -99,6 +99,8 @@ Plug 'tpope/vim-dispatch'
 
 Plug 'radenling/vim-dispatch-neovim'
 
+Plug 'ap/vim-buftabline'
+
 call plug#end()
 
 " }}}
