@@ -1,16 +1,14 @@
 function! OpenURI()
-    " 2011-01-21 removed colon ':' from regexp to allow for port numbers in URLs
-    " original regexp: [a-z]*:\/\/[^ >,;:]*
-    let uri = matchstr(getline("."), '[a-z]*:\/\/[^ >,;\)\"]*')
+    let uri = shellescape(matchstr(getline("."), '[a-z]*:\/\/[^ >,;\)\"]*'), 1)
     if uri != ""
         echo uri
 
         if has('win32')
-            exec ":silent !cmd /C start /min " . uri
+            silent exec "!cmd /C start /min ".uri
         elseif has('mac')
-            exec ":silent !open \"" . printf("%s", uri) . "\""
+            silent exec "!open ".uri
         elseif has('unix')
-            exec ":silent !firefox \"" . printf("%s", uri) . "\""
+            silent "!firefox ".uri
         else
             echo "OpenURI not supported on this system"
         endif
