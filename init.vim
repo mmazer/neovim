@@ -41,17 +41,11 @@ Plug 'w0rp/ale'
 
 Plug 'SirVer/ultisnips'
 
-Plug 'jeetsukumaran/vim-filebeagle'
-
-Plug 'scrooloose/nerdtree'
-
 Plug 'mileszs/ack.vim'
 
 Plug 'pangloss/vim-javascript'
 
 Plug 'mustache/vim-mustache-handlebars'
-
-Plug 'tpope/vim-markdown'
 
 Plug 'rodjek/vim-puppet'
 
@@ -78,10 +72,6 @@ function! UpdateRemote(arg)
 endfunction
 
 Plug 'Shougo/deoplete.nvim', { 'do': function('UpdateRemote') }
-
-if has("mac")
-    Plug 'rizzatti/dash.vim'
-endif
 
 Plug 'ajh17/Spacegray.vim'
 
