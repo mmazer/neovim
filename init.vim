@@ -337,11 +337,6 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
-" Resize windows using a reasonable amount
-" http://flaviusim.com/blog/resizing-vim-window-splits-like-a-boss/
-noremap <silent>  //+ :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> //- :exe "resize " . (winheight(0) * 2/3)<CR>
-
 nnoremap <space>B :b#<CR>
 nnoremap <space>d :bp \| bd #<CR>
 nnoremap <space>D :BD<CR> " use buffkil
