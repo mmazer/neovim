@@ -75,3 +75,13 @@ function! GitHelp(command)
 endfunction
 command! -nargs=1 Ghelp call GitHelp(<f-args>)
 nnoremap <space>gh :Ghelp<space>
+
+function! GitStatus()
+    20new
+    execute "r !git status -sb "
+    :normal ggdd
+    setlocal ft=git bt=nofile bh=wipe nobl noswf ro
+    nnoremap <buffer> q :bw<cr>
+endfunction
+command! GitStat :call GitStatus()
+nnoremap <space>gS :GitStat<CR>
