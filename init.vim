@@ -310,6 +310,11 @@ nnoremap g! :e!<CR>
 nnoremap <space>w :w<CR>
 nnoremap <space>W :w!<CR>
 
+" Allow saving of files as sudo
+if executable('sudo')
+    cmap w!! w !sudo tee > /dev/null %
+endif
+
 " show full path of file
 nnoremap <space>p :echo expand('%')<CR>
 
