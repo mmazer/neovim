@@ -392,7 +392,7 @@ set spellfile=~/.config/nvim/spell/spellfile.en.add
 "}}}
 
 " Tags: {{{2
-nnoremap T :Dispatch! ctags --extra=+f -R<CR>
+nnoremap <leader>T :Dispatch! ctags --extra=+f -R<CR>
 "}}}
 
 " === Settings === {{{2
