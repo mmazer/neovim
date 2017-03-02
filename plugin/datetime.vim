@@ -17,6 +17,7 @@ function! Calendar(month)
         let cmd = cmd . ' -m ' . a:month
     endif
     12new
+    :file Calendar
     :put =strftime('Today is %c Week %W')
     :normal o
     :silent exec 'r ' . cmd
