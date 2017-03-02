@@ -91,6 +91,8 @@ Plug 'radenling/vim-dispatch-neovim'
 
 Plug 'ap/vim-buftabline'
 
+Plug 'justinmk/vim-dirvish'
+
 call plug#end()
 
 " }}}
