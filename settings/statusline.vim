@@ -45,7 +45,7 @@ function! Branch()
         return ''
     endif
 
-    let branch = fugitive#head()
+    let branch = fugitive#head(7)
     return empty(branch) ? '' : "⎇ ".branch.""
 endfunction
 
