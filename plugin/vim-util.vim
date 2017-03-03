@@ -29,7 +29,7 @@ function! SetCwd()
     exe 'lc!' fnameescape(wd == '' ? cph : substitute(wd, mkr.'$', '.', ''))
 endfunction
 command! SetCwd :silent call SetCwd()
-nnoremap gop :SetCwd<CR>:pwd<CR>
+nnoremap gto :SetCwd<CR>:pwd<CR>
 
 function! TabToggle()
   if &expandtab
