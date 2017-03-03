@@ -100,7 +100,7 @@ call plug#end()
 " Basics: {{{
 
 filetype plugin indent on
-
+set exrc
 "}}}
 
 " Moving: {{{
