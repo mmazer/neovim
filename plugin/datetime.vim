@@ -9,7 +9,7 @@ endfun
 function! ShowTime()
     echo strftime('%a %d %b %H:%M:%S Week %W')
 endfunction
-nnoremap got :call ShowTime()<CR>
+command! Date :call ShowTime()
 
 function! Calendar(month)
     let cmd = '!cal'

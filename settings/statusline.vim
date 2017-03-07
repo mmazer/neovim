@@ -4,6 +4,7 @@ set statusline+=\ %{Branch()}
 set statusline+=\ %f
 set statusline+=%(\ %R%M%)      "modified flag
 set statusline+=%{&paste?'\ [paste]':''}
+set statusline+=\ %{CurrentTag()}
 set statusline+=\ %{ALEGetStatusLine()}
 set statusline+=%=
 set statusline+=\ %{StatuslineWhitespace()}
@@ -61,6 +62,23 @@ function! Fenc()
 
     return ':'.enc
 endfun
+
+function! CurrentTag()
+    let l:tag = ''
+    if g:nvim_show_current_tag && exists(':Tagbar')
+        let l:tag = tagbar#currenttag('[%s]', '')
+    endif
+    return l:tag
+endfunction
+
+function! ToggleCurrentTag()
+    if g:nvim_show_current_tag == 1
+        let g:nvim_show_current_tag = 0
+    else
+        let g:nvim_show_current_tag = 1
+    endif
+endfunction
+command! ToggleCurrentTag :call ToggleCurrentTag()
 
 " Detect trailing whitespace and mixed indentation
 " Based on http://got-ravings.blogspot.ca/2008/10/vim-pr0n-statusline-whitespace-flags.html

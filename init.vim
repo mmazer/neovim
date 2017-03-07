@@ -11,6 +11,8 @@ let g:nvim_autocompletion_enabled = 0
 let g:nvim_config_use_relinsert = 0
 let g:jira_browse = ""
 let g:nvim_scratch_file = g:local_data . 'scratch.txt'
+" Show current tag in statusline - can be be toggled with :ToggleCurrentTag
+let g:nvim_show_current_tag = 0
 
 " }}}
 
