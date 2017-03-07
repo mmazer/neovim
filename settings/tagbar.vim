@@ -6,4 +6,4 @@ let g:tagbar_type_markdown = {
 \ }
 
 nnoremap cot :TagbarToggle<CR>
-nnoremap got :TagbarCurrentTag<CR>
+nnoremap <silent> got :TagbarCurrentTag<CR>
