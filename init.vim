@@ -58,8 +58,6 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'dyng/ctrlsf.vim'
 
-Plug 'junegunn/gv.vim'
-
 Plug 'Yggdroot/indentLine'
 
 Plug 'jiangmiao/auto-pairs'
