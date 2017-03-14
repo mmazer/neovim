@@ -258,8 +258,6 @@ nnoremap <space>, :call Preserve("s/\\s\*$/,/")<CR>
 nnoremap [w gUiw
 nnoremap ]w guiw
 
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
 " re-indent buffer and return to current position
 nnoremap g= gg=G``
 
