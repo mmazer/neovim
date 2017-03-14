@@ -16,7 +16,6 @@ function! SyntaxItem()
     return synIDattr(synID(line("."),col("."),1),"name")
 endfunction
 command! Syntax :echo SyntaxItem()
-nnoremap <leader>s :Syntax<CR>
 
 " Taken from ctrlp help file
 function! SetCwd()
