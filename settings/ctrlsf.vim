@@ -1,7 +1,7 @@
 let g:ctrlsf_ackprg = '/usr/local/bin/rg'
 
 nmap <C-S> [ctrlsf]
-nmap     [ctrlsf]f <Plug>CtrlSFPrompt
+nmap     [ctrlsf]f :CtrlSF -L<space>
 vmap     [ctrlsf]f <Plug>CtrlSFVwordPath
 vmap     [ctrlsf]F <Plug>CtrlSFVwordExec
 nmap     [ctrlsf]n <Plug>CtrlSFCwordPath

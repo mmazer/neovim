@@ -1,3 +1,3 @@
-nnoremap \\ :Ack! <C-R><C-W><CR>
-vnoremap \\ y<bar>:<C-U>Ack! <C-R>"<CR>
-nnoremap <space>/ :Ack!<space>
+nnoremap \\ :Ack! -F <C-R><C-W><CR>
+vnoremap \\ y<bar>:<C-U>Ack! -F <C-R>"<CR>
+nnoremap <space>/ :Ack! -F<space>
