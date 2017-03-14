@@ -86,6 +86,8 @@ Plug 'ap/vim-buftabline'
 
 Plug 'justinmk/vim-dirvish'
 
+Plug 'junegunn/vim-easy-align'
+
 call plug#end()
 
 " }}}
