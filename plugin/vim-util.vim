@@ -18,17 +18,18 @@ endfunction
 command! Syntax :echo SyntaxItem()
 
 " Taken from ctrlp help file
-function! SetCwd()
+function! CdRootDir()
     let cph = expand('%:p:h', 1)
     if cph =~ '^.\+://' | retu | en
-    for mkr in ['.top', '.project', '.git/', '.hg/', '.svn/', '.vimprojects']
+    for mkr in ['.git/', '.hg/', '.svn/', '.vimprojects', '.top', '.project']
         let wd = call('find'.(mkr =~ '/$' ? 'dir' : 'file'), [mkr, cph.';'])
         if wd != '' | let &acd = 0 | brea | en
     endfo
-    exe 'lc!' fnameescape(wd == '' ? cph : substitute(wd, mkr.'$', '.', ''))
+    let root_dir = fnameescape(wd == '' ? cph : substitute(wd, mkr.'$', '.', ''))
+    exe ':lcd' root_dir
 endfunction
-command! SetCwd :silent call SetCwd()
-nnoremap gto :SetCwd<CR>:pwd<CR>
+command! CdRootDir :silent call CdRootDir()
+nnoremap gto :CdRootDir<CR>:pwd<CR>
 
 function! TabToggle()
   if &expandtab
