@@ -86,6 +86,12 @@ Plug 'justinmk/vim-dirvish'
 
 Plug 'junegunn/vim-easy-align'
 
+function! UpdateRemote(arg)
+    UpdateRemotePlugins
+endfunction
+
+Plug 'Shougo/deoplete.nvim', { 'do': function('UpdateRemote') }
+
 call plug#end()
 
 " }}}
