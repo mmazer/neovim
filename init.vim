@@ -76,8 +76,6 @@ Plug 'majutsushi/tagbar'
 
 Plug 'kassio/neoterm'
 
-Plug 'AndrewRadev/simple_bookmarks.vim'
-
 Plug 'tpope/vim-dispatch'
 
 Plug 'radenling/vim-dispatch-neovim'
