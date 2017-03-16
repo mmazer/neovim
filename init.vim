@@ -20,9 +20,12 @@ let g:nvim_autocompletion_enabled = 0
 
 " Important: {{{
 
-let g:python_host_skip_check = 1
+let g:python_host_skip_check  = 1
 let g:python3_host_skip_check = 1
 
+" No need to load this and we save some start up time
+let g:loaded_netrw       = 1
+let g:loaded_netrwPlugin = 1
 " }}}
 
 " Loading Plugins: {{{
