@@ -1,4 +1,4 @@
-execute "digraphs ks " . 0x2096
+" add subscripts
 execute "digraphs as " . 0x2090
 execute "digraphs es " . 0x2091
 execute "digraphs hs " . 0x2095
