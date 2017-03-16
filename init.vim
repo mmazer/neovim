@@ -27,7 +27,7 @@ let g:python3_host_skip_check = 1
 
 " Loading Plugins: {{{
 
-call plug#begin(g:nvim_bundle)
+call plug#begin(g:nvim_bundle_home)
 
 Plug 'tpope/vim-fugitive'
 
@@ -225,7 +225,7 @@ set showmatch
 " avoid the escape key - remember <C-[> also maps to Esc
 inoremap kj <ESC>`^
 
-command! Strip :call Preserve("%s/\\s\\+$//e")
+command! Strip :call vimutil#preserve("%s/\\s\\+$//e")
 nnoremap =S :Strip<CR>
 
 " reselect visual block after indent
@@ -254,12 +254,12 @@ onoremap ia i>
 onoremap aa a>
 
 " end lines with semicolons
-inoremap ;] <C-\><C-O>:call Preserve("s/\\s\*$/;/")<CR>
-nnoremap <space>; :call Preserve("s/\\s\*$/;/")<CR>
+inoremap ;] <C-\><C-O>:call vimutil#preserve("s/\\s\*$/;/")<CR>
+nnoremap <space>; :call vimutil#preserve("s/\\s\*$/;/")<CR>
 
 " end lines with commas
-inoremap ,] <C-\><C-O>:call Preserve("s/\\s\*$/,/")<CR>
-nnoremap <space>, :call Preserve("s/\\s\*$/,/")<CR>
+inoremap ,] <C-\><C-O>:call vimutil#preserve("s/\\s\*$/,/")<CR>
+nnoremap <space>, :call vimutil#preserve("s/\\s\*$/,/")<CR>
 
 " toggle case of words
 nnoremap [w gUiw

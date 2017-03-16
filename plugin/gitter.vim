@@ -1,87 +1,23 @@
-function! GitDiffBuf()
-    let fname = expand('%')
-    new
-    exec "r! git diff ".printf('%s', fname)
-    :normal ggdd
-    setlocal ft=diff bt=nofile bh=wipe nobl noswf ro
-    nnoremap <buffer> q :bw<cr>
-endfunction
-nnoremap <space>gD :call GitDiffBuf()<CR>
+if exists("g:loaded_gitter")
+  finish
+endif
 
-function! GitDiffStaged()
-    new
-    r !git diff -w --cached
-    :normal ggdd
-    setlocal ft=diff bt=nofile bh=wipe nobl noswf ro
-    nnoremap <buffer> q :bw<cr>
-endfunction
-command! Gdiffstaged :call GitDiffStaged()
-nnoremap <space>gt :Gdiffstaged<CR>
+let g:loaded_gitter = 1
 
-function! GitDiffUnstaged()
-    new
-    r !git diff -w
-    :normal ggdd
-    setlocal ft=diff bt=nofile bh=wipe nobl noswf ro
-    nnoremap <buffer> q :bw<cr>
-endfunction
-command! GdiffUnstaged :call GitDiffUnstaged()
-nnoremap <space>gu :GdiffUnstaged<CR>
+command! GdiffBuf :call gitter#diff_buf()
 
-function! GitIncoming()
-    new
-    r !git log --pretty=oneline --abbrev-commit --graph ..@{u}
-    setlocal ft=git bt=nofile bh=wipe nobl noswf ro
-    nnoremap <buffer> q :bw<cr>
-endfunction
-command! Gincoming :call GitIncoming()
-nnoremap <space>gi :Gincoming<CR>
+command! Gdiffstaged :call gitter#diff_staged
 
-function! GitOutgoing()
-    new
-    r !git log --pretty=oneline --abbrev-commit --graph @{u}..
-    setlocal ft=git bt=nofile bh=wipe nobl noswf ro
-    nnoremap <buffer> q :bw<cr>
-endfunction
-command! Goutgoing :call GitOutgoing()
-nnoremap <space>go :Goutgoing<CR>
+command! GdiffUnstaged :call gitter#diff_unstaged()
 
-command! Glast :Glog -n 8 --
+command! Gincoming :call gitter#incoming()
 
-function! GitTags()
-    new
-    r !git log --oneline --decorate --tags --no-walk
-    :normal ggdd
-    setlocal ft=git bt=nofile bh=wipe nobl noswf ro
-    nnoremap <buffer> q :bw<cr>
-endfunction
-command! Gtags :call GitTags()
+command! Goutgoing :call gitter#outgoing()
 
-function! GitShow(object)
-    new
-    execute "r !git show ".a:object
-    :normal ggdd
-    setlocal ft=git bt=nofile bh=wipe nobl noswf ro
-    nnoremap <buffer> q :bw<cr>
-endfunction
-command! -nargs=1 Gshow call GitShow(<f-args>)
+command! Gtags :call gitter#tags()
 
-function! GitHelp(command)
-    new
-    execute "r !git help " . a:command
-    :normal ggdd
-    setlocal ft=man bt=nofile bh=wipe nobl noswf ro
-    nnoremap <buffer> q :bw<cr>
-endfunction
-command! -nargs=1 Ghelp call GitHelp(<f-args>)
-nnoremap <space>gh :Ghelp<space>
+command! -nargs=1 Gshow call gitter#show(<f-args>)
 
-function! GitStatus()
-    20new
-    execute "r !git status -sb "
-    :normal ggdd
-    setlocal ft=git bt=nofile bh=wipe nobl noswf ro
-    nnoremap <buffer> q :bw<cr>
-endfunction
-command! GitStat :call GitStatus()
-nnoremap <space>gS :GitStat<CR>
+command! -nargs=1 Ghelp call gitter#help(<f-args>)
+
+command! GitStat :call gitter#status()

@@ -1,6 +1,12 @@
+if exists("g:autoloaded_vutils")
+  finish
+endif
+
+let g:autoloaded_vutils = 1
+
 " Save last search and cursor position before executing a command
 " http://technotales.wordpress.com/2010/03/31/preserve-a-vim-function-that-keeps-your-state/
-function! Preserve(command)
+function! vutils#preserve(command)
     " Preparation: save last search, and cursor position.
     let _s=@/
     let l = line(".")
@@ -12,13 +18,8 @@ function! Preserve(command)
     call cursor(l, c)
 endfunction
 
-function! SyntaxItem()
-    return synIDattr(synID(line("."),col("."),1),"name")
-endfunction
-command! Syntax :echo SyntaxItem()
-
 " Taken from ctrlp help file
-function! CdRootDir()
+function! vutils#cd_rootdir()
     let cph = expand('%:p:h', 1)
     if cph =~ '^.\+://' | retu | en
     for mkr in ['.git/', '.hg/', '.svn/', '.vimprojects', '.top', '.project']
@@ -28,10 +29,12 @@ function! CdRootDir()
     let root_dir = fnameescape(wd == '' ? cph : substitute(wd, mkr.'$', '.', ''))
     exe ':lcd' root_dir
 endfunction
-command! CdRootDir :silent call CdRootDir()
-nnoremap gto :CdRootDir<CR>:pwd<CR>
 
-function! TabToggle()
+function! vutils#syntax()
+    return synIDattr(synID(line("."),col("."),1),"name")
+endfunction
+
+function! vutils#toggle_et()
   if &expandtab
     set shiftwidth=8
     set softtabstop=0
@@ -44,5 +47,4 @@ function! TabToggle()
     echo "using spaces"
   endif
 endfunction
-nnoremap coe :call TabToggle()<CR>
 

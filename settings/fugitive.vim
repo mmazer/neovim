@@ -13,6 +13,8 @@ nnoremap <space>gp :Ggrep<CR>
 " https://gist.github.com/radmen/5048080
 command! Gdoff diffoff | q | Gedit
 
+command! Glast :Glog -n 8 --
+
 augroup Fugitive
     autocmd!
     autocmd BufRead fugitive\:* xnoremap <buffer> dp :diffput<CR>|xnoremap <buffer> do :diffget<CR>
