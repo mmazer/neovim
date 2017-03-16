@@ -64,8 +64,6 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'dyng/ctrlsf.vim'
 
-Plug 'Yggdroot/indentLine'
-
 Plug 'jiangmiao/auto-pairs'
 
 Plug 'mmazer/vim-http-client'
