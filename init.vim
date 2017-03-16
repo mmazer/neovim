@@ -15,6 +15,7 @@ let g:nvim_scratch_file = g:xdg_data_home.'/nvim/scratch.txt'
 " Show current tag in statusline - can be be toggled with :ToggleCurrentTag
 let g:nvim_show_current_tag = 0
 
+let g:nvim_autocompletion_enabled = 0
 " }}}
 
 " Important: {{{
