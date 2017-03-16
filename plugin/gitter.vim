@@ -6,7 +6,7 @@ let g:loaded_gitter = 1
 
 command! GdiffBuf :call gitter#diff_buf()
 
-command! Gdiffstaged :call gitter#diff_staged
+command! Gdiffstaged :call gitter#diff_staged()
 
 command! GdiffUnstaged :call gitter#diff_unstaged()
 
