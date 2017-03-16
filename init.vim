@@ -66,8 +66,6 @@ Plug 'dyng/ctrlsf.vim'
 
 Plug 'jiangmiao/auto-pairs'
 
-Plug 'mmazer/vim-http-client'
-
 Plug 'qpkorr/vim-bufkill'
 
 Plug 'ajh17/Spacegray.vim'
