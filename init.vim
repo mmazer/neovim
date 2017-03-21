@@ -224,7 +224,7 @@ set showmatch
 " avoid the escape key - remember <C-[> also maps to Esc
 inoremap kj <ESC>`^
 
-command! Strip :call vimutil#preserve("%s/\\s\\+$//e")
+command! Strip :call vutils#preserve("%s/\\s\\+$//e")
 nnoremap =S :Strip<CR>
 
 " reselect visual block after indent
@@ -253,12 +253,12 @@ onoremap ia i>
 onoremap aa a>
 
 " end lines with semicolons
-inoremap ;] <C-\><C-O>:call vimutil#preserve("s/\\s\*$/;/")<CR>
-nnoremap <space>; :call vimutil#preserve("s/\\s\*$/;/")<CR>
+inoremap ;] <C-\><C-O>:call vutils#preserve("s/\\s\*$/;/")<CR>
+nnoremap <space>; :call vutils#preserve("s/\\s\*$/;/")<CR>
 
 " end lines with commas
-inoremap ,] <C-\><C-O>:call vimutil#preserve("s/\\s\*$/,/")<CR>
-nnoremap <space>, :call vimutil#preserve("s/\\s\*$/,/")<CR>
+inoremap ,] <C-\><C-O>:call vutils#preserve("s/\\s\*$/,/")<CR>
+nnoremap <space>, :call vutils#preserve("s/\\s\*$/,/")<CR>
 
 " toggle case of words
 nnoremap [w gUiw
