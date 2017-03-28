@@ -13,3 +13,4 @@ nnoremap [gg :GitGutterPrevHun<CR>zz
 nnoremap ]gv :GitGutterPreviewHunk<CR>
 nnoremap [gh :GitGutterStageHunk<CR>
 nnoremap ]gh :GitGutterUndoHunk<CR>
+nnoremap ]gp  :GitGutterPreviewHunk<CR>
