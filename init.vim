@@ -355,6 +355,7 @@ nnoremap goe :enew<CR>
 " close quick fix and location list
 nnoremap qq :cclose<CR>
 nnoremap ql :lclose<CR>
+nnoremap qp :pclose<CR>
 
 "}}}
 
