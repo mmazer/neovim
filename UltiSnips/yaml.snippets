@@ -1,23 +1,23 @@
 snippet book
 - name: ${1}
   url: ${2}
-  date: `!v ShortDate()`
+  date: `!v datetime#short_date()`
   comments: ${3}
 endsnippet
 
 snippet done
-!done(`!v ShortDate()`)
+!done(`!v datetime#short_date()`)
 endsnippet
 
 snippet wait
-!wait(`!v ShortDate()`)
+!wait(`!v datetime#short_date()`)
 endsnippet
 
 snippet task
 - task: ${1}
   description: ${2}
   priority: ${3}
-  created: `!v ShortDate()`
+  created: `!v datetime#short_date()`
 endsnippet
 
 snippet month
