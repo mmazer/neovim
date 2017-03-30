@@ -3,7 +3,6 @@ let g:xdg_config_home = $XDG_CONFIG_HOME
 let g:xdg_data_home = $XDG_DATA_HOME
 let g:nvim_config_home = g:xdg_config_home . '/nvim'
 let g:nvim_site_config_home = g:xdg_data_home . '/nvim/site/plugin'
-let g:nvim_settings_home = g:nvim_config_home . '/settings'
 let g:nvimrc = g:nvim_config_home . '/init.vim'
 let g:site_nvimrc = g:nvim_site_config_home . '/site.vim'
 let g:nvim_bundle_home=g:nvim_config_home . '/bundle'
@@ -395,8 +394,5 @@ let &spellfile=g:nvim_config_home . '/spell/spellfile.en.add'
 nnoremap <leader>T :Dispatch! ctags --extra=+f -R<CR>
 "}}}
 
-" === Settings === {{{2
-for f in split(globpath(g:nvim_settings_home, '*.vim'), '\n')
-  exe 'source' f
-endfor
-" }}}
+" === Settings ===
+runtime! settings/*.vim
