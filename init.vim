@@ -1,19 +1,16 @@
 " Variables: {{{
-let g:xdg_config_home = $XDG_CONFIG_HOME
-let g:xdg_data_home = $XDG_DATA_HOME
-let g:nvim_config_home = g:xdg_config_home . '/nvim'
-let g:nvim_site_config_home = g:xdg_data_home . '/nvim/site/plugin'
-let g:nvimrc = g:nvim_config_home . '/init.vim'
-let g:site_nvimrc = g:nvim_site_config_home . '/site.vim'
-let g:nvim_bundle_home=g:nvim_config_home . '/bundle'
-
-let g:nvim_config_use_relinsert = 0
-let g:jira_browse = ''
-let g:nvim_scratch_file = g:xdg_data_home.'/nvim/scratch.txt'
-
+let g:xdg_config_home             = $XDG_CONFIG_HOME
+let g:xdg_data_home               = $XDG_DATA_HOME
+let g:nvim_config_home            = g:xdg_config_home . '/nvim'
+let g:nvim_site_config_home       = g:xdg_data_home . '/nvim/site/plugin'
+let g:nvimrc                      = g:nvim_config_home . '/init.vim'
+let g:site_nvimrc                 = g:nvim_site_config_home . '/site.vim'
+let g:nvim_bundle_home            = g:nvim_config_home . '/bundle'
+let g:nvim_config_use_relinsert   = 0
+let g:jira_browse                 = ''
+let g:nvim_scratch_file           = g:xdg_data_home.'/nvim/scratch.txt'
 " Show current tag in statusline - can be be toggled with :ToggleCurrentTag
-let g:nvim_show_current_tag = 0
-
+let g:nvim_show_current_tag       = 0
 let g:nvim_autocompletion_enabled = 0
 " }}}
 
