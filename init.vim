@@ -52,8 +52,6 @@ Plug 'mustache/vim-mustache-handlebars'
 
 Plug 'rodjek/vim-puppet'
 
-Plug 'mattn/emmet-vim'
-
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 Plug 'junegunn/fzf.vim'
