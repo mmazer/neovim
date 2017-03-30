@@ -339,7 +339,7 @@ nnoremap <C-l> <C-w>l
 
 nnoremap <space>B :b#<CR>
 nnoremap <space>d :bp \| bd #<CR>
-nnoremap <space>D :BD<CR> " use buffkil
+nnoremap <space>D :bd<CR>
 
 " goto buffer
 nnoremap gob :ls<CR>:b
