@@ -76,7 +76,7 @@ Plug 'radenling/vim-dispatch-neovim'
 
 Plug 'ap/vim-buftabline'
 
-Plug 'justinmk/vim-dirvish'
+Plug 'scrooloose/nerdtree'
 
 Plug 'junegunn/vim-easy-align'
 
