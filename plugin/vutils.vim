@@ -4,10 +4,13 @@ endif
 
 let g:loaded_vutils = 1
 
-command! Syntax :echo vutils#syntax()
+if !exists("g:root_dir_markers")
+    let g:root_dir_markers = ['.git/', '.hg/', '.svn/', '.top', '.project']
+endif
 
+command! Syntax    :echo vutils#syntax()
 command! CdRootDir :silent call vutils#cd_rootdir()
 
-nnoremap gto :CdRootDir<CR>:pwd<CR>
-nnoremap coe :call vutils#toggle_et()<CR>
+nnoremap gto       :CdRootDir<CR>:pwd<CR>
+nnoremap coe       :call vutils#toggle_et()<CR>
 

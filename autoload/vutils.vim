@@ -19,15 +19,18 @@ function! vutils#preserve(command)
 endfunction
 
 " Taken from ctrlp help file
-function! vutils#cd_rootdir()
+function! vutils#root_dir()
     let cph = expand('%:p:h', 1)
     if cph =~ '^.\+://' | retu | en
-    for mkr in ['.git/', '.hg/', '.svn/', '.vimprojects', '.top', '.project']
+    for mkr in g:root_dir_markers
         let wd = call('find'.(mkr =~ '/$' ? 'dir' : 'file'), [mkr, cph.';'])
         if wd != '' | let &acd = 0 | brea | en
     endfo
-    let root_dir = fnameescape(wd == '' ? cph : substitute(wd, mkr.'$', '.', ''))
-    exe ':lcd' root_dir
+    return fnameescape(wd == '' ? cph : substitute(wd, mkr.'$', '.', ''))
+endfunction
+
+function! vutils#cd_rootdir()
+    exe ':lcd '.vutils#root_dir()
 endfunction
 
 function! vutils#syntax()
