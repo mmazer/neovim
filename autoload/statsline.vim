@@ -71,6 +71,10 @@ endfunction
 " Detect trailing whitespace and mixed indentation
 " Based on http://got-ravings.blogspot.ca/2008/10/vim-pr0n-statusline-whitespace-flags.html
 function! statsline#whitespace()
+    if exists('b:statusline_ignore_whitespace')
+        return ''
+    endif
+
     if &readonly || !&modifiable
         return ''
     endif
