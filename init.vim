@@ -58,7 +58,7 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'dyng/ctrlsf.vim'
 
-Plug 'jiangmiao/auto-pairs'
+Plug 'cohama/lexima.vim'
 
 Plug 'ajh17/Spacegray.vim'
 
