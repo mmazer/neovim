@@ -114,12 +114,12 @@ noremap  <buffer> <silent> $ g$
 nnoremap K H
 " preserve J
 nnoremap <space>j J
-nnoremap J L
-noremap H ^
-nnoremap gh ^
-noremap L $
-nnoremap gl $
-vnoremap L g_
+nnoremap J        L
+noremap  H        ^
+nnoremap gh       ^
+noremap  L        $
+nnoremap gl       $
+vnoremap L        g_
 
 " move to middle of text line
 nnoremap gm :call cursor(0, virtcol('$')/2)<CR>
@@ -129,10 +129,10 @@ nnoremap ]c ]czz
 nnoremap [c [czz
 
 " center window when moving to next search match
-nnoremap n nzzzv
-nnoremap N Nzzzv
-nnoremap * *zz
-nnoremap # #zz
+nnoremap n  nzzzv
+nnoremap N  Nzzzv
+nnoremap *  *zz
+nnoremap #  #zz
 nnoremap g* g*zz
 nnoremap g# g#zz
 
@@ -223,11 +223,11 @@ onoremap ia i>
 onoremap aa a>
 
 " end lines with semicolons
-inoremap ;] <C-\><C-O>:call vutils#preserve("s/\\s\*$/;/")<CR>
+inoremap ;]       <C-\><C-O>:call vutils#preserve("s/\\s\*$/;/")<CR>
 nnoremap <space>; :call vutils#preserve("s/\\s\*$/;/")<CR>
 
 " end lines with commas
-inoremap ,] <C-\><C-O>:call vutils#preserve("s/\\s\*$/,/")<CR>
+inoremap ,]       <C-\><C-O>:call vutils#preserve("s/\\s\*$/,/")<CR>
 nnoremap <space>, :call vutils#preserve("s/\\s\*$/,/")<CR>
 
 " toggle case of words
@@ -239,7 +239,7 @@ nnoremap g= gg=G``
 
 " http://vim.wikia.com/wiki/Show_the_length_of_the_current_word
 command! Wlen :echo 'length of' expand('<cword>') 'is' strlen(substitute(expand('<cword>'), '.', 'x', 'g'))
-nnoremap \wc :Wlen<CR>
+nnoremap \wc  :Wlen<CR>
 
 " Source lines - from Steve Losh
 vnoremap X y:execute @@<cr>:echo 'Sourced selection.'<cr>
@@ -277,7 +277,7 @@ set noswapfile
 set backup
 set backupdir=$HOME/.local/share/nvim/backup//
 
-nnoremap g! :e!<CR>
+nnoremap g!       :e!<CR>
 nnoremap <space>w :w<CR>
 nnoremap <space>W :w!<CR>
 
@@ -290,9 +290,9 @@ endif
 nnoremap <space>p :echo expand('%')<CR>
 
 nnoremap <silent> goh :lcd ~<CR>
-nnoremap gov :exec 'edit' g:nvimrc <CR>
-nnoremap gol :exec 'edit' g:site_nvimrc <CR>
-nnoremap gos :exec 'edit' g:nvim_scratch_file<CR>
+nnoremap gov          :exec 'edit' g:nvimrc <CR>
+nnoremap gol          :exec 'edit' g:site_nvimrc <CR>
+nnoremap gos          :exec 'edit' g:nvim_scratch_file<CR>
 
 " }}}
 
@@ -343,7 +343,7 @@ nnoremap td        :tabclose<CR>
 nmap <space><space> :
 nnoremap <silent> Q :qa!<CR>
 " For quick one line expressions
-nnoremap <space>x :<C-R>=
+nnoremap <space>x   :<C-R>=
 
 " }}}
 
