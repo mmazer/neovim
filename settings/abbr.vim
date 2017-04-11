@@ -29,3 +29,5 @@ iab hhj #### <C-r>=datetime#datetime()<CR>
 
 iab chmk ✓
 
+"random
+iab kws ¯\_(ツ)_/¯
