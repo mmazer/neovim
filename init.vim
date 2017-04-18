@@ -191,6 +191,7 @@ set shortmess=aTItoO
 
 set completeopt=longest,menuone,preview
 set showmatch
+set pastetoggle=<C-p>
 " avoid the escape key - remember <C-[> also maps to Esc
 inoremap kj <ESC>`^
 
