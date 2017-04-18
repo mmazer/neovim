@@ -1,12 +1,12 @@
 extends taskpaper
 
-snippet meta 
+snippet ffm 
 ---
 title: ${1}
-date: `!v datetime#short_date()`
-tags: [${4}]
+created: `!v datetime#timestamp()`
+modified: `!v datetime#timestamp()`
+tags: [${2}]
 ---
-
 
 $0
 endsnippet
