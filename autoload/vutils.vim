@@ -18,6 +18,19 @@ function! vutils#preserve(command)
     call cursor(l, c)
 endfunction
 
+" Same as preserve but wraps function ref
+function! vutils#preserve_wrapper(funcref)
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " Do the business:
+    call a:funcref()
+    " Clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+
 " Taken from ctrlp help file
 function! vutils#root_dir()
     let cph = expand('%:p:h', 1)
