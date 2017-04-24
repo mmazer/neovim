@@ -1,4 +1,4 @@
-snippet em
+snippet iem
 import Ember from 'ember';
 endsnippet
 
@@ -6,12 +6,8 @@ snippet emds
 import DS from 'ember-data';
 endsnippet
 
-snippet dsattr
-${1:name}: DS.attr('${2:type}')
-endsnippet
-
 snippet emm
-DS.Model.extend({
+Model.extend({
   $0
 });
 endsnippet
@@ -42,14 +38,26 @@ snippet i18n
 Ember.I18n.t($0)
 endsnippet
 
-snippet emr
-Ember.run(${1:target}, function() {
+snippet runsco
+run.scheduleOnce('${1:afterRender}', ${2:this}, () => {
+  ${0}
+});
+endsnippet
+
+snippet run
+run(${1:this}, () => {
+  ${0}
+});
+endsnippet
+
+snippet runex
+run.next(${1:this}, () => {
   ${0}
 });
 endsnippet
 
 snippet comp
-${1}: Ember.computed(${2}, function() {
+${1}: computed(${2}, function() {
   ${0}
 })
 endsnippet
