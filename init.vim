@@ -40,6 +40,8 @@ Plug 'tpope/vim-commentary'
 
 Plug 'tpope/vim-cucumber'
 
+Plug 'tpope/vim-projectionist'
+
 Plug 'w0rp/ale'
 
 Plug 'SirVer/ultisnips'

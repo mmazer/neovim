@@ -1,0 +1,68 @@
+{
+  "app/app.js": {
+    "type": "application"
+  },
+  "app/initializers/*.js": {
+    "type": "initializer"
+  },
+  "app/models/*.js": {
+    "type": "model",
+    "alternate": "app/adapters/{}.js"
+  },
+  "app/adapters/*.js": {
+    "type": "adapter",
+    "alternate": "app/serializers/{}.js"
+  },
+  "app/serializers/*.js": {
+    "type": "serializer",
+    "alternate": "app/models/{}.js"
+  },
+  "app/services/*.js": {
+    "type": "service"
+  },
+  "app/router.js": {
+    "type": "router"
+  },
+  "app/routes/*.js": {
+    "type": "route",
+    "alternate": "app/controllers/{}.js"
+  },
+  "app/controllers/*.js": {
+    "type": "controller",
+    "alternate": "app/templates/{}.hbs"
+  },
+  "app/templates/*.hbs": {
+    "type": "template",
+    "alternate": "app/routes/{}.js"
+  },
+  "app/components/*.js": {
+    "type": "component",
+    "alternate": "app/templates/components/{}.hbs"
+  },
+  "app/components/*/component.js": {
+    "type": "component",
+    "alternate": "app/components/{}/template.hbs"
+  },
+  "app/templates/components/*.hbs": {
+    "type": "ctemplate",
+    "alternate": "app/components/{}.js"
+  },
+  "app/mixins/adapters/*.js": {
+    "type": "mixin"
+  },
+  "app/mixins/components/*.js": {
+    "type": "mixin"
+  },
+  "app/mixins/controllers/*.js": {
+    "type": "mixin"
+  },
+  "app/mixins/models/*.js": {
+    "type": "mixin"
+  },
+  "app/mixins/routes/*.js": {
+    "type": "mixin"
+  },
+  "lib/*/addon/engine.js": {
+    "type": "ngine"
+  }
+}
