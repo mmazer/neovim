@@ -1,4 +1,9 @@
 let g:ctrlsf_ackprg = '/usr/local/bin/rg'
+let g:ctrlsf_auto_close=0
+let g:ctrlsf_mapping = {
+    \ "open" : ["<CR>"],
+    \ "vsplit" : "o"
+\ }
 
 nmap <C-S> [ctrlsf]
 nmap     [ctrlsf]f :CtrlSF -L<space>
