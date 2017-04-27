@@ -82,6 +82,10 @@ Plug 'scrooloose/nerdtree'
 
 Plug 'junegunn/vim-easy-align'
 
+Plug 'mhartington/nvim-typescript'
+
+Plug 'leafgarland/typescript-vim'
+
 function! UpdateRemote(arg)
     UpdateRemotePlugins
 endfunction
