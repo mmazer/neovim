@@ -1,2 +1,3 @@
-" disable this mapping which is set somewhere; seems to open the `next` file
+" disable these mappings which open next/previous file
 noremap <space>] <nop>
+noremap <space>[ <nop>
