@@ -23,4 +23,8 @@ if has("autocmd")
         autocmd CursorHold * checktime
         autocmd BufWinEnter * checktime
     augroup END
+
+    augroup FileTypes
+        autocmd BufNewfile,BufRead *.tf set filetype=terraform
+    augroup END
 endif
